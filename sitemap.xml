@@ -241,13 +241,6 @@
   </url>
   
   <url>
-    <loc>https://cr6588.github.io/spring-cloud/spring-boot/quick-start/</loc>
-    <lastmod>2018-04-16T20:59:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://cr6588.github.io/post/spring-cloud/spring-boot/spring-boot-with-docker-quick-start/</loc>
     <lastmod>2019-03-13T11:36:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -269,37 +262,7 @@
   </url>
   
   <url>
-    <loc>https://cr6588.github.io/docker_k8s/g/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/docker_k8s/k8s-learn/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/docker_k8s/k8s/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/docker_k8s/virtaualbox_install/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://cr6588.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/docker_k8s/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -328,13 +291,6 @@
   <url>
     <loc>https://cr6588.github.io/categories/rocketmq/</loc>
     <lastmod>2019-03-13T11:36:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/spring-cloud/</loc>
-    <lastmod>2018-04-16T20:59:11+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
