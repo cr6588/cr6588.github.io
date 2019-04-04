@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-09-18T10:20:11&#43;08:00" />
 <meta itemprop="dateModified" content="2018-09-18T10:20:11&#43;08:00" />
-<meta itemprop="wordCount" content="5622">
+<meta itemprop="wordCount" content="5983">
 
 
 
@@ -128,7 +128,7 @@
         <div class="post-category">
             <a href="/categories/kubernetes/"> Kubernetes </a>
             </div>
-          <span class="more-meta"> 约 5622 字 </span>
+          <span class="more-meta"> 约 5983 字 </span>
           <span class="more-meta"> 预计阅读 12 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -505,12 +505,14 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 #使用flannel（不支持NetworkPolicy,部署的应用会无视firewalld完全暴露在公网中）
 sysctl net.bridge.bridge-nf-call-iptables=1
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
-#使用calico
+#使用calico,当含有master,node节点时不能正常启动，参照提示的错误实例解决
 kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml</pre></td></tr></table>
 </div>
 </div>
 <p>kubectl apply -f <a href="https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml">https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml</a>
-    #使用weave net
+    #使用weave net（支持NetworkPolicy,但重启防火墙时会失效，需要systemctl daemon-reload
+    systemctl restart kubelet
+    systemctl restart docker生效）
     kubectl apply -f &ldquo;<a href="https://cloud.weave.works/k8s/net?k8s-version=$(kubectl">https://cloud.weave.works/k8s/net?k8s-version=$(kubectl</a> version | base64 | tr -d &lsquo;\n&rsquo;)&rdquo;
     #查看状态
     kubectl get pods &ndash;all-namespaces</p>
@@ -577,7 +579,17 @@ calico健康检查出错，calico的ip自动检测给了一个错误IP10.192.0.1
               value: &#34;interface=eth.*&#34;
 ...</pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
+</div>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">calico容器无法ping通域名，多方查找未果。参照[calico网络模型中的路由原理](https://segmentfault.com/a/1190000016565044)禁用ipip，找到CALICO_IPV4POOL_IPIP将其value设置成Off或者never解决。之后再其官网找到关于此字段说明[environment-variables](https://docs.projectcalico.org/v3.5/reference/node/configuration#environment-variables)</pre></td></tr></table>
+</div>
+</div></blockquote>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt"> 1
 </span><span class="lnt"> 2
