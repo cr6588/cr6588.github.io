@@ -6,10 +6,19 @@
     <description>Recent content on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 13 Mar 2019 11:25:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Apr 2019 14:06:56 +0800</lastBuildDate>
     
 	<atom:link href="https://cr6588.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes升级</title>
+      <link>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/</link>
+      <pubDate>Thu, 04 Apr 2019 14:06:56 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/</guid>
+      <description>Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &amp;ndash;showduplicates kubeadm &amp;ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &amp;ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像</description>
+    </item>
     
     <item>
       <title>About</title>
