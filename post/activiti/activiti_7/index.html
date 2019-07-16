@@ -237,9 +237,9 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/">
+        <a class="prev" href="/post/test/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Kubernetes升级</span>
+            <span class="prev-text nav-default">Test</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/mysql/docker%E8%BF%90%E8%A1%8Cmysql8/">
@@ -264,7 +264,23 @@
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2019-02-18 09:50:10 \x2b0800 CST',
+        title: 'activiti 7 简介',
+        clientID: 'f8fc0224f2d6ffa6eba8',
+        clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
+        repo: 'cr6588.github.io',
+        owner: 'cr6588',
+        admin: ['cr6588'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
 
       </div>
     </main>

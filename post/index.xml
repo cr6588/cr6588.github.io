@@ -21,12 +21,30 @@
     </item>
     
     <item>
+      <title>K8s探针导致控制台一直打印日志</title>
+      <link>https://cr6588.github.io/post/docker_k8s/k8s%E6%8E%A2%E9%92%88%E5%AF%BC%E8%87%B4%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%80%E7%9B%B4%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Wed, 08 May 2019 15:34:00 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/docker_k8s/k8s%E6%8E%A2%E9%92%88%E5%AF%BC%E8%87%B4%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%80%E7%9B%B4%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
+      <description>Pod 的生命周期中介绍了容器探针， 根据Configure Liveness and Readiness Probes配置探针时，发现在容器的控制台一直在打印日志 1 2 3 2019-05-08 15:41:16 - com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:205) - [DUBBO] All clients has discontected</description>
+    </item>
+    
+    <item>
       <title>Kubernetes升级</title>
       <link>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/</link>
       <pubDate>Thu, 04 Apr 2019 14:06:56 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/</guid>
       <description>Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &amp;ndash;showduplicates kubeadm &amp;ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &amp;ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像</description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://cr6588.github.io/post/test/</link>
+      <pubDate>Tue, 12 Mar 2019 14:39:44 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/test/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -162,6 +180,15 @@
       
       <guid>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AE%9E%E9%AA%8C/</guid>
       <description>安装多版本docker kubelet为什么关闭swap kubernetes的想法是将实例紧密包装到尽可能接近100％。 所有的部署应该与CPU</description>
+    </item>
+    
+    <item>
+      <title>sth</title>
+      <link>https://cr6588.github.io/post/docker_k8s/sth/</link>
+      <pubDate>Tue, 18 Sep 2018 10:20:11 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/docker_k8s/sth/</guid>
+      <description>版权声明：本文为木偶人shaon原创文章，转载请注明原文地址，非常感谢。 https://blog.csdn.net/wh211212/article/details/79165415 实验背景、由于安装k8s使用官方源需要使用代理，故在CentOS7</description>
     </item>
     
     <item>
