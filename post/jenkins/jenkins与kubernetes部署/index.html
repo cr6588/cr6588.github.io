@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jenkins与kubernetes部署 - cr6588</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cr6588" /><meta name="description" content="让jenkins一键更新已有项目在kubernetes中的版本 使用kubernetes部署项目后，会经常进行发版的操作。其过程不仅繁琐且易出" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://cr6588.github.io/post/jenkins/jenkins%E4%B8%8Ekubernetes%E9%83%A8%E7%BD%B2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Jenkins与kubernetes部署" />
+<meta property="og:description" content="让jenkins一键更新已有项目在kubernetes中的版本 使用kubernetes部署项目后，会经常进行发版的操作。其过程不仅繁琐且易出" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cr6588.github.io/post/jenkins/jenkins%E4%B8%8Ekubernetes%E9%83%A8%E7%BD%B2/" />
+<meta property="article:published_time" content="2019-07-10T15:23:52&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-10T15:23:52&#43;08:00"/>
+
+<meta itemprop="name" content="Jenkins与kubernetes部署">
+<meta itemprop="description" content="让jenkins一键更新已有项目在kubernetes中的版本 使用kubernetes部署项目后，会经常进行发版的操作。其过程不仅繁琐且易出">
+
+
+<meta itemprop="datePublished" content="2019-07-10T15:23:52&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-10T15:23:52&#43;08:00" />
+<meta itemprop="wordCount" content="3531">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Jenkins与kubernetes部署"/>
+<meta name="twitter:description" content="让jenkins一键更新已有项目在kubernetes中的版本 使用kubernetes部署项目后，会经常进行发版的操作。其过程不仅繁琐且易出"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">cr6588</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">cr6588</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Jenkins与kubernetes部署</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-10 </span>
+        
+          <span class="more-meta"> 约 3531 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#让jenkins一键更新已有项目在kubernetes中的版本">让jenkins一键更新已有项目在kubernetes中的版本</a>
+<ul>
+<li><a href="#开始之前">开始之前</a></li>
+<li><a href="#安装jenkins-in-docker">安装jenkins in docker</a></li>
+<li><a href="#rpm包安装jenkins">rpm包安装jenkins</a></li>
+<li><a href="#构建基础镜像">构建基础镜像</a></li>
+<li><a href="#登录镜像中心">登录镜像中心</a></li>
+<li><a href="#创建源码构建job">创建源码构建job</a></li>
+<li><a href="#创建版本更新job">创建版本更新job</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="让jenkins一键更新已有项目在kubernetes中的版本">让jenkins一键更新已有项目在kubernetes中的版本</h1>
+
+<p>使用kubernetes部署项目后，会经常进行发版的操作。其过程不仅繁琐且易出错，所以逐步将发版流程逐步整合进jenkins中。在jenkins中会创建2个job,一个包含编译源码、构建推送镜像、产生版本更新与回滚脚本，另一个负责连接到项目环境进行版本更新、状态监测（dubbo与tomcat）与回滚、邮件通知等过程。</p>
+
+<h2 id="开始之前">开始之前</h2>
+
+<ul>
+<li>已有kubernetes集群，并有相关pod</li>
+<li>已有docker,git,maven,jdk环境</li>
+<li>对shell,kubernetes,docker有基本了解</li>
+</ul>
+
+<h2 id="安装jenkins-in-docker">安装jenkins in docker</h2>
+
+<blockquote>
+<p>若要在容器中操作网卡相关等涉及到系统的操作最好还是直接安装在外部</p>
+</blockquote>
+
+<p>之前都是在本地直接安装jenkins，这次通过docker镜像进行安装,由于需要在jenkins中使用docker所以将docker挂载进容器中（会产生权限问题,生产环境慎用）.同时创建一个jenkins_home卷挂载到镜像中可通过docker volume inspect jenkins_home查看主机所在目录。最后将maven等其它软件目录页挂载到镜像中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker run -p <span class="m">8080</span>:8080 -p <span class="m">50000</span>:50000 -v /var/run/docker.sock:/var/run/docker.sock -v jenkins_home/:/var/jenkins_home -v /data:/data -v /usr/bin/docker:/usr/bin/docker --device<span class="o">=</span>/dev/net/tun jenkins/jenkins:lts</code></pre></td></tr></table>
+</div>
+</div>
+<p>安装中显示一个密码复制它，实际发现安装过程非常缓慢，测网络连接速度正常。</p>
+
+<h2 id="rpm包安装jenkins">rpm包安装jenkins</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">rpm -ivh jenkins-2.176.1-1.1.noarch.rpm
+<span class="c1">#修改配置文件，jdk，端口，主目录，启动用户等按需更改</span>
+vi /etc/sysconfig/jenkins
+systemctl start jenkins</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="构建基础镜像">构建基础镜像</h2>
+
+<p>构建一个使用centos7与java的基础镜像。且修改默认时区,nmap-ncat用于端口检测
+Dockerfile如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> centos:7</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> <span class="o">(</span><span class="nb">cd</span> /lib/systemd/system/sysinit.target.wants/<span class="p">;</span> <span class="k">for</span> i in *<span class="p">;</span> <span class="k">do</span> <span class="o">[</span> <span class="nv">$i</span> <span class="o">==</span> <span class="se">\
+</span><span class="se"></span>    systemd-tmpfiles-setup.service <span class="o">]</span> <span class="o">||</span> rm -f <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span><span class="o">)</span><span class="p">;</span> <span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/multi-user.target.wants/*<span class="p">;</span><span class="se">\
+</span><span class="se"></span>    rm -f /etc/systemd/system/*.wants/*<span class="p">;</span><span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/local-fs.target.wants/*<span class="p">;</span> <span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/sockets.target.wants/*udev*<span class="p">;</span> <span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/sockets.target.wants/*initctl*<span class="p">;</span> <span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/basic.target.wants/*<span class="p">;</span><span class="se">\
+</span><span class="se"></span>    rm -f /lib/systemd/system/anaconda.target.wants/*<span class="p">;</span><span class="se">\
+</span><span class="se"></span>    localedef -c -f UTF-8 -i zh_CN zh_CN.UTF-8 <span class="p">;</span><span class="se">\
+</span><span class="se"></span>    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime<span class="p">;</span><span class="se">\
+</span><span class="se"></span>    yum install -y nmap-ncat<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">ADD</span><span class="s"> jdk1.8.0_192 /data/jdk1.8.0_192</span><span class="err">
+</span><span class="err"></span><span class="c">#配置java环境变量</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span><span class="s"> JAVA_HOME /data/jdk1.8.0_192</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span><span class="s"> PATH $PATH:$JAVA_HOME/bin:$JAVA_HOME/lib</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span><span class="s"> LANG=zh_CN.UTF-8</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span><span class="s"> LANGUAGE=zh_CN:zh</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>构建该镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">docker build -f jdk8-centos-dockerfile -t jdk8-centos7 .</pre></td></tr></table>
+</div>
+</div>
+<h2 id="登录镜像中心">登录镜像中心</h2>
+
+<p>由于需要将之后构建的镜像推送到其它镜像库中，所以我们需要登录其中。可以选择使用nexus搭建或使用官方的docker hub,也可直接使用各个云厂商的容器镜像服务，此示例以华为云的SWR为例，参见官方<a href="https://support.huaweicloud.com/usermanual-swr/swr_01_1000.html">获取长期有效docker login指令</a>进行登录</p>
+
+<p><img src="/images/jenkins/11.png" alt="" /></p>
+
+<p>登录后会在隐藏目录/root/.docker的config.json文件加入auths信息.</p>
+
+<p>在启动jenkins后进入容器，再执行登录即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker <span class="nb">exec</span> -it  c0d5cf8d7b0a  bash
+docker login -u cn-north-1@xxx -p xxx swr.cn-north-1.myhuaweicloud.com</code></pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>不使用docker安装jenkins时,将.docker目录复制到jenkins所在目录，默认是在/var/lib/jenkins，然后将jenkins加入docker组usermod -G docker jenkins</p>
+</blockquote>
+
+<h2 id="创建源码构建job">创建源码构建job</h2>
+
+<p>该job包含编译源码、构建与推送镜像、产生版本更新与回滚脚本</p>
+
+<p>创建一个自由风格的软件项目</p>
+
+<p><img src="/images/jenkins/1.png" alt="" /></p>
+
+<p>只保留最近3次构建</p>
+
+<p><img src="/images/jenkins/2.png" alt="" /></p>
+
+<p>填写git源码仓库</p>
+
+<p><img src="/images/jenkins/3.png" alt="" /></p>
+
+<p>将当前任务进行保存。由于项目编译需要maven,jdk所以将maven,jdk添加进jenkins中。进入系统管理-&gt;全局工具配置</p>
+
+<p><img src="/images/jenkins/4.png" alt="" /></p>
+
+<p>填入jdk路径
+<img src="/images/jenkins/12.png" alt="" /></p>
+
+<p>填入docker路径
+<img src="/images/jenkins/13.png" alt="" /></p>
+
+<p>填入maven路径</p>
+
+<p><img src="/images/jenkins/5.png" alt="" /></p>
+
+<p><img src="/images/jenkins/6.png" alt="" /></p>
+
+<p>注意修改maven下载包保存路径，权限以及镜像配置</p>
+
+<p><img src="/images/jenkins/7.png" alt="" /></p>
+
+<p><img src="/images/jenkins/8.png" alt="" /></p>
+
+<p>回到之前的任务并加入maven操作</p>
+
+<p><img src="/images/jenkins/9.png" alt="" /></p>
+
+<p>加入maven之后编译打包已经可以执行了，那么接下来就是需要将jar包或者war包构建成镜像。因此这里开始加入自己的脚本</p>
+
+<p><img src="/images/jenkins/10.png" alt="" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#为了方便，将mvn clean install之后的jar包等文件复制当前的一个erp目录下,同时为了下次不使用这些文件先将其删除</span>
+rm -rf erp
+mkdir erp
+<span class="se">\c</span>p -rf ../../erp-cache/target/lib erp
+<span class="se">\c</span>p -rf ../../erp-cache/target/erp-cache-pg.jar erp
+<span class="c1">#使用华为云的镜像仓库</span>
+<span class="nb">export</span> <span class="nv">imageUrl</span><span class="o">=</span>swr.cn-north-1.myhuaweicloud.com
+<span class="nb">export</span> <span class="nv">erp_version</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y-%m-%d_%H-%M-%S&#34;</span><span class="k">)</span>
+<span class="c1">#构建镜像以之前的jdk8-centos7镜像为基础镜像,将cr6588组织改为自己的组织</span>
+docker build -t <span class="nv">$imageUrl</span>/cr6588/erp-cache:<span class="nv">$erp_version</span> .
+<span class="c1">#推送镜像</span>
+docker push <span class="nv">$imageUrl</span>/cr6588/erp-cache:<span class="nv">$erp_version</span>
+<span class="c1">#将版本更新与回滚命令写入文件中（先清空，在进行不换行追加，分成2个文件是实际中会构建多个模块）</span>
+cat /dev/null &gt; updateImages
+cat /dev/null &gt; rollback
+<span class="nb">echo</span> -e <span class="s2">&#34;updateImages=\c&#34;</span> &gt; updateImages
+<span class="nb">echo</span> -e <span class="s2">&#34;rollback=\c&#34;</span> &gt; rollback
+<span class="nb">echo</span> -e <span class="s2">&#34;kubectl set image deployments/erp-cache erp-cache=</span><span class="nv">$imageUrl</span><span class="s2">/erp/erp-cache:</span><span class="nv">$erp_version</span><span class="s2"> &amp;&amp; \c&#34;</span> &gt;&gt; updateImages
+<span class="nb">echo</span> -e <span class="s2">&#34;kubectl rollout undo deployments/erp-cache &amp;&amp; \c&#34;</span> &gt;&gt; rollback
+<span class="c1">#最后追加kubectl get pods与一个空串换行</span>
+<span class="nb">echo</span> -e <span class="s2">&#34;kubectl get pods \c&#34;</span> &gt;&gt; updateImages
+<span class="nb">echo</span> -e <span class="s2">&#34;kubectl get pods \c&#34;</span> &gt;&gt; rollback
+<span class="nb">echo</span> <span class="s2">&#34;&#34;</span> &gt;&gt; updateImages
+<span class="nb">echo</span> <span class="s2">&#34;&#34;</span> &gt;&gt; rollback
+cat updateImages
+cat rollback</code></pre></td></tr></table>
+</div>
+</div>
+<p>dockerfile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> jdk8-centos7</span><span class="err">
+</span><span class="err"></span><span class="k">ADD</span><span class="s"> erp/lib /data/erp/lib</span><span class="err">
+</span><span class="err"></span>COPY erp/erp-cache-pg.jar /data/erp/<span class="err">
+</span><span class="err"></span><span class="c">#容器运行时暴露的端口  </span><span class="err">
+</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 20001</span><span class="err">
+</span><span class="err"></span><span class="k">CMD</span><span class="s"> [&#34;java&#34;, &#34;-jar&#34;, &#34;/data/erp/erp-cache-pg.jar&#34;]</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>执行构建时提示无法拉取代码发现需要修改hosts文件,直接进入容器执行命令是jenkins用户，此时需要以root用户进入容器中修改host文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker <span class="nb">exec</span> --user root -it c0d5cf8d7b0a bash
+<span class="nb">echo</span> <span class="s2">&#34;192.168.1.252 git.xxxx.net&#34;</span> &gt;&gt; /etc/hosts
+<span class="nb">echo</span> <span class="s2">&#34;192.168.1.252 nexus.xxxx.net&#34;</span> &gt;&gt; /etc/hosts
+crtl+p crlt+q退出</code></pre></td></tr></table>
+</div>
+</div>
+<p>将jenkins加入启动docker时启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker update --restart<span class="o">=</span>always c0d5cf8d7b0a</code></pre></td></tr></table>
+</div>
+</div>
+<p>在容器中执行docker命令提示缺少libltdl.so.7，进行安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y libltdl7</code></pre></td></tr></table>
+</div>
+</div>
+<p>再次构建，会提示缺少权限，这里在宿主机修改/var/run/docker.sock权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">chmod <span class="m">666</span> /var/run/docker.sock</code></pre></td></tr></table>
+</div>
+</div>
+<p>或者以root用户进入容器修改，更改所属用户，或组或权限都可，但都会有一定安全隐患</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker <span class="nb">exec</span> --user root -it c0d5cf8d7b0a bash
+<span class="c1">#更改所属用户</span>
+chown jenkins  /var/run/docker.sock
+<span class="c1">#更改所属组</span>
+chgrp jenkins  /var/run/docker.sock
+<span class="c1">#权限</span>
+chmod <span class="m">666</span> /var/run/docker.sock</code></pre></td></tr></table>
+</div>
+</div>
+<p>在使用jenkins 2.176.1时对shell解析与2.150.1不同，下图左边为2.150.1,右边为2.176.1
+<img src="/images/jenkins/14.png" alt="" />
+<img src="/images/jenkins/15.png" alt="" /></p>
+
+<p>可看出右边执行echo -e &ldquo;updateImages=\c&rdquo; &gt; updateImages时将-e也输入到updateImages中</p>
+
+<p>将所有脚本写入test.sh中，加入权限chmod +x test.sh再次构建，shell改为./test.sh
+<img src="/images/jenkins/16.png" alt="" /></p>
+
+<blockquote>
+<p>后来在本机直接安装jenkins2.176.1发现无此问题</p>
+</blockquote>
+
+<p>此时已经获得更新脚本与回滚脚本，所以接下来就要将这个命令传递到下一个job中。这里使用Parameterized Trigger插件
+<img src="/images/jenkins/17.png" alt="" /></p>
+
+<p>这个插件用于参数化触发其它job构建，所以先创建一个版本更新的job用于填入这个插件中。
+如下图，填入job名称，传递参数使用properties类型，填入updateImages与rollback文件所在路径，当前这个job就已完成</p>
+
+<p><img src="/images/jenkins/18.png" alt="" />
+<img src="/images/jenkins/19.png" alt="" /></p>
+
+<h2 id="创建版本更新job">创建版本更新job</h2>
+
+<p>此job主要是接受上一job的更新越回滚脚本，连接到k8s服务器执行版本更新，检测状态，若不正常就执行回滚，最后发送构建结果邮件</p>
+
+<p>勾选参数化构建过程，写入上一job的脚本中的名称updateImages与rollback
+<img src="/images/jenkins/20.png" alt="" /></p>
+
+<p>在之后的过程就可使用${updateImages}与${rollback}引用</p>
+
+<p>Build添加执行shell将${updateImages}与${rollback}写入tempUpdateImages.sh与tempRollback.sh文件暂存</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">#updateImages参数是多条命令,作为参数直接传到prod.sh中执行会报错。因此写入新脚本，在prod中调用这个脚本
+cat /dev/null &gt; tempUpdateImages.sh
+echo &#39;#!/bin/bash&#39; &gt; tempUpdateImages.sh
+echo &#39;set -e -u&#39; &gt;&gt; tempUpdateImages.sh
+echo &#34;${updateImages}&#34; &gt;&gt; tempUpdateImages.sh
+
+cat /dev/null &gt; tempRollback.sh
+echo &#39;#!/bin/bash&#39; &gt; tempRollback.sh
+echo &#39;set -e -u&#39; &gt;&gt; tempRollback.sh
+echo &#34;${rollback}&#34; &gt;&gt; tempRollback.sh</pre></td></tr></table>
+</div>
+</div>
+<p><img src="/images/jenkins/21.png" alt="" /></p>
+
+<p>在当前job目录（默认是/var/jenkins_home/workspace/版本更新）写入脚本prod.sh与checkStatus.sh</p>
+
+<p>prod.sh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="c1">#一旦出错与未传参立即退出</span>
+<span class="nb">set</span> -e -u
+<span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>/etc/kubernetes/admin.conf
+./tempUpdateImages.sh
+sleep <span class="m">10</span>
+<span class="c1">#检测版本</span>
+./checkStatus.sh erp-cache- <span class="m">20001</span>
+kubectl get pods</code></pre></td></tr></table>
+</div>
+</div>
+<p>checkStatus.sh</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+</span><span class="cp"></span><span class="nb">set</span> -e -u
+<span class="nv">erpModule</span><span class="o">=</span><span class="nv">$1</span>
+<span class="nv">erpPort</span><span class="o">=</span><span class="nv">$2</span>
+<span class="c1">#检测版本</span>
+<span class="c1">#$1不会引用参数</span>
+<span class="nv">podName</span><span class="o">=</span><span class="k">$(</span>kubectl get pods<span class="p">|</span>grep <span class="nv">$erpModule</span> <span class="p">|</span>awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+<span class="c1">#重试秒数</span>
+<span class="nv">waitMillion</span><span class="o">=</span><span class="m">10</span>
+<span class="k">for</span><span class="o">((</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> i &lt; <span class="m">3</span><span class="p">;</span> i++<span class="o">))</span>
+<span class="k">do</span>
+    <span class="nv">dubboStatus</span><span class="o">=</span><span class="k">$(</span>kubectl <span class="nb">exec</span> <span class="nv">$podName</span> -- bash -c <span class="s2">&#34;(echo status;sleep 0.1)| nc 127.0.0.1 </span><span class="nv">$erpPort</span><span class="s2">&#34;</span><span class="p">|</span>awk <span class="s1">&#39;NR==1&#39;</span><span class="p">|</span>tr -d <span class="s1">&#39;\r&#39;</span> <span class="k">)</span>
+    <span class="nb">echo</span> <span class="nv">$dubboStatus</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$dubboStatus</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;OK&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$podName中dubbo状态正常</span><span class="s2">&#34;</span>
+        <span class="nb">break</span>
+    <span class="k">else</span>
+        <span class="k">if</span> <span class="o">((</span> i &lt; <span class="m">2</span> <span class="o">))</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$podName中dubbo状态异常</span><span class="s2">，</span><span class="nv">$waitMillion秒后重新获取状态</span><span class="s2">&#34;</span>
+            sleep <span class="nv">$waitMillion</span>
+        <span class="k">else</span>
+            <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$podName中3次dubbo状态检测异常</span><span class="s2">,进行回滚&#34;</span>
+            ./tempRollback.sh
+            <span class="nb">exit</span> <span class="m">1</span>
+        <span class="k">fi</span>
+    <span class="k">fi</span>
+<span class="k">done</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>增加Publish Over SSH插件用于连接到服务器并执行脚本</p>
+
+<p><img src="/images/jenkins/22.png" alt="" /></p>
+
+<p>在系统管理-&gt;系统设置-&gt;Publish over SSH中增加服务器配置</p>
+
+<p><img src="/images/jenkins/23.png" alt="" /></p>
+
+<p>返回版本更新中增加构建步骤</p>
+
+<p><img src="/images/jenkins/24.png" alt="" /></p>
+
+<p>设置超时与出错即失败</p>
+
+<p><img src="/images/jenkins/25.png" alt="" />
+<img src="/images/jenkins/26.png" alt="" /></p>
+
+<p>在连接到140后就会将当前目录下以.sh结尾的文件上传到远程的root目录，并执行prod.sh脚本，在prod.sh中执行tempUpdateImages.sh版本更新，接着调用checkStatus.sh检测状态。在checkStatus.sh中是在容器中利用nc ip 端口号判定dubbo状态是否是OK来决定应用状态是否正常，正常退出，不正常则回滚并错误退出</p>
+
+<blockquote>
+<p>Q:为什么不把${updateImages}直接传给prod.sh，然后在prod.sh直接使用$1?</p>
+
+<p>A:试过，无法执行</p>
+</blockquote>
+
+<p>最后就是发送邮件通知
+在系统管理-&gt;系统设置-&gt;Jenkins Location中填入管理员邮箱</p>
+
+<p><img src="/images/jenkins/27.png" alt="" /></p>
+
+<p>填入密码相关认证,实际测试发现发件邮箱必须管理员邮箱地址才行，原因未知?</p>
+
+<p><img src="/images/jenkins/28.png" alt="" /></p>
+
+<p>返回job中，增加邮件通知</p>
+
+<p><img src="/images/jenkins/29.png" alt="" /></p>
+
+<p>自此整个过程构建完成，在生产中需要注意权限，切勿直接在生产环境中这样使用</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cr6588</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-07-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/">
+            <span class="next-text nav-default">Kubernetes升级</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'https-cr6588-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cr6588@vip.qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cr6588" class="iconfont icon-github" title="github"></a>
+  <a href="https://cr6588.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">cr6588</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

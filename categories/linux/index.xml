@@ -35,7 +35,7 @@
       <pubDate>Tue, 17 Apr 2018 20:56:48 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/linux/linux%E7%AC%94%E8%AE%B0/</guid>
-      <description>//centos6 //显示linux发行版本信息 cat /etc/issue //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u+rwx filename //后台运行 nohup java -jar erp-log.jar &amp;gt; base-service.log 2&amp;gt;&amp;amp;1 &amp;amp; //vi复制行 1）</description>
+      <description>//centos6 //显示linux发行版本信息 cat /etc/issue cat /etc/os-release //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u+rwx filename //后台运行 nohup java -jar erp-log.jar &amp;gt; base-service.log 2&amp;gt;&amp;amp;1 &amp;amp; //vi复制行</description>
     </item>
     
   </channel>
