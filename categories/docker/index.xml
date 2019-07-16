@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>sth</title>
-      <link>https://cr6588.github.io/post/docker_k8s/sth/</link>
-      <pubDate>Tue, 18 Sep 2018 10:20:11 +0800</pubDate>
-      
-      <guid>https://cr6588.github.io/post/docker_k8s/sth/</guid>
-      <description>版权声明：本文为木偶人shaon原创文章，转载请注明原文地址，非常感谢。 https://blog.csdn.net/wh211212/article/details/79165415 实验背景、由于安装k8s使用官方源需要使用代理，故在CentOS7</description>
-    </item>
-    
-    <item>
       <title>docker redis宿主机不能访问</title>
       <link>https://cr6588.github.io/post/docker_k8s/docker-redis%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/</link>
       <pubDate>Thu, 31 May 2018 14:38:33 +0800</pubDate>

@@ -31,13 +31,6 @@
   </url>
   
   <url>
-    <loc>https://cr6588.github.io/post/test/</loc>
-    <lastmod>2019-03-13T14:41:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://cr6588.github.io/post/activiti/activiti_7/</loc>
     <lastmod>2019-03-13T11:36:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -138,13 +131,6 @@
   <url>
     <loc>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AE%9E%E9%AA%8C/</loc>
     <lastmod>2018-09-18T10:20:11+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cr6588.github.io/post/docker_k8s/sth/</loc>
-    <lastmod>2019-03-13T11:36:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
