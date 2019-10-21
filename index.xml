@@ -6,10 +6,28 @@
     <description>Recent content on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 10 Jul 2019 15:23:52 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Oct 2019 13:48:25 +0800</lastBuildDate>
     
 	<atom:link href="https://cr6588.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DeleteImages</title>
+      <link>https://cr6588.github.io/post/docker_k8s/deleteimages/</link>
+      <pubDate>Mon, 21 Oct 2019 13:48:25 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/docker_k8s/deleteimages/</guid>
+      <description>定时删除多余镜像 发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像 先写一个基础脚本del</description>
+    </item>
+    
+    <item>
+      <title>Vi</title>
+      <link>https://cr6588.github.io/post/linux/vi/</link>
+      <pubDate>Mon, 21 Oct 2019 10:59:33 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/linux/vi/</guid>
+      <description>dd删除当前行 yy复制 p粘贴 esc+:+/xxx 搜索xxx,n查找下一个</description>
+    </item>
     
     <item>
       <title>Jenkins与kubernetes部署</title>

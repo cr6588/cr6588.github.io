@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-04-17T20:56:48&#43;08:00" />
 <meta itemprop="dateModified" content="2018-04-17T20:56:48&#43;08:00" />
-<meta itemprop="wordCount" content="1540">
+<meta itemprop="wordCount" content="2007">
 
 
 
@@ -128,8 +128,8 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 1540 字 </span>
-          <span class="more-meta"> 预计阅读 4 分钟 </span>
+          <span class="more-meta"> 约 2007 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -244,6 +244,7 @@ cd src
 
 <p>ntpdate -u ntp1.aliyun.com
 定时同步服务器时间
+crontab -e
 */10 * * * * ntpdate ntp1.aliyun.com</p>
 
 <p>文件的属主和属组属性设置</p>
@@ -261,6 +262,51 @@ du -sh *</p>
 
 <p>批量当前以及子目录清空日志文件内容
 for i in <code>find . -name &quot;*.log&quot;</code>; do cat /dev/null &gt;$i; done</p>
+
+<p>将curl的请求结果输出值aaaa.txt文件中。`<code>执行命令,不是单引号''，-i打印请求头，-H添加请求头。多个时在-h xxx, -d数据请求 @jenkins-token.txt当前目录下的jenkins-token.txt文件，不用文件是不添加@。-X请求方式
+echo</code>curl -i -H &ldquo;Content-Type:application/json&rdquo; -d @jenkins-token.txt -X POST <a href="https://iam.myhuaweicloud.com/v3/auth/tokens`">https://iam.myhuaweicloud.com/v3/auth/tokens`</a> &gt; aaaa.txt</p>
+
+<p>清除从window传到linux的^M符号,g全局，^M实际是crtl+v,crtl+m,输入时也需要crtl+v,crtl+m，不能直接复制^M
+sed -i &rsquo;s/^M//g&rsquo; ELB.sh</p>
+
+<p>对于grep贪婪匹配，需使用perl语法
+即grep -P &ldquo;weight\&rdquo;: .*?,&rdquo;</p>
+
+<p>(Linux查看物理CPU个数、核数、逻辑CPU个数)[<a href="https://www.cnblogs.com/emanlee/p/3587571.html">https://www.cnblogs.com/emanlee/p/3587571.html</a>]</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 总核数 = 物理CPU个数 X 每颗物理CPU的核数</span> 
+<span class="c1"># 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</span>
+
+<span class="c1"># 查看物理CPU个数</span>
+cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;physical id&#34;</span><span class="p">|</span> sort<span class="p">|</span> uniq<span class="p">|</span> wc -l
+
+<span class="c1"># 查看每个物理CPU中core的个数(即核数)</span>
+cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;cpu cores&#34;</span><span class="p">|</span> uniq
+
+<span class="c1"># 查看逻辑CPU的个数</span>
+cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;processor&#34;</span><span class="p">|</span> wc -l</code></pre></td></tr></table>
+</div>
+</div>
+<p>#ip 查询
+curl cip.cc</p>
+
+<p>#tcp 连接查询
+yum install net-tools
+netstat -na</p>
 
     </div>
 
