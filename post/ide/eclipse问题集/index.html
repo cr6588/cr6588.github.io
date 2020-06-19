@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="cr6588" /><meta name="description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &amp;gt; Refresh will always clear this." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="cr6588" /><meta name="description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &amp;gt; Refresh will always clear this. 在比较长的行末尾编辑时，" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="Eclipse问题集" />
-<meta property="og:description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this." />
+<meta property="og:description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this. 在比较长的行末尾编辑时，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cr6588.github.io/post/ide/eclipse%E9%97%AE%E9%A2%98%E9%9B%86/" />
 <meta property="article:published_time" content="2018-08-14T11:48:04&#43;08:00"/>
 <meta property="article:modified_time" content="2018-08-14T11:48:04&#43;08:00"/>
 
 <meta itemprop="name" content="Eclipse问题集">
-<meta itemprop="description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this.">
+<meta itemprop="description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this. 在比较长的行末尾编辑时，">
 
 
 <meta itemprop="datePublished" content="2018-08-14T11:48:04&#43;08:00" />
 <meta itemprop="dateModified" content="2018-08-14T11:48:04&#43;08:00" />
-<meta itemprop="wordCount" content="58">
+<meta itemprop="wordCount" content="653">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Eclipse问题集"/>
-<meta name="twitter:description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this."/>
+<meta name="twitter:description" content="提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &gt; Refresh will always clear this. 在比较长的行末尾编辑时，"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,8 +128,8 @@
         <div class="post-category">
             <a href="/categories/eclipse/"> eclipse </a>
             </div>
-          <span class="more-meta"> 约 58 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <span class="more-meta"> 约 653 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -148,6 +148,9 @@
 <li>
 <ul>
 <li><a href="#提示resource-is-out-of-sync-with-the-filesystem">提示resource is out of sync with the filesystem</a></li>
+<li><a href="#在比较长的行末尾编辑时-窗口自动滚动到行首">在比较长的行末尾编辑时，窗口自动滚动到行首</a></li>
+<li><a href="#打开js文件下载工具长时间无反应">打开js文件下载工具长时间无反应</a></li>
+<li><a href="#项目右键commit时-自动将文件add-to-index">项目右键commit时，自动将文件add to index</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -164,6 +167,32 @@
 <p>在学习webpack复制项目时经常出现resource is out of sync with the filesystem.
 <img src="/images/ide/eclipse_res_out_filesys.png" alt="x" />
 Right-click &gt; Refresh will always clear this.</p>
+
+<h5 id="在比较长的行末尾编辑时-窗口自动滚动到行首">在比较长的行末尾编辑时，窗口自动滚动到行首</h5>
+
+<p>这个问题很烦人，困扰很久终于解决
+参考<a href="https://stackoverflow.com/questions/5353983/eclipse-after-editing-long-lines-editor-window-automatically-scrolls-to-beginni?newreg=c91d1937040d4b8594f0d9be357ba8e6">https://stackoverflow.com/questions/5353983/eclipse-after-editing-long-lines-editor-window-automatically-scrolls-to-beginni?newreg=c91d1937040d4b8594f0d9be357ba8e6</a></p>
+
+<p><img src="/images/ide/x6qiz-o82mp.gif" alt="x" /></p>
+
+<p>For java in eclipse :</p>
+
+<p>Windows -&gt; Preferences -&gt; Java -&gt;Editors -&gt;Folding -&gt; Enable Folding (uncheck)</p>
+
+<p>For HTML, JSP, XML etc in eclispe : Windows -&gt; Preferences -&gt; General -&gt; Editors -&gt; Structured Text Editors -&gt; Enable Folding (uncheck) (即取消折叠，关闭后在页面没有dom节点前的加减号)</p>
+
+<p><img src="/images/ide/disable_Folding.png" alt="x" /></p>
+
+<h5 id="打开js文件下载工具长时间无反应">打开js文件下载工具长时间无反应</h5>
+
+<p>打开了了一个vue相关的js文件，然后eclipse自动去下载了一个关联工具导致eclipse因为网络一直无法下载，强制关掉进程重开仍是这样，且不停增大内存。最后就让它下，最终提示因网络错误无法下载xxxx,之后重启一切正常
+将该项目先转移它路径，防止下次打开仍去下载</p>
+
+<h5 id="项目右键commit时-自动将文件add-to-index">项目右键commit时，自动将文件add to index</h5>
+
+<p>在更新到photo时，commit项目时，将大量不必提交的文件add index,在处理冲突时，多提交了文件。因此想禁用此功能。
+于是在git设置里查找一番，最终在preferences-&gt;Team-&gt;git-&gt;committing-&gt;Automatically stage selected resources on commit前面的勾去掉
+<img src="/images/ide/eclipse_git_committing.png" alt="x" /></p>
 
     </div>
 
@@ -245,7 +274,8 @@ Right-click &gt; Refresh will always clear this.</p>
 
   <span class="copyright-year">
     &copy; 
-    2019
+    2019 - 
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

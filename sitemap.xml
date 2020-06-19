@@ -3,15 +3,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://cr6588.github.io/post/js/jquery_html_escape/</loc>
+    <lastmod>2020-06-19T15:40:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://cr6588.github.io/post/docker_k8s/deleteimages/</loc>
-    <lastmod>2019-10-21T13:48:25+08:00</lastmod>
+    <lastmod>2019-10-21T14:29:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cr6588.github.io/post/linux/vi/</loc>
-    <lastmod>2019-10-21T10:59:33+08:00</lastmod>
+    <lastmod>2019-10-21T14:29:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -318,7 +325,7 @@
   
   <url>
     <loc>https://cr6588.github.io/post/</loc>
-    <lastmod>2019-10-21T13:48:25+08:00</lastmod>
+    <lastmod>2020-06-19T15:40:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -352,7 +359,7 @@
   
   <url>
     <loc>https://cr6588.github.io/</loc>
-    <lastmod>2019-10-21T13:48:25+08:00</lastmod>
+    <lastmod>2020-06-19T15:40:52+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

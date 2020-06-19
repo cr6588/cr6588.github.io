@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>hugo问题集 - cr6588</title>
+  <title>复制按钮引发的问题 - cr6588</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="cr6588" /><meta name="description" content="1.关于主题 最先使用了一个叫code-editor的主题，按照官方文档中Menu的介绍试了下，始终没成功。于是去主题中换成docdock发现" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="cr6588" /><meta name="description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://cr6588.github.io/post/hugo/hugo%E9%97%AE%E9%A2%98%E9%9B%86/" />
+<link rel="canonical" href="https://cr6588.github.io/post/js/jquery_html_escape/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,27 +38,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="hugo问题集" />
-<meta property="og:description" content="1.关于主题 最先使用了一个叫code-editor的主题，按照官方文档中Menu的介绍试了下，始终没成功。于是去主题中换成docdock发现" />
+<meta property="og:title" content="复制按钮引发的问题" />
+<meta property="og:description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/hugo/hugo%E9%97%AE%E9%A2%98%E9%9B%86/" />
-<meta property="article:published_time" content="2018-04-10T19:17:21&#43;08:00"/>
-<meta property="article:modified_time" content="2018-04-10T19:17:21&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/js/jquery_html_escape/" />
+<meta property="article:published_time" content="2020-06-04T11:10:00&#43;08:00"/>
+<meta property="article:modified_time" content="2020-06-19T15:40:52&#43;08:00"/>
 
-<meta itemprop="name" content="hugo问题集">
-<meta itemprop="description" content="1.关于主题 最先使用了一个叫code-editor的主题，按照官方文档中Menu的介绍试了下，始终没成功。于是去主题中换成docdock发现">
+<meta itemprop="name" content="复制按钮引发的问题">
+<meta itemprop="description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2">
 
 
-<meta itemprop="datePublished" content="2018-04-10T19:17:21&#43;08:00" />
-<meta itemprop="dateModified" content="2018-04-10T19:17:21&#43;08:00" />
-<meta itemprop="wordCount" content="896">
+<meta itemprop="datePublished" content="2020-06-04T11:10:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-19T15:40:52&#43;08:00" />
+<meta itemprop="wordCount" content="1050">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="hugo问题集"/>
-<meta name="twitter:description" content="1.关于主题 最先使用了一个叫code-editor的主题，按照官方文档中Menu的介绍试了下，始终没成功。于是去主题中换成docdock发现"/>
+<meta name="twitter:title" content="复制按钮引发的问题"/>
+<meta name="twitter:description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -121,15 +121,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">hugo问题集</h1>
+      <h1 class="post-title">复制按钮引发的问题</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2018-04-10 </span>
-        <div class="post-category">
-            <a href="/categories/hugo/"> hugo </a>
-            </div>
-          <span class="more-meta"> 约 896 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="post-time"> 2020-06-04 </span>
+        
+          <span class="more-meta"> 约 1050 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -145,9 +143,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#1-关于主题">1.关于主题</a></li>
-<li><a href="#2-关于菜单">2.关于菜单</a></li>
-<li><a href="#3-切换到even主题">3.切换到even主题</a></li>
+<li><a href="#简述">简述</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -158,30 +154,87 @@
     <div class="post-content">
       
 
-<h4 id="1-关于主题">1.关于主题</h4>
+<h4 id="简述">简述</h4>
 
-<p>最先使用了一个叫<a href="https://themes.gohugo.io/hugo-code-editor-theme/">code-editor</a>的主题，按照官方文档中<a href="https://gohugo.io/content-management/menus/">Menu</a>的介绍试了下，始终没成功。于是去主题中换成<a href="https://themes.gohugo.io/docdock/">docdock</a>发现启动之后有一些提示，且在它git clone之后的exampleSite中有一些默认的配置，直接根据需要进行设置。所以最开始选择主题时最好选择在主题页面文档比较多或者在它的exampleSite中示例比较详细的主题进行学习。
-在换成<a href="https://themes.gohugo.io/docdock/">docdock</a>主题后，发现这个主题插入static里面的图片链接无法使用。正常插入图片代码</p>
+<p>在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">&lt;button class=&#34;h30-btn default-btn copyMsg&#34;&gt;复制&lt;/button&gt;
+&lt;div class=&#34;i18n-content&#34;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.token.repeat.invalid&#34;: &#34;Your request is being processed, please do not repeat!&#34;,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.permission.validate.fail&#34;: &#34;You do not have access to this page. If you have any queries, please contact your administrator.&#34;,
+    ...
+&lt;/div&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+    $(&#34;.copyMsg&#34;).click( function() {
+        var msg = $(&#34;.i18n-content&#34;).text();
+        var input = document.createElement(&#39;input&#39;);
+        input.setAttribute(&#39;readonly&#39;, &#39;readonly&#39;);
+        input.setAttribute(&#39;value&#39;, msg);
+        document.body.appendChild(input);
+        input.setSelectionRange(0, 9999);
+        input.select();
+        if(document.execCommand(&#39;copy&#39;)) {
+            layer.tips(&#39;复制成功&#39;, this, {
+                tips : [ 3, &#39;#000&#39; ],
+                time : 400
+            });
+        }
+        document.body.removeChild(input);
+    });
+    &lt;/script&gt;</pre></td></tr></table>
+</div>
+</div>
+<p>复制到粘贴板后会发现没有换行,因为input是不支持换行的。
+1.于是将input的类型改成textarea发现复制到粘贴板后就只有textarea，完全没有div的内容。应该是值没有设置上去。通过input.value = msg;设置值而不是input.setAttribute(&lsquo;value&rsquo;, msg);</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    var input = document.createElement(&#39;textarea&#39;);
+    input.setAttribute(&#39;readonly&#39;, &#39;readonly&#39;);
+    input.value = msg;</pre></td></tr></table>
+</div>
+</div>
+<p>2.点击复制粘贴后仍然没有换行，改用html()。再次点击复制粘贴后还是没有换行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">![x](xxx.png)</pre></td></tr></table>
+<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).html();</pre></td></tr></table>
 </div>
 </div>
-<p>在<a href="https://themes.gohugo.io/hugo-code-editor-theme/">code-editor</a>能成功显示，<a href="https://themes.gohugo.io/docdock/">docdock</a>就不行了，有句mmp我一定&hellip;&hellip;应该还是没搞懂hugo的一些基本结构。果断切换成另外一个主题<a href="https://themes.gohugo.io/potato-dark/">potato-dark</a>在看了它里面的exampleSite代码后发现它的图片路径加了个/且它用了一个jquery插件，果断又去改成</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">![x](/xxx.png)</pre></td></tr></table>
-</div>
-</div>
-<p>图片终于正常显示，果断感觉自己2了。</p>
-
-<p>内容md文件若以+++开头与结束则使用=类似</p>
+<p>3.复制粘贴后的内容&nbsp;&nbsp;与<br>这种空格显示与换行，以及大于小于，想着去掉，同时页面显示换行与空格，于是用正则替换同时在页面显示内容的div加入style=&ldquo;white-space: pre&rdquo;,内容与div要在同一行不能换行，不然显示会多出空格</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -189,16 +242,18 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">+++
-title = &#34;Getting Started with Hugo&#34;
-date = &#34;2014-04-02&#34;
-draft = true
-+++</pre></td></tr></table>
+<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).html().trim().replace(/&lt;br&gt;/g, &#39;\n&#39;).replace(/&amp;nbsp;/g, &#39; &#39;).replace(/&amp;lt/g, &#39;&lt;&#39;).replace(/&amp;gt/g, &#39;&gt;&#39;);
+    ...
+
+    &lt;div class=&#34;i18n-content&#34; style=&#34;white-space: pre&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.token.repeat.invalid&#34;: &#34;Your request is being processed, please do not
+        ....
+    &lt;/div&gt;</pre></td></tr></table>
 </div>
 </div>
-<p>以- - -开头与结束则使用:类似</p>
+<p>4.粘贴后的内容依然后写特殊符号与显示的不符合，即html()返回的内容会将&amp;转成&amp;等等，具体参考<a href="https://www.w3school.com.cn/html/html_entities.asp。之后还是觉得用text()方法得到内容。但text()是不会将&nbsp;与">https://www.w3school.com.cn/html/html_entities.asp。之后还是觉得用text()方法得到内容。但text()是不会将&nbsp;与</a><br>改成换行的。于是在后台代码拼接内容的时候将<br>改成\n,&nbsp;直接使用 (空格)替代，加上div已有style=&ldquo;white-space: pre&rdquo;样式会将空格与\n完整显示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -206,71 +261,26 @@ draft = true
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">---
-title: &#34;Hugo Basic&#34;
-date: 2018-04-10T19:17:21+08:00
-draft: false
----</pre></td></tr></table>
+<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).text();
+    ...
+    #后台
+    sb.append(&#34;\n&#34;);
+    sb.append(&#34;    &#34;);
+    ...</pre></td></tr></table>
 </div>
 </div>
-<h4 id="2-关于菜单">2.关于菜单</h4>
-
-<p>切换成<a href="https://themes.gohugo.io/docdock/">docdock</a>主题。发现页面这个提示
-<img src="/images/home.png" alt="x" />
-新建这2个文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">hugo new _index.md
-hugo new _footer.md</pre></td></tr></table>
-</div>
-</div>
-<p>并加上相应内容之后页面显示就已经改变
-<img src="/images/index.png" alt="x" /></p>
-
-<p>设置菜单，在反复折腾<a href="https://themes.gohugo.io/docdock/">docdock</a>这个主题后发现侧边栏菜单显示跟_index.md有关。也对官方中_index.md作为特殊文件有个基本认识。即每一层的索引目录。如图</p>
-
-<p><img src="/images/folder.png" alt="x" />
-<img src="/images/hugoIndex.png" alt="x" />
-<img src="/images/hugoIndexResult.png" alt="x" /></p>
-
-<p>在文件头部加入weight提升侧边栏显示顺序，越小显示在越前面（这条是猜测，结果试了下发现可以，哈哈）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">---
-title: &#34;Github Pages&#34;
-date: 2018-04-10T11:48:57+08:00
-weight : 2
----</pre></td></tr></table>
-</div>
-</div>
-<h4 id="3-切换到even主题">3.切换到even主题</h4>
-
-<p>在最初使用hugo一段时间后由于各种原因没有继续折腾了，最近看到了一个even主题又重新将主题切换它并打算整个文档进行一次重排</p>
+<p>5.运行一段时间后发现如果内容里若含有html标签如<a href="xxxxx" target="_blank">GO BUY</a>，显示在页面会将其渲染a标签，而不是源码，所以复制粘贴的时候就会只有GO BUY，而缺少<a href="xxxxx" target="_blank">与</a>，而我们实际是都需要的。 最后将div直接改成xmp标签。都说xmp标签已过时，用code与pre标签然后将&lt;与&gt;进行转义，但内容其实有可能也需要&lt;或&gt;号，故还是用xmp标签</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
 </span></pre></td>
 <td class="lntd">
-<pre class="chroma">git clone https://github.com/olOwOlo/hugo-theme-even themes/even</pre></td></tr></table>
+<pre class="chroma">    &lt;xmp class=&#34;i18n-content&#34;&gt;${i18ns}&lt;/xmp&gt;</pre></td></tr></table>
 </div>
 </div>
-<p>在content目录下新建post目录，将以前content目录下的内容移动到post下面。运行时发现有些文档在Archives无法显示,删除该文档所属目录下面的_index目录文件即可</p>
-
-<p>实际中只有最新的几个文档末尾的修改日期是正常的且有git的hash值链接其余则没有原因未知</p>
-
     </div>
 
     <div class="post-copyright">
@@ -281,8 +291,8 @@ weight : 2
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2018-04-10
-        
+        2020-06-19
+        <a href="https://github.com/cr6588/docs/commit/631532736d1091bf903f9bfa674c62c2eb396e02" title="累计部分提交">(6315327)</a>
     </span>
   </p>
   
@@ -291,13 +301,9 @@ weight : 2
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/spring-cloud/spring-boot/spring-boot-with-docker-quick-start/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">spring boot with Docker Quick Start</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/hugo/hugo%E7%94%9F%E6%88%90%E7%9A%84%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5%E9%83%A8%E7%BD%B2%E8%87%B3github-pages/">
-            <span class="next-text nav-default">hugo生成的静态网页部署至Github Pages</span>
+        
+        <a class="next" href="/post/docker_k8s/deleteimages/">
+            <span class="next-text nav-default">DeleteImages</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -310,8 +316,8 @@ weight : 2
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-04-10 19:17:21 \x2b0800 CST',
-        title: 'hugo问题集',
+        id: '2020-06-04 11:10:00 \x2b0800 CST',
+        title: '复制按钮引发的问题',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
         repo: 'cr6588.github.io',

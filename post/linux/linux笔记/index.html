@@ -245,7 +245,7 @@ cd src
 <p>ntpdate -u ntp1.aliyun.com
 定时同步服务器时间
 crontab -e
-*/10 * * * * ntpdate ntp1.aliyun.com</p>
+*/10 * * * * /usr/sbin/ntpdate ntp1.aliyun.com</p>
 
 <p>文件的属主和属组属性设置</p>
 
@@ -388,7 +388,8 @@ netstat -na</p>
 
   <span class="copyright-year">
     &copy; 
-    2019
+    2019 - 
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

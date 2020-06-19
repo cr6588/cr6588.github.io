@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2019-02-11T15:34:04&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-11T15:34:04&#43;08:00" />
-<meta itemprop="wordCount" content="186">
+<meta itemprop="wordCount" content="209">
 
 
 
@@ -128,7 +128,7 @@
         <div class="post-category">
             <a href="/categories/mysql/"> mysql </a>
             </div>
-          <span class="more-meta"> 约 186 字 </span>
+          <span class="more-meta"> 约 209 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -164,7 +164,7 @@ ALTER USER <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</
 不能启动时查看数据挂载磁盘信息，通过portainer查看宿主机磁盘位置，然后新开容器将磁盘数据复制到新容器的数据盘位置
 
 <span class="c1">#加载本地磁盘与自定义配置信息，使用主机网络</span>
-docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/lib/mysql --net<span class="o">=</span>host --name mysql -d mysql:5.7.25</code></pre></td></tr></table>
+docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/lib/mysql --net<span class="o">=</span>host --name mysql  -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:5.7.25</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -247,7 +247,8 @@ docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/
 
   <span class="copyright-year">
     &copy; 
-    2019
+    2019 - 
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

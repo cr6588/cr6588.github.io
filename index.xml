@@ -6,10 +6,19 @@
     <description>Recent content on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 21 Oct 2019 13:48:25 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 11:10:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cr6588.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>复制按钮引发的问题</title>
+      <link>https://cr6588.github.io/post/js/jquery_html_escape/</link>
+      <pubDate>Thu, 04 Jun 2020 11:10:00 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/js/jquery_html_escape/</guid>
+      <description>简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2</description>
+    </item>
     
     <item>
       <title>DeleteImages</title>
@@ -233,7 +242,7 @@
       <pubDate>Tue, 14 Aug 2018 11:48:04 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/ide/eclipse%E9%97%AE%E9%A2%98%E9%9B%86/</guid>
-      <description>提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &amp;gt; Refresh will always clear this.</description>
+      <description>提示resource is out of sync with the filesystem 在学习webpack复制项目时经常出现resource is out of sync with the filesystem. Right-click &amp;gt; Refresh will always clear this. 在比较长的行末尾编辑时，</description>
     </item>
     
     <item>

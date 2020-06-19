@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-09-18T10:20:11&#43;08:00" />
 <meta itemprop="dateModified" content="2018-09-18T10:20:11&#43;08:00" />
-<meta itemprop="wordCount" content="5983">
+<meta itemprop="wordCount" content="6031">
 
 
 
@@ -128,8 +128,8 @@
         <div class="post-category">
             <a href="/categories/kubernetes/"> Kubernetes </a>
             </div>
-          <span class="more-meta"> 约 5983 字 </span>
-          <span class="more-meta"> 预计阅读 12 分钟 </span>
+          <span class="more-meta"> 约 6031 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -326,7 +326,7 @@ systemctl restart docker</pre></td></tr></table>
 </span></pre></td>
 <td class="lntd">
 <pre class="chroma">#修改主机名称
-hostnamectl set-hostname name
+hostnamectl set-hostname   localhost.localdomain name
 #关闭swap
 swapoff -a
 vi /etc/fstab
@@ -394,49 +394,6 @@ chmod +x ipvs.modules</pre></td></tr></table>
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
 </span></pre></td>
 <td class="lntd">
 <pre class="chroma">查看是否成功
@@ -463,9 +420,60 @@ EOF
 yum install kubelet-1.12.2-0 kubeadm-1.12.2-0 kubectl-1.12.2-0
 #yum install kubelet kubeadm kubectl
 systemctl enable kubelet &amp;&amp; systemctl start kubelet
-# Run kubeadm config images pull prior to kubeadm init to verify connectivity to gcr.io registries.验证是否能拉取相关镜像，若不能则找到相关镜像库镜像拉取
-
-kubeadm config images pull
+# Run kubeadm config images pull prior to kubeadm init to verify connectivity to gcr.io registries.验证是否能拉取相关镜像，若不能则找到相关镜像库镜像拉取</pre></td></tr></table>
+</div>
+</div>
+<blockquote>
+<p>1.17可以增加image-repository参数，修改默认镜像来源，不再从私有库，直接从<a href="http://mirror.azure.cn/help/gcr-proxy-cache.html">微软镜像库</a>拉取
+kubeadm init &ndash;image-repository=gcr.azk8s.cn/google_containers</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">kubeadm config images pull
 #从私有库拉取相关镜像
 docker login www.xxxx.cn:5000
 #输入相用户密码
@@ -510,7 +518,8 @@ kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/
 </div>
 </div>
 <p>kubectl apply -f <a href="https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml">https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml</a>
-    #使用weave net（支持NetworkPolicy,但重启防火墙时会失效，需要systemctl daemon-reload
+    #使用weave net（支持NetworkPolicy,但重启防火墙时会失效，需要
+    systemctl daemon-reload
     systemctl restart kubelet
     systemctl restart docker生效）
     kubectl apply -f &ldquo;<a href="https://cloud.weave.works/k8s/net?k8s-version=$(kubectl">https://cloud.weave.works/k8s/net?k8s-version=$(kubectl</a> version | base64 | tr -d &lsquo;\n&rsquo;)&rdquo;
@@ -764,9 +773,9 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: admin-user
-  namespace: kube-system
+  namespace: kubernetes-dashboard
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-user
@@ -777,7 +786,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: admin-user
-  namespace: kube-system
+  namespace: kubernetes-dashboard
 EOF
 
 kubectl apply -f dashboard-adminuser.yaml
@@ -1017,7 +1026,7 @@ spec:
     }
   }
 }
-#当要使用自己的redis.conf时将自己的conf文件复制到从节点/data/redis-data下，args改为/data/xxx.conf即可</pre></td></tr></table>
+#当要使用自己的redis.conf时将自己的conf文件复制到从节点/data/redis-data下，args增加/data/xxx.conf即可</pre></td></tr></table>
 </div>
 </div>
 <blockquote>
@@ -1403,7 +1412,8 @@ spec:
 
   <span class="copyright-year">
     &copy; 
-    2019
+    2019 - 
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
