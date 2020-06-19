@@ -43,15 +43,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cr6588.github.io/post/js/jquery_html_escape/" />
 <meta property="article:published_time" content="2020-06-04T11:10:00&#43;08:00"/>
-<meta property="article:modified_time" content="2020-06-19T15:40:52&#43;08:00"/>
+<meta property="article:modified_time" content="2020-06-19T15:54:31&#43;08:00"/>
 
 <meta itemprop="name" content="复制按钮引发的问题">
 <meta itemprop="description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2">
 
 
 <meta itemprop="datePublished" content="2020-06-04T11:10:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-19T15:40:52&#43;08:00" />
-<meta itemprop="wordCount" content="1050">
+<meta itemprop="dateModified" content="2020-06-19T15:54:31&#43;08:00" />
+<meta itemprop="wordCount" content="1155">
 
 
 
@@ -126,7 +126,7 @@
       <div class="post-meta">
         <span class="post-time"> 2020-06-04 </span>
         
-          <span class="more-meta"> 约 1050 字 </span>
+          <span class="more-meta"> 约 1155 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -211,8 +211,9 @@
     &lt;/script&gt;</pre></td></tr></table>
 </div>
 </div>
-<p>复制到粘贴板后会发现没有换行,因为input是不支持换行的。
-1.于是将input的类型改成textarea发现复制到粘贴板后就只有textarea，完全没有div的内容。应该是值没有设置上去。通过input.value = msg;设置值而不是input.setAttribute(&lsquo;value&rsquo;, msg);</p>
+<p>复制到粘贴板后会发现没有换行,因为input是不支持换行的。</p>
+
+<p>1.于是将input的类型改成textarea。复制粘贴后就只有textarea，完全没有div的内容。应该是值没有设置上去。通过input.value = msg;设置值而不是input.setAttribute(&lsquo;value&rsquo;, msg);</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -234,7 +235,7 @@
 <pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).html();</pre></td></tr></table>
 </div>
 </div>
-<p>3.复制粘贴后的内容&nbsp;&nbsp;与<br>这种空格显示与换行，以及大于小于，想着去掉，同时页面显示换行与空格，于是用正则替换同时在页面显示内容的div加入style=&ldquo;white-space: pre&rdquo;,内容与div要在同一行不能换行，不然显示会多出空格</p>
+<p>3.复制粘贴后的内容<code>&amp;nbsp;&amp;nbsp;</code>与<code>&lt;br&gt;</code>这种空格显示与换行，以及大于小于，想着去掉，同时页面显示换行与空格，于是用正则替换同时在页面显示内容的div加入style=&ldquo;white-space: pre&rdquo;,内容与div要在同一行不能换行，不然显示会多出空格</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -253,7 +254,8 @@
     &lt;/div&gt;</pre></td></tr></table>
 </div>
 </div>
-<p>4.粘贴后的内容依然后写特殊符号与显示的不符合，即html()返回的内容会将&amp;转成&amp;等等，具体参考<a href="https://www.w3school.com.cn/html/html_entities.asp。之后还是觉得用text()方法得到内容。但text()是不会将&nbsp;与">https://www.w3school.com.cn/html/html_entities.asp。之后还是觉得用text()方法得到内容。但text()是不会将&nbsp;与</a><br>改成换行的。于是在后台代码拼接内容的时候将<br>改成\n,&nbsp;直接使用 (空格)替代，加上div已有style=&ldquo;white-space: pre&rdquo;样式会将空格与\n完整显示</p>
+<p>4.粘贴后的内容依然有特殊符号与显示的不符合，即html()返回的内容会将&amp;转成<code>&amp;amp;</code>等等，具体参考<a href="https://www.w3school.com.cn/html/html_entities.asp">https://www.w3school.com.cn/html/html_entities.asp</a>
+之后还是觉得用text()方法得到内容。但text()是不会将<code>&amp;nbsp;</code>与<code>&lt;br&gt;</code>改成换行的。于是在后台代码拼接内容的时候将<code>&lt;br&gt;</code>改成\n,<code>&amp;nbsp;</code>直接使用  (空格)替代，加上div已有style=&ldquo;white-space: pre&rdquo;样式会将空格与\n完整显示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -272,7 +274,7 @@
     ...</pre></td></tr></table>
 </div>
 </div>
-<p>5.运行一段时间后发现如果内容里若含有html标签如<a href="xxxxx" target="_blank">GO BUY</a>，显示在页面会将其渲染a标签，而不是源码，所以复制粘贴的时候就会只有GO BUY，而缺少<a href="xxxxx" target="_blank">与</a>，而我们实际是都需要的。 最后将div直接改成xmp标签。都说xmp标签已过时，用code与pre标签然后将&lt;与&gt;进行转义，但内容其实有可能也需要&lt;或&gt;号，故还是用xmp标签</p>
+<p>5.运行一段时间后发现如果内容里若含有html标签如<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;GO BUY&lt;/a&gt;</code>，显示在页面会将其渲染a标签，而不是源码，所以复制粘贴的时候就会只有GO BUY，而缺少<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;</code>与<code>&lt;/a&gt;</code>，而我们实际是都需要的。 最后将div直接改成xmp标签。都说xmp标签已过时，用code与pre标签然后将&lt;与&gt;进行转义，但内容其实有可能也需要&lt;或&gt;号，故还是用xmp标签</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><span class="lnt">1
@@ -292,7 +294,7 @@
     <span class="item-title">上次更新</span>
     <span class="item-content">
         2020-06-19
-        <a href="https://github.com/cr6588/docs/commit/631532736d1091bf903f9bfa674c62c2eb396e02" title="累计部分提交">(6315327)</a>
+        <a href="https://github.com/cr6588/docs/commit/8230b91554ae0855c513e99262ce88271baa2445" title="转义显示">(8230b91)</a>
     </span>
   </p>
   
