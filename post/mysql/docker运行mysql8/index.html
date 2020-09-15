@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="cr6588" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密码加密" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="cr6588" /><meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,26 +39,26 @@
 
 
 <meta property="og:title" content="docker运行mysql8" />
-<meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密码加密" />
+<meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cr6588.github.io/post/mysql/docker%E8%BF%90%E8%A1%8Cmysql8/" />
 <meta property="article:published_time" content="2019-02-11T15:34:04&#43;08:00"/>
 <meta property="article:modified_time" content="2019-02-11T15:34:04&#43;08:00"/>
 
 <meta itemprop="name" content="docker运行mysql8">
-<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密码加密">
+<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密">
 
 
 <meta itemprop="datePublished" content="2019-02-11T15:34:04&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-11T15:34:04&#43;08:00" />
-<meta itemprop="wordCount" content="209">
+<meta itemprop="wordCount" content="240">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker运行mysql8"/>
-<meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密码加密"/>
+<meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -128,7 +128,7 @@
         <div class="post-category">
             <a href="/categories/mysql/"> mysql </a>
             </div>
-          <span class="more-meta"> 约 209 字 </span>
+          <span class="more-meta"> 约 240 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -153,6 +153,9 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">docker run -p <span class="m">3306</span>:3306 --name mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:8
@@ -164,7 +167,20 @@ ALTER USER <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</
 不能启动时查看数据挂载磁盘信息，通过portainer查看宿主机磁盘位置，然后新开容器将磁盘数据复制到新容器的数据盘位置
 
 <span class="c1">#加载本地磁盘与自定义配置信息，使用主机网络</span>
-docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/lib/mysql --net<span class="o">=</span>host --name mysql  -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:5.7.25</code></pre></td></tr></table>
+docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/lib/mysql --net<span class="o">=</span>host --name mysql  -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:5.7.25
+
+<span class="c1">#访问很慢</span>
+增加skip-name-resolve</code></pre></td></tr></table>
+</div>
+</div>
+<p>[mysqld]
+skip-name-resolve</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">https://dev.mysql.com/doc/refman/5.6/en/host-cache.html</pre></td></tr></table>
 </div>
 </div>
     </div>

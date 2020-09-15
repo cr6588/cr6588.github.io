@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-05-25T09:25:07&#43;08:00" />
 <meta itemprop="dateModified" content="2018-05-25T09:25:07&#43;08:00" />
-<meta itemprop="wordCount" content="591">
+<meta itemprop="wordCount" content="645">
 
 
 
@@ -128,7 +128,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 591 字 </span>
+          <span class="more-meta"> 约 645 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -137,11 +137,26 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#修改网卡名称">修改网卡名称</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html">https://www.cnblogs.com/moxiaoan/p/5683743.html</a>
+      
+
+<p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html">https://www.cnblogs.com/moxiaoan/p/5683743.html</a>
 CentOS7使用firewalld打开关闭防火墙与端口
 1、firewalld的基本使用
 启动： systemctl start firewalld
@@ -200,6 +215,24 @@ firewall-cmd &ndash;permanent &ndash;add-forward-port=port=80:proto=tcp:toaddr=1
 
 <p>#修改hostname
 hostnamectl set-hostname name</p>
+
+<h4 id="修改网卡名称">修改网卡名称</h4>
+
+<p><a href="https://unix.stackexchange.com/questions/205010/centos-7-rename-network-interface-without-rebooting">参考</a>
+ip link set ens33 down
+ip link set ens33 name eth0
+ip link set eth0 up</p>
+
+<p>mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+
+<p>vi ifcfg-eth0
+修改ifcfg-ens33 -&gt; ifcfg-eth0</p>
+
+<p>systemctl restart network</p>
+
+<blockquote>
+<p>断电重启后失效</p>
+</blockquote>
 
     </div>
 
