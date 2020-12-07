@@ -43,15 +43,15 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/k8serr/" />
 <meta property="article:published_time" content="2020-08-14T13:48:25&#43;08:00"/>
-<meta property="article:modified_time" content="2020-09-15T10:52:04&#43;08:00"/>
+<meta property="article:modified_time" content="2020-12-07T09:41:05&#43;08:00"/>
 
 <meta itemprop="name" content="k8s问题集">
 <meta itemprop="description" content="k8s证书过期 关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/">
 
 
 <meta itemprop="datePublished" content="2020-08-14T13:48:25&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-15T10:52:04&#43;08:00" />
-<meta itemprop="wordCount" content="588">
+<meta itemprop="dateModified" content="2020-12-07T09:41:05&#43;08:00" />
+<meta itemprop="wordCount" content="1131">
 
 
 
@@ -126,8 +126,8 @@
       <div class="post-meta">
         <span class="post-time"> 2020-08-14 </span>
         
-          <span class="more-meta"> 约 588 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 1131 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -138,6 +138,7 @@
     <nav id="TableOfContents">
 <ul>
 <li><a href="#k8s证书过期">k8s证书过期</a></li>
+<li><a href="#k8s-删除terminating状态的namespace">k8s 删除Terminating状态的namespace</a></li>
 </ul>
 </nav>
   </div>
@@ -157,6 +158,55 @@ kubeadm init phase kubeconfig all
 重启相关进程，可以连接到相关容器，但始终提示相关认证失败。在刚才的文档也有说明在1.17之前的版本有bug(之前是1.15)详见<a href="https://github.com/kubernetes/kubeadm/issues/1753。其中也提出升级时会自动续约证书，但间隔时间要小于1年。尝试按照https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/">https://github.com/kubernetes/kubeadm/issues/1753。其中也提出升级时会自动续约证书，但间隔时间要小于1年。尝试按照https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a>
 将版本升级到1.16，但dns的一个检查始终无法通过，最后卸载kubeadm，安装 1.18版本</p>
 
+<h1 id="k8s-删除terminating状态的namespace">k8s 删除Terminating状态的namespace</h1>
+
+<p>在kubectl create -f dashboard.yaml时，由于里面有namespace,且包含所有dashboard内容，在删除时等待了很久发现还在等待。
+kubectl get ns之后发现kubernetes-dashboard的状态是Terminating，然后重新尝试删除以及加上&ndash;force仍然没有删除。
+搜索之后发现在<a href="https://github.com/kubernetes/kubernetes/issues/60807">https://github.com/kubernetes/kubernetes/issues/60807</a> 中提到将finalizers中的kubernetes移除掉置为空数组
+尝试kubectl edit namespaces/kubernetes-dashboard 并修改保存后，再次kubectl get ns之后发现没有变化，猜测是kubectl edit之后需要执行
+一条命令使其生效。后来按照<a href="https://medium.com/@craignewtondev/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e">https://medium.com/@craignewtondev/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e</a> 的方式解决</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">kubectl get namespace kubernetes-dashboard -o json &gt; logging.json
+···
+&#34;uid&#34;: &#34;e9516a8b-764f-11e9-9621-0a9c41ba9af6&#34;
+},
+&#34;spec&#34;: {
+    &#34;finalizers&#34;: [
+        &#34;kubernetes&#34;
+    ]
+},
+...
+##去除kubernetes
+&#34;spec&#34;: {
+    &#34;finalizers&#34;: [
+    ]
+},
+...
+kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34; -f ./logging.json</pre></td></tr></table>
+</div>
+</div>
+<p>再次kubectl get ns已被删除</p>
+
     </div>
 
     <div class="post-copyright">
@@ -167,8 +217,8 @@ kubeadm init phase kubeconfig all
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-09-15
-        <a href="https://github.com/cr6588/docs/commit/d5024dbfcd995b8c578a7c0e7dd6c22928691943" title="新增部分内容">(d5024db)</a>
+        2020-12-07
+        <a href="https://github.com/cr6588/docs/commit/fa051519d6242442d6528afc0c31fc689827bc05" title="k8s error">(fa05151)</a>
     </span>
   </p>
   
