@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ELK on cr6588</title>
@@ -6,11 +6,7 @@
     <description>Recent content in ELK on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 17 Dec 2018 09:20:51 +0800</lastBuildDate>
-    
-	<atom:link href="https://cr6588.github.io/categories/elk/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 17 Dec 2018 09:20:51 +0800</lastBuildDate><atom:link href="https://cr6588.github.io/categories/elk/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>k8s搭建ELK环境</title>
       <link>https://cr6588.github.io/post/elk/k8s%E6%90%AD%E5%BB%BAelk%E7%8E%AF%E5%A2%83/</link>
