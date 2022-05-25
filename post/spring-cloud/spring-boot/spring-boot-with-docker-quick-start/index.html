@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/spring-cloud/spring-boot/spring-boot-with-docker-quick-start/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="spring boot with Docker Quick Start" />
 <meta property="og:description" content="准备环境 参考Spring Boot with Docker docker安装：https://docs.docker.com/install/linux/docker-c" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/spring-cloud/spring-boot/spring-boot-with-docker-quick-start/" />
-<meta property="article:published_time" content="2018-04-11T16:57:25&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-13T11:36:03&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/spring-cloud/spring-boot/spring-boot-with-docker-quick-start/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-04-11T16:57:25+08:00" />
+<meta property="article:modified_time" content="2019-03-13T11:36:03+08:00" />
 
 <meta itemprop="name" content="spring boot with Docker Quick Start">
-<meta itemprop="description" content="准备环境 参考Spring Boot with Docker docker安装：https://docs.docker.com/install/linux/docker-c">
-
-
-<meta itemprop="datePublished" content="2018-04-11T16:57:25&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-13T11:36:03&#43;08:00" />
-<meta itemprop="wordCount" content="810">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="准备环境 参考Spring Boot with Docker docker安装：https://docs.docker.com/install/linux/docker-c"><meta itemprop="datePublished" content="2018-04-11T16:57:25+08:00" />
+<meta itemprop="dateModified" content="2019-03-13T11:36:03+08:00" />
+<meta itemprop="wordCount" content="771">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="spring boot with Docker Quick Start"/>
 <meta name="twitter:description" content="准备环境 参考Spring Boot with Docker docker安装：https://docs.docker.com/install/linux/docker-c"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/spring-boot/"> spring boot </a>
             </div>
-          <span class="more-meta"> 约 810 字 </span>
+          <span class="more-meta"> 约 771 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -138,50 +142,24 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#准备环境">准备环境</a></li>
-<li><a href="#开始构建">开始构建</a>
-<ul>
-<li><a href="#总结">总结</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#准备环境">准备环境</a></li>
+        <li><a href="#开始构建">开始构建</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h3 id="准备环境">准备环境</h3>
-
+      <h3 id="准备环境">准备环境</h3>
 <p>参考<a href="https://spring.io/guides/gs/spring-boot-docker/">Spring Boot with Docker</a></p>
-
-<p>docker安装：<a href="https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1">https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1</a></p>
-
+<p>docker安装：https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1</p>
 <p>系统：centos7</p>
-
 <p>jdk配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vi /etc/profile
+<pre><code>vi /etc/profile
 
 export JAVA_HOME=/usr/java/jdk
 export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
@@ -191,172 +169,71 @@ echo $JAVA_HOME
 
 . /etc/profile
 
-echo $JAVA_HOME</pre></td></tr></table>
-</div>
-</div>
+echo $JAVA_HOME
+</code></pre>
 <p>maven配置</p>
-
 <p>改下载仓库</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;localRepository&gt;/data/mvn_resp&lt;/localRepository&gt;</pre></td></tr></table>
-</div>
-</div>
+<pre><code>&lt;localRepository&gt;/data/mvn_resp&lt;/localRepository&gt;
+</code></pre>
 <p>改成阿里源</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;mirror&gt;
+<pre><code>&lt;mirror&gt;
     &lt;id&gt;nexus-aliyun&lt;/id&gt;
     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
     &lt;name&gt;Nexus aliyun&lt;/name&gt;
     &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
-&lt;/mirror&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/mirror&gt;
+</code></pre>
 <p>git下载</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">git --version    ## 查看自带的版本git version 1.8.3.1
-yum remove git   ## 移除原来的版本</pre></td></tr></table>
-</div>
-</div>
-<p>官方git:<a href="https://github.com/git/git/releases">https://github.com/git/git/releases</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">wget https://github.com/git/git/archive/v2.17.0.tar.gz
+<pre><code>git --version    ## 查看自带的版本git version 1.8.3.1
+yum remove git   ## 移除原来的版本
+</code></pre>
+<p>官方git:https://github.com/git/git/releases</p>
+<pre><code>wget https://github.com/git/git/archive/v2.17.0.tar.gz
 tar -zxf v2.17.0.tar.gz
 cd git-2.17.0
 make configure
 ./configure --prefix=/data/git ##配置目录
 make profix=/data/git
-make install</pre></td></tr></table>
-</div>
-</div>
+make install
+</code></pre>
 <p>缺少xxx,yum install xxx</p>
-
 <p>加入环境变量</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vi /etc/profile
-export PATH=$PATH:/data/git/bin</pre></td></tr></table>
-</div>
-</div>
+<pre><code>vi /etc/profile
+export PATH=$PATH:/data/git/bin
+</code></pre>
 <p>保存后生效</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">. /etc/profile</pre></td></tr></table>
-</div>
-</div>
+<pre><code>. /etc/profile
+</code></pre>
 <h3 id="开始构建">开始构建</h3>
-
 <p>按照<a href="https://spring.io/guides/gs/spring-boot-docker/">Spring Boot with Docker</a>导入依赖git clone并添加相关代码后执行构建</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">./mvnw install dockerfile:build</pre></td></tr></table>
-</div>
-</div>
+<pre><code>./mvnw install dockerfile:build
+</code></pre>
 <p>运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">docker run -p 8080:8080 -t springio/gs-spring-boot-docker</pre></td></tr></table>
-</div>
-</div>
+<pre><code>docker run -p 8080:8080 -t springio/gs-spring-boot-docker
+</code></pre>
 <p>错误信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[root@localhost initial]# docker run -p 8080:8080 -t springio/gs-spring-boot-docker
+<pre><code>[root@localhost initial]# docker run -p 8080:8080 -t springio/gs-spring-boot-docker
 docker: Error response from daemon: driver failed programming external connectivity on endpoint zen_heyrovsky (2aa8004e111f72975c941012fe7f58082b443115592a60d454b4b17a3370c06b):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8080 -j DNAT --to-destination 172.17.0.2:8080 ! -i docker0: iptables: No chain/target/match by that name.
- (exit status 1)).</pre></td></tr></table>
-</div>
-</div>
+ (exit status 1)).
+</code></pre>
 <p>根据提示应该是iptables防火墙问题，CentOS7默认最小安装没有iptables且开始使用firewalld</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">yum install firewalld</pre></td></tr></table>
-</div>
-</div>
+<pre><code>yum install firewalld
+</code></pre>
 <p>在CentOS7中service被systemctl替代，启动</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">systemctl start firewalld</pre></td></tr></table>
-</div>
-</div>
+<pre><code>systemctl start firewalld
+</code></pre>
 <p>重启docker</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">systemctl restart docker</pre></td></tr></table>
-</div>
-</div>
+<pre><code>systemctl restart docker
+</code></pre>
 <p>重新运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">docker run -p 8080:8080 -t springio/gs-spring-boot-docker</pre></td></tr></table>
-</div>
-</div>
-<p>按照<a href="http://www.cnblogs.com/flasheryu/p/5919657.html">http://www.cnblogs.com/flasheryu/p/5919657.html</a> 解决，其中说了一句</p>
-
+<pre><code>docker run -p 8080:8080 -t springio/gs-spring-boot-docker
+</code></pre>
+<p>按照http://www.cnblogs.com/flasheryu/p/5919657.html 解决，其中说了一句</p>
 <blockquote>
 <p>在启动firewalld之后，iptables被激活，此时没有docker chain，重启docker后被加入到iptable里面。</p>
 </blockquote>
-
 <p>ok,终于完成quick-start</p>
-
 <h4 id="总结">总结</h4>
-
 <p>第一次使用会遇到很多坑，官方文档说15分钟，我用了3天左右&hellip;&hellip;很多环境配置都是第一次，尤其是centos7与6有很大不同，好多还是不理解。打算在接下对项目的逐步改造中去理解。对了，生产环境一定要配置好firewalld!!!</p>
 
     </div>
@@ -398,7 +275,7 @@ docker: Error response from daemon: driver failed programming external connectiv
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-04-11 16:57:25 \x2b0800 CST',
+        id: '2018-04-11 16:57:25 \u002b0800 CST',
         title: 'spring boot with Docker Quick Start',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -410,6 +287,10 @@ docker: Error response from daemon: driver failed programming external connectiv
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -440,13 +321,10 @@ docker: Error response from daemon: driver failed programming external connectiv
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -457,7 +335,10 @@ docker: Error response from daemon: driver failed programming external connectiv
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

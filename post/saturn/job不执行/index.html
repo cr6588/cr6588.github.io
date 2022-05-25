@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="saturn" />
 <meta property="og:description" content="job不执行 console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null 检查conso" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/" />
-<meta property="article:published_time" content="2019-10-24T15:58:07&#43;08:00"/>
-<meta property="article:modified_time" content="2019-10-24T15:58:07&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-10-24T15:58:07+08:00" />
+<meta property="article:modified_time" content="2019-10-24T15:58:07+08:00" />
 
 <meta itemprop="name" content="saturn">
-<meta itemprop="description" content="job不执行 console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null 检查conso">
-
-
-<meta itemprop="datePublished" content="2019-10-24T15:58:07&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-24T15:58:07&#43;08:00" />
+<meta itemprop="description" content="job不执行 console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null 检查conso"><meta itemprop="datePublished" content="2019-10-24T15:58:07+08:00" />
+<meta itemprop="dateModified" content="2019-10-24T15:58:07+08:00" />
 <meta itemprop="wordCount" content="335">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="saturn"/>
 <meta name="twitter:description" content="job不执行 console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null 检查conso"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -136,39 +140,27 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#job不执行">job不执行</a></li>
-<li><a href="#添加域名后console退出">添加域名后console退出</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="job不执行">job不执行</h4>
-
+      <h4 id="job不执行">job不执行</h4>
 <p>console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null</p>
-
 <p>检查console的系统配置-&gt;ZK集群配置-&gt;CONSOLE_ZK_CLUSTER_MAPPING中的zk名称和已有名称是否对应
 例如:集群名称是200zk,console默认是default,则此处配置时default:200zk。更新之后有可能不能立即生效，最后重启console生效</p>
-
 <h4 id="添加域名后console退出">添加域名后console退出</h4>
-
 <p>日志提示无法从eth0与bond0获取ip信息，saturn只能从这2个网卡获取ip，将网卡更改成eth0或bond0
 <a href="https://unix.stackexchange.com/questions/205010/centos-7-rename-network-interface-without-rebooting">参考</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -176,16 +168,17 @@
 </span><span class="lnt">6
 </span><span class="lnt">7
 </span><span class="lnt">8
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    ip link set ens33 down
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    ip link set ens33 down
     ip link set ens33 name eth0
     ip link set eth0 up
 
     mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0
     vi ifcfg-eth0
     修改ifcfg-ens33 -&gt; ifcfg-eth0
-    systemctl restart network</pre></td></tr></table>
+    systemctl restart network
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -227,7 +220,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-10-24 15:58:07 \x2b0800 CST',
+        id: '2019-10-24 15:58:07 \u002b0800 CST',
         title: 'saturn',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -239,6 +232,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -269,13 +266,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -286,7 +280,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

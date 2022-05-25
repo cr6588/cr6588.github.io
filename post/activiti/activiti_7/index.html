@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/activiti/activiti_7/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="activiti 7 简介" />
 <meta property="og:description" content="activiti 7 1.Activiti Cloud介绍 Activiti Cloud是第一个Cloud Native BPM框架，旨在为云环境中的BPM实施提供可扩展且透明的解决方案。 The BPM discipline was created to provide a better understanding of" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/activiti/activiti_7/" />
-<meta property="article:published_time" content="2019-02-18T09:50:10&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-13T11:36:03&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/activiti/activiti_7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-02-18T09:50:10+08:00" />
+<meta property="article:modified_time" content="2019-03-13T11:36:03+08:00" />
 
 <meta itemprop="name" content="activiti 7 简介">
-<meta itemprop="description" content="activiti 7 1.Activiti Cloud介绍 Activiti Cloud是第一个Cloud Native BPM框架，旨在为云环境中的BPM实施提供可扩展且透明的解决方案。 The BPM discipline was created to provide a better understanding of">
-
-
-<meta itemprop="datePublished" content="2019-02-18T09:50:10&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-13T11:36:03&#43;08:00" />
-<meta itemprop="wordCount" content="812">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="activiti 7 1.Activiti Cloud介绍 Activiti Cloud是第一个Cloud Native BPM框架，旨在为云环境中的BPM实施提供可扩展且透明的解决方案。 The BPM discipline was created to provide a better understanding of"><meta itemprop="datePublished" content="2019-02-18T09:50:10+08:00" />
+<meta itemprop="dateModified" content="2019-03-13T11:36:03+08:00" />
+<meta itemprop="wordCount" content="801">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="activiti 7 简介"/>
 <meta name="twitter:description" content="activiti 7 1.Activiti Cloud介绍 Activiti Cloud是第一个Cloud Native BPM框架，旨在为云环境中的BPM实施提供可扩展且透明的解决方案。 The BPM discipline was created to provide a better understanding of"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/activiti/"> activiti </a>
             </div>
-          <span class="more-meta"> 约 812 字 </span>
+          <span class="more-meta"> 约 801 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -138,83 +142,129 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#activiti-7">activiti 7</a>
-<ul>
-<li><a href="#1-activiti-cloud介绍-https-activiti-gitbook-io-activiti-7-developers-guide-overview">1.<a href="https://activiti.gitbook.io/activiti-7-developers-guide/overview">Activiti Cloud介绍</a></a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#1activiti-cloud介绍httpsactivitigitbookioactiviti-7-developers-guideoverview">1.<a href="https://activiti.gitbook.io/activiti-7-developers-guide/overview">Activiti Cloud介绍</a></a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="activiti-7">activiti 7</h1>
-
-<h2 id="1-activiti-cloud介绍-https-activiti-gitbook-io-activiti-7-developers-guide-overview">1.<a href="https://activiti.gitbook.io/activiti-7-developers-guide/overview">Activiti Cloud介绍</a></h2>
-
+      <h1 id="activiti-7">activiti 7</h1>
+<h2 id="1activiti-cloud介绍httpsactivitigitbookioactiviti-7-developers-guideoverview">1.<a href="https://activiti.gitbook.io/activiti-7-developers-guide/overview">Activiti Cloud介绍</a></h2>
 <p>Activiti Cloud是第一个Cloud Native BPM框架，旨在为云环境中的BPM实施提供可扩展且透明的解决方案。</p>
-
 <p>The BPM discipline was created to provide a better understanding of how organisations do their work and how this work can be improved in an iterative fashion</p>
-
 <blockquote>
 <p>BPM:Business Process Management。商业流程管理。旨在帮助组织更容易理解他们所做的工作以及如何以迭代方式改进这项工作</p>
 </blockquote>
-
 <p>通常BPM套件部署在一个中央服务器，采用BPM套件常会遇到的痛点：</p>
-
 <ul>
-<li>BPM Suites are built on top of a technology stack that the IT Department(Software) inside the organization doesn’t otherwise need to know</li>
-<li>BPM Suites often don’t integrate nicely with other ecosystems</li>
-<li>Users need to learn a whole new toolset to do the work</li>
-<li>The department in charge of the infrastructure where the BPM Suite will run doesn’t know about its requirements. Same applies for DBAs that need to understand how the BPM Suite works to tune their Databases.</li>
-<li>User Interfaces provided by BPM Suites are often not flexible enough. Many BPM implementations end up needing multiple re-implementations of their User Interfaces</li>
-
-<li><p>BPM Suite adoptions are usually pushed from the business and not backed up by the internal software development teams inside the organization and this friction cause delays and problems during implementation.</p></li>
-
-<li><p>BPM套件构建在技术堆栈之上，组织内的IT部门（软件）无需另外知道</p></li>
-
-<li><p>BPM套件通常不能很好地与其他生态系统集成</p></li>
-
-<li><p>用户需要学习一个全新的工具集来完成工作</p></li>
-
-<li><p>负责BPM Suite运行的基础架构的部门不了解其要求。 同样适用于需要了解BPM Suite如何调整其数据库的DBA。</p></li>
-
-<li><p>BPM套件提供的用户界面通常不够灵活。 许多BPM实现最终需要多次重新实现其用户界面</p></li>
-
-<li><p>BPM Suite采用通常是从业务推出而不是由组织内部的内部软件开发团队备份，这种摩擦会导致实施过程中的延迟和问题。</p></li>
+<li>
+<p>BPM Suites are built on top of a technology stack that the IT Department(Software) inside the organization doesn’t otherwise need to know</p>
+</li>
+<li>
+<p>BPM Suites often don’t integrate nicely with other ecosystems</p>
+</li>
+<li>
+<p>Users need to learn a whole new toolset to do the work</p>
+</li>
+<li>
+<p>The department in charge of the infrastructure where the BPM Suite will run doesn’t know about its requirements. Same applies for DBAs that need to understand how the BPM Suite works to tune their Databases.</p>
+</li>
+<li>
+<p>User Interfaces provided by BPM Suites are often not flexible enough. Many BPM implementations end up needing multiple re-implementations of their User Interfaces</p>
+</li>
+<li>
+<p>BPM Suite adoptions are usually pushed from the business and not backed up by the internal software development teams inside the organization and this friction cause delays and problems during implementation.</p>
+</li>
+<li>
+<p>BPM套件构建在技术堆栈之上，组织内的IT部门（软件）无需另外知道</p>
+</li>
+<li>
+<p>BPM套件通常不能很好地与其他生态系统集成</p>
+</li>
+<li>
+<p>用户需要学习一个全新的工具集来完成工作</p>
+</li>
+<li>
+<p>负责BPM Suite运行的基础架构的部门不了解其要求。 同样适用于需要了解BPM Suite如何调整其数据库的DBA。</p>
+</li>
+<li>
+<p>BPM套件提供的用户界面通常不够灵活。 许多BPM实现最终需要多次重新实现其用户界面</p>
+</li>
+<li>
+<p>BPM Suite采用通常是从业务推出而不是由组织内部的内部软件开发团队备份，这种摩擦会导致实施过程中的延迟和问题。</p>
+</li>
 </ul>
-
 <p>大多数这些痛点都是因为BPM Suites强加了一整套技术，迫使组织适应它们。</p>
-
 <p>Activiti Cloud试图将Activiti Process Engine剥离到最低限度并尽可能保持单一焦点。</p>
-
-<p>The Process Runtime shouldn’t worry about:
-* Where the process definitions are stored
-* Dealing with process versions and changes
-* Identity Management
-* Single Sign-On
-* Job executions
-* Timer mechanisms
-* Providing System to System integration mechanisms
-* Sending Emails
-* Storing History / Audit information and providing a way to query this information
-* Performance of the clients consuming data generated by the engine
-* Push notifications about the changes in state of the system</p>
-
+<p>The Process Runtime shouldn’t worry about:</p>
 <ul>
-<li>存储过程定义的位置</li>
-<li>处理流程版本和更改</li>
-<li>身份管理</li>
-<li>单点登录</li>
-<li>工作执行</li>
-<li>定时器机制</li>
-<li>为系统集成机制提供系统</li>
-<li>发送电子邮件</li>
-<li>存储历史/审计信息并提供查询此信息的方法</li>
-<li>消费者使用引擎生成的数据的性能</li>
-<li>推送有关系统状态变化的通知</li>
+<li>
+<p>Where the process definitions are stored</p>
+</li>
+<li>
+<p>Dealing with process versions and changes</p>
+</li>
+<li>
+<p>Identity Management</p>
+</li>
+<li>
+<p>Single Sign-On</p>
+</li>
+<li>
+<p>Job executions</p>
+</li>
+<li>
+<p>Timer mechanisms</p>
+</li>
+<li>
+<p>Providing System to System integration mechanisms</p>
+</li>
+<li>
+<p>Sending Emails</p>
+</li>
+<li>
+<p>Storing History / Audit information and providing a way to query this information</p>
+</li>
+<li>
+<p>Performance of the clients consuming data generated by the engine</p>
+</li>
+<li>
+<p>Push notifications about the changes in state of the system</p>
+</li>
+<li>
+<p>存储过程定义的位置</p>
+</li>
+<li>
+<p>处理流程版本和更改</p>
+</li>
+<li>
+<p>身份管理</p>
+</li>
+<li>
+<p>单点登录</p>
+</li>
+<li>
+<p>工作执行</p>
+</li>
+<li>
+<p>定时器机制</p>
+</li>
+<li>
+<p>为系统集成机制提供系统</p>
+</li>
+<li>
+<p>发送电子邮件</p>
+</li>
+<li>
+<p>存储历史/审计信息并提供查询此信息的方法</p>
+</li>
+<li>
+<p>消费者使用引擎生成的数据的性能</p>
+</li>
+<li>
+<p>推送有关系统状态变化的通知</p>
+</li>
 </ul>
 
     </div>
@@ -256,7 +306,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-02-18 09:50:10 \x2b0800 CST',
+        id: '2019-02-18 09:50:10 \u002b0800 CST',
         title: 'activiti 7 简介',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -268,6 +318,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -298,13 +352,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -315,7 +366,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Scp Sftp Rysnc - cr6588</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cr6588" /><meta name="description" content="scp、sftp、rsync 三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要exp" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
+
+
+<link rel="canonical" href="https://cr6588.github.io/post/linux/scp-sftp-rysnc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Scp Sftp Rysnc" />
+<meta property="og:description" content="scp、sftp、rsync 三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要exp" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cr6588.github.io/post/linux/scp-sftp-rysnc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-26T22:54:20+08:00" />
+<meta property="article:modified_time" content="2022-05-25T21:49:21+08:00" />
+
+<meta itemprop="name" content="Scp Sftp Rysnc">
+<meta itemprop="description" content="scp、sftp、rsync 三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要exp"><meta itemprop="datePublished" content="2021-09-26T22:54:20+08:00" />
+<meta itemprop="dateModified" content="2022-05-25T21:49:21+08:00" />
+<meta itemprop="wordCount" content="1030">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scp Sftp Rysnc"/>
+<meta name="twitter:description" content="scp、sftp、rsync 三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要exp"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">cr6588</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">cr6588</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Scp Sftp Rysnc</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-09-26 </span>
+        
+          <span class="more-meta"> 约 1030 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#scp">scp</a></li>
+    <li><a href="#sftp">sftp</a></li>
+    <li><a href="#rsync">rsync</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="scpsftprsync">scp、sftp、rsync</h1>
+<p>三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要expect配合。rsync更加高级，它会通过算法计算出哪些文件有变化 ，然后只上传有变化的文件。下面分别进行实例说明</p>
+<h2 id="scp">scp</h2>
+<pre><code>#将erp-spring-boot下的文件上传到192.168.1.206的/home/chenyi/erp/，会被要求输入密码
+scp erp-spring-boot/* root@192.168.1.206:/home/chenyi/erp/
+</code></pre>
+<p>当不想输入密码时可使用ssh密钥对</p>
+<pre><code>#前往当前用户的.ssh目录生成名为207的ssh密钥对
+cr6588@cr6588-2 .ssh % cd ~/.ssh
+cr6588@cr6588-2 .ssh % ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/cr6588/.ssh/id_rsa): 207
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in 207.
+Your public key has been saved in 207.pub.
+The key fingerprint is:
+SHA256:qN0Cb+TDXEcCDUSrYpRyO9hKSwjuzIx5bOsJvDnrbjY cr6588@cr6588-2.local
+The key's randomart image is:
++---[RSA 3072]----+
+|     o=o         |
+|   .   o.        |
+|o +   . . .      |
+|+* . . . o       |
+|o+* o o S .      |
+|X=.o X o .       |
+|=B+ . X .        |
+| Eoo . o         |
+|=BB              |
++----[SHA256]-----+
+#将207.pub上传到目标机器的authorized_keys文件中
+cr6588@cr6588-2 .ssh % scp 207.pub root@192.168.1.206:~/.ssh/authorized_keys
+root@192.168.1.206's password: 
+207.pub                                       100%  575    81.9KB/s   00:00   
+#由于有多个密钥对因此带上刚产生的参数，此时再次上传文件不需要密码.若生成ssh不输入名字时则不需要
+cr6588@cr6588-2 erp % scp  -i ~/.ssh/207 erp-spring-boot/* root@192.168.1.206:/home/chenyi/erp/
+</code></pre>
+<h2 id="sftp">sftp</h2>
+<pre><code>cr6588@cr6588-2 erp % sftp root@192.168.1.206
+root@192.168.1.206's password: 
+Connected to 192.168.1.206.
+sftp&gt; put erp-spring-boot/* /home/chenyi/erp
+</code></pre>
+<p>当不想输入密码时可使用expect</p>
+<blockquote>
+<p>expect是一个自动化交互套件，主要应用于执行命令和程序时，系统以交互形式要求输入指定字符串，实现交互通信。
+expect自动交互流程：
+spawn启动指定进程&mdash;expect获取指定关键字&mdash;send向指定程序发送指定字符&mdash;执行完成退出。
+注意该脚本能够执行的前提是安装了expect</p>
+</blockquote>
+<pre><code>expect &lt;&lt; EOF
+ #expect 默认超时10s,-1永不超时
+ set timeout -1
+ spawn sftp root@192.168.1.206
+ expect &quot;ssword:&quot; { send &quot;密码\r&quot; }
+ expect &quot;ftp&gt; &quot; { send &quot;put erp-spring-boot/* /home/chenyi/erp\r&quot; }
+ expect &quot;ftp&gt; &quot; { send &quot;exit\r&quot; }
+EOF
+</code></pre>
+<blockquote>
+<p>windows可使用bitvise软件的sftpc命令，详见bitvise.md</p>
+</blockquote>
+<h2 id="rsync">rsync</h2>
+<pre><code>#将tt.png上传到192.168.1.206的/home/chenyi/erp/,-i输出所有更新的变更摘要
+rsync -i tt.png root@192.168.1.206:/home/chenyi/erp
+
+root@192.168.1.206's
+&lt;f..T...... tt.png 无变化
+
+D:\test&gt;rsync -i tt.
+root@192.168.1.206's
+&lt;f+++++++++ tt.png 有变化
+</code></pre>
+<p>免密码有2种方式</p>
+<pre><code># -e指定所要使用的远程shell程序,带上ssh
+#ssh key
+rsync -e &quot;ssh -i ~/.ssh/207&quot; -id erp-spring-boot/ root@192.168.1.206:/home/chenyi/erp/
+
+#expect
+#手动执行可带*，与expect结合且有exp_continue使用时*会提示目录不存在
+#spawn rsync erp-spring-boot/*
+#加上-d标识当前目录，不递归.加上-r表递归，-i输出所有更新的变更摘要
+expect &lt;&lt; EOF
+    #expect 默认超时10s,-1永不超时
+    set timeout -1
+    spawn rsync -ir erp-spring-boot/ root@192.168.1.206:/home/chenyi/erp/
+    expect &quot;ssword:&quot; { send &quot;密码\r&quot;;exp_continue }
+EOF
+</code></pre>
+<blockquote>
+<p>windows有个<a href="https://itefix.net/cwrsync">cwRsyn client</a>类似</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cr6588</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-05-25
+        <a href="https://github.com/cr6588/docs/commit/3a6453ff43e8629b9d6f062d4a17c7d56ea43c12" title="状态修改">(3a6453f)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/dubbo/%E6%B3%A8%E5%86%8Cip%E5%BC%82%E5%B8%B8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">注册ip异常</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java/%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E7%94%9F%E6%95%88/">
+            <span class="next-text nav-default">多环境变量不生效</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2021-09-26 22:54:20 \u002b0800 CST',
+        title: 'Scp Sftp Rysnc',
+        clientID: 'f8fc0224f2d6ffa6eba8',
+        clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
+        repo: 'cr6588.github.io',
+        owner: 'cr6588',
+        admin: ['cr6588'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cr6588@vip.qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cr6588" class="iconfont icon-github" title="github"></a>
+  <a href="https://cr6588.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

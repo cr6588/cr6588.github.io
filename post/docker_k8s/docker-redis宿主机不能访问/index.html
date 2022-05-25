@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/docker_k8s/docker-redis%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="docker redis宿主机不能访问" />
 <meta property="og:description" content="docker redis 宿主机不能访问 按照https://redis.io/download 下载并编译redis后 构建redis镜像，开放6379端口并设置密码" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/docker-redis%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/" />
-<meta property="article:published_time" content="2018-05-31T14:38:33&#43;08:00"/>
-<meta property="article:modified_time" content="2018-05-31T14:38:33&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/docker-redis%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-05-31T14:38:33+08:00" />
+<meta property="article:modified_time" content="2018-05-31T14:38:33+08:00" />
 
 <meta itemprop="name" content="docker redis宿主机不能访问">
-<meta itemprop="description" content="docker redis 宿主机不能访问 按照https://redis.io/download 下载并编译redis后 构建redis镜像，开放6379端口并设置密码">
-
-
-<meta itemprop="datePublished" content="2018-05-31T14:38:33&#43;08:00" />
-<meta itemprop="dateModified" content="2018-05-31T14:38:33&#43;08:00" />
-<meta itemprop="wordCount" content="648">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="docker redis 宿主机不能访问 按照https://redis.io/download 下载并编译redis后 构建redis镜像，开放6379端口并设置密码"><meta itemprop="datePublished" content="2018-05-31T14:38:33+08:00" />
+<meta itemprop="dateModified" content="2018-05-31T14:38:33+08:00" />
+<meta itemprop="wordCount" content="643">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker redis宿主机不能访问"/>
 <meta name="twitter:description" content="docker redis 宿主机不能访问 按照https://redis.io/download 下载并编译redis后 构建redis镜像，开放6379端口并设置密码"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/docker/"> docker </a>
             </div>
-          <span class="more-meta"> 约 648 字 </span>
+          <span class="more-meta"> 约 643 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -137,43 +141,21 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#docker-redis-宿主机不能访问">docker redis 宿主机不能访问</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="docker-redis-宿主机不能访问">docker redis 宿主机不能访问</h1>
-
-<p>按照<a href="https://redis.io/download">https://redis.io/download</a> 下载并编译redis后
-构建redis镜像，开放6379端口并设置密码，在容器内使用./redis-cli能够访问，在宿主机一直不能连接。同样方式开放zookeeper的2181端口并无问题。排除端口映射的问题，网上搜索根据<a href="https://blog.csdn.net/myminner/article/details/79060264">https://blog.csdn.net/myminner/article/details/79060264</a> 中指出了在默认的redis.conf中bind只监听127.0.0.1，在其后加入容器ip即可.之后直接使用./redis-server &amp;启动未带配置文件参数。在宿主机访问发现提示</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">(error) DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command &#39;CONFIG SET protected-mode no&#39; from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to &#39;no&#39;, and then restarting the server. 3) If you started the server manually just for testing, restart it with the &#39;--protected-mode no&#39; option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.</pre></td></tr></table>
-</div>
-</div>
+      <h1 id="docker-redis-宿主机不能访问">docker redis 宿主机不能访问</h1>
+<p>按照https://redis.io/download 下载并编译redis后
+构建redis镜像，开放6379端口并设置密码，在容器内使用./redis-cli能够访问，在宿主机一直不能连接。同样方式开放zookeeper的2181端口并无问题。排除端口映射的问题，网上搜索根据https://blog.csdn.net/myminner/article/details/79060264 中指出了在默认的redis.conf中bind只监听127.0.0.1，在其后加入容器ip即可.之后直接使用./redis-server &amp;启动未带配置文件参数。在宿主机访问发现提示</p>
+<pre><code>(error) DENIED Redis is running in protected mode because protected mode is enabled, no bind address was specified, no authentication password is requested to clients. In this mode connections are only accepted from the loopback interface. If you want to connect from external computers to Redis you may adopt one of the following solutions: 1) Just disable protected mode sending the command 'CONFIG SET protected-mode no' from the loopback interface by connecting to Redis from the same host the server is running, however MAKE SURE Redis is not publicly accessible from internet if you do so. Use CONFIG REWRITE to make this change permanent. 2) Alternatively you can just disable the protected mode by editing the Redis configuration file, and setting the protected mode option to 'no', and then restarting the server. 3) If you started the server manually just for testing, restart it with the '--protected-mode no' option. 4) Setup a bind address or an authentication password. NOTE: You only need to do one of the above things in order for the server to start accepting connections from the outside.
+</code></pre>
 <p>再参考bind官方说明</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># By default, if no &#34;bind&#34; configuration directive is specified, Redis listens
+<pre><code># By default, if no &quot;bind&quot; configuration directive is specified, Redis listens
 # for connections from all the network interfaces available on the server.
 # It is possible to listen to just one or multiple selected interfaces using
-# the &#34;bind&#34; configuration directive, followed by one or more IP addresses.</pre></td></tr></table>
-</div>
-</div>
+# the &quot;bind&quot; configuration directive, followed by one or more IP addresses.
+</code></pre>
 <p>提示说明默认是启用了保护模式的，所以最后去除了redis.conf中的bind设置（宿主机做好防火墙配置），但是保留了requirepass这样宿主机即可正常通过./redis-cli链接之后，auth 密码即可</p>
 
     </div>
@@ -215,7 +197,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-05-31 14:38:33 \x2b0800 CST',
+        id: '2018-05-31 14:38:33 \u002b0800 CST',
         title: 'docker redis宿主机不能访问',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -227,6 +209,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -257,13 +243,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -274,7 +257,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

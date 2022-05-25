@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="cr6588" /><meta name="description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube 1 2 3 4 5 6" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="cr6588" /><meta name="description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube [root@cr6588 data]# minikube start Starting local" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AD%A6%E4%B9%A0/" />
@@ -34,31 +34,25 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Kubernetes学习" />
-<meta property="og:description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube 1 2 3 4 5 6" />
+<meta property="og:description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube [root@cr6588 data]# minikube start Starting local" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AD%A6%E4%B9%A0/" />
-<meta property="article:published_time" content="2018-09-18T10:20:11&#43;08:00"/>
-<meta property="article:modified_time" content="2018-09-18T10:20:11&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AD%A6%E4%B9%A0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-09-18T10:20:11+08:00" />
+<meta property="article:modified_time" content="2018-09-18T10:20:11+08:00" />
 
 <meta itemprop="name" content="Kubernetes学习">
-<meta itemprop="description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube 1 2 3 4 5 6">
-
-
-<meta itemprop="datePublished" content="2018-09-18T10:20:11&#43;08:00" />
-<meta itemprop="dateModified" content="2018-09-18T10:20:11&#43;08:00" />
-<meta itemprop="wordCount" content="6049">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube [root@cr6588 data]# minikube start Starting local"><meta itemprop="datePublished" content="2018-09-18T10:20:11+08:00" />
+<meta itemprop="dateModified" content="2018-09-18T10:20:11+08:00" />
+<meta itemprop="wordCount" content="5593">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes学习"/>
-<meta name="twitter:description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube 1 2 3 4 5 6"/>
+<meta name="twitter:description" content="1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube [root@cr6588 data]# minikube start Starting local"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/kubernetes/"> Kubernetes </a>
             </div>
-          <span class="more-meta"> 约 6049 字 </span>
-          <span class="more-meta"> 预计阅读 13 分钟 </span>
+          <span class="more-meta"> 约 5593 字 </span>
+          <span class="more-meta"> 预计阅读 12 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -138,85 +142,26 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-minikube-主机非虚拟安装-否则直接跳过">1.minikube(主机非虚拟安装，否则直接跳过)</a>
-<ul>
-<li><a href="#1-1-安装kubernetctl-https-github-com-kubernetes-kubernetes-blob-master-changelog-1-12-md-client-binaries">1.1 <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#client-binaries">安装kubernetctl</a></a></li>
-<li><a href="#1-3-安装virtualbox-https-www-cnblogs-com-wangshuyi-p-6927113-html">1.3 <a href="https://www.cnblogs.com/wangshuyi/p/6927113.html">安装virtualbox</a></a></li>
-<li><a href="#1-2-安装minikube-https-github-com-kubernetes-minikube-releases">1.2 <a href="https://github.com/kubernetes/minikube/releases">安装minikube</a></a></li>
-</ul></li>
-<li><a href="#2-docker安装-18-06-1-ce-3-el7">2.docker安装（18.06.1.ce-3.el7）</a></li>
-<li><a href="#3-kubeadm安装-1-12-2">3.kubeadm安装（1.12.2）</a></li>
-<li><a href="#4-dashboard安装">4.dashboard安装</a></li>
-<li><a href="#redis安装">redis安装</a></li>
-<li><a href="#部署自己的应用">部署自己的应用</a>
-<ul>
-<li><a href="#配置secret拉取私有仓库镜像">配置secret拉取私有仓库镜像</a>
-<ul>
-<li><a href="#1-将密钥加载到yaml文件">1.将密钥加载到yaml文件</a></li>
-<li><a href="#2-将secret直接加载到默认帐号中">2.将secret直接加载到默认帐号中</a></li>
-</ul></li>
-<li><a href="#启动应用后pod中容器不能通过域名访问外网">启动应用后pod中容器不能通过域名访问外网</a></li>
-<li><a href="#容器需要使用host">容器需要使用host</a></li>
-<li><a href="#statefulset应用">statefulset应用</a></li>
-</ul></li>
-<li><a href="#参考文献">参考文献</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="1-minikube-主机非虚拟安装-否则直接跳过">1.minikube(主机非虚拟安装，否则直接跳过)</h4>
-
-<h5 id="1-1-安装kubernetctl-https-github-com-kubernetes-kubernetes-blob-master-changelog-1-12-md-client-binaries">1.1 <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#client-binaries">安装kubernetctl</a></h5>
-
-<h5 id="1-3-安装virtualbox-https-www-cnblogs-com-wangshuyi-p-6927113-html">1.3 <a href="https://www.cnblogs.com/wangshuyi/p/6927113.html">安装virtualbox</a></h5>
-
-<h5 id="1-2-安装minikube-https-github-com-kubernetes-minikube-releases">1.2 <a href="https://github.com/kubernetes/minikube/releases">安装minikube</a></h5>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">[root@cr6588 data]# minikube start
+      <h4 id="1minikube主机非虚拟安装否则直接跳过">1.minikube(主机非虚拟安装，否则直接跳过)</h4>
+<h5 id="11-安装kubernetctlhttpsgithubcomkuberneteskubernetesblobmasterchangelog-112mdclient-binaries">1.1 <a href="https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md#client-binaries">安装kubernetctl</a></h5>
+<h5 id="13-安装virtualboxhttpswwwcnblogscomwangshuyip6927113html">1.3 <a href="https://www.cnblogs.com/wangshuyi/p/6927113.html">安装virtualbox</a></h5>
+<h5 id="12-安装minikubehttpsgithubcomkubernetesminikubereleases">1.2 <a href="https://github.com/kubernetes/minikube/releases">安装minikube</a></h5>
+<pre><code>[root@cr6588 data]# minikube start
 Starting local Kubernetes v1.10.0 cluster...
 Starting VM...
 E1113 10:59:55.111232    2586 start.go:168] Error starting host: Error creating host: Error executing step: Running precreate checks.
-: We support Virtualbox starting with version 5. Your VirtualBox install is &#34;WARNING: The vboxdrv kernel module is not loaded. Either there is no module\n         available for the current kernel (3.10.0-862.el7.x86_64) or it failed to\n         load. Please recompile the kernel module and install it by\n\n           sudo /sbin/vboxconfig\n\n         You will not be able to start VMs until this problem is fixed.\n5.2.22r126460&#34;. Please upgrade at https://www.virtualbox.org.
+: We support Virtualbox starting with version 5. Your VirtualBox install is &quot;WARNING: The vboxdrv kernel module is not loaded. Either there is no module\n         available for the current kernel (3.10.0-862.el7.x86_64) or it failed to\n         load. Please recompile the kernel module and install it by\n\n           sudo /sbin/vboxconfig\n\n         You will not be able to start VMs until this problem is fixed.\n5.2.22r126460&quot;. Please upgrade at https://www.virtualbox.org.
 
 /sbin/vboxconfig
 yum install gcc  kernel-devel
@@ -228,51 +173,17 @@ cd /usr/src/kernels/
 
 #yum remove kernel-devel
 #virtualbox需要本机kernel-devel对应的版本
-yum install &#34;kernel-devel-uname-r == $(uname -r)&#34;
+yum install &quot;kernel-devel-uname-r == $(uname -r)&quot;
 
 #没有开启虚拟化
 [root@cr6588 kernels]# minikube start
 Starting local Kubernetes v1.10.0 cluster...
 Starting VM...
 E1113 14:15:48.202789    3254 start.go:168] Error starting host: Error creating host: Error executing step: Running precreate checks.
-: This computer doesn&#39;t have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory.</pre></td></tr></table>
-</div>
-</div>
-<h4 id="2-docker安装-18-06-1-ce-3-el7">2.docker安装（18.06.1.ce-3.el7）</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma"># 安装依赖包
+: This computer doesn't have VT-X/AMD-v enabled. Enabling it in the BIOS is mandatory.
+</code></pre>
+<h4 id="2docker安装18061ce-3el7">2.docker安装（18.06.1.ce-3.el7）</h4>
+<pre><code># 安装依赖包
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
 # 添加Docker软件包源
@@ -289,43 +200,28 @@ yum makecache fast
 yum install docker-ce
 
 #NO.2 指定版本安装
-yum list docker-ce --showduplicates|sort -r  
+yum list docker-ce --showduplicates|sort -r
 yum install docker-ce-18.06.1.ce-3.el7
 #启动并加入服务
 systemctl start docker &amp;&amp; systemctl enable docker
-#设置私有registry
-vi /etc/docker/daemon.json
+#设置私有registry，cgroupdriver,日志
+cat &gt; /etc/docker/daemon.json &lt;&lt;EOF
 {
-    &#34;registry-mirrors&#34;: [&#34;https://xxx.com&#34;],
-    &#34;insecure-registries&#34; : [&#34;ip:5000&#34;, &#34;xxxxxx.xx.cn:5000&#34;]
+  &quot;registry-mirrors&quot;: [&quot;https://xxx.com&quot;],
+  &quot;insecure-registries&quot; : [&quot;ip:5000&quot;, &quot;xxxxxx.xx.cn:5000&quot;]
+  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],
+  &quot;log-driver&quot;: &quot;json-file&quot;,
+  &quot;log-opts&quot;: {
+    &quot;max-size&quot;: &quot;100m&quot;
+  },
+  &quot;storage-driver&quot;: &quot;overlay2&quot;
 }
+EOF
 #重启生效
-systemctl restart docker</pre></td></tr></table>
-</div>
-</div>
-<h4 id="3-kubeadm安装-1-12-2">3.kubeadm安装（1.12.2）</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#修改主机名称
+systemctl restart docker
+</code></pre>
+<h4 id="3kubeadm安装1122">3.kubeadm安装（1.12.2）</h4>
+<pre><code>#修改主机名称
 hostnamectl set-hostname   localhost.localdomain name
 #关闭swap
 swapoff -a
@@ -334,69 +230,27 @@ vi /etc/fstab
 
 systemctl stop firewalld
 setenforce 0
-sed -i &#39;s/^SELINUX=enforcing$/SELINUX=permissive/&#39; /etc/selinux/config
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 加载ipvs相关模块以及安装依赖关系
 yum install ipset ipvsadm conntrack-tools.x86_64 -y
 
 modprobe ip_vs_rr
 modprobe ip_vs_wrr
 modprobe ip_vs_sh
-modprobe ip_vs</pre></td></tr></table>
-</div>
-</div>
+modprobe ip_vs
+</code></pre>
 <blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">重启会失效，参考<span class="o">[</span>Linux启动自动加载模块<span class="o">](</span>https://www.jianshu.com/p/69e0430a7d20<span class="o">)</span>在/etc/sysconfig/modules/建立ipvs.modules并写入
-<span class="cp">#!/bin/bash
-</span><span class="cp"></span>modprobe ip_vs_rr
+<pre><code>重启会失效，参考[Linux启动自动加载模块](https://www.jianshu.com/p/69e0430a7d20)在/etc/sysconfig/modules/建立ipvs.modules并写入
+#!/bin/bash
+modprobe ip_vs_rr
 modprobe ip_vs_wrr
 modprobe ip_vs_sh
 modprobe ip_vs
 给ipvs.modules加入执行权限
-chmod +x ipvs.modules</pre></td></tr></table>
-</div>
-</div></blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">查看是否成功
+chmod +x ipvs.modules
+</code></pre>
+</blockquote>
+<pre><code>查看是否成功
 lsmod| grep ip_vs
 2、开启内核转发，并使之生效，末尾EOF前不要有空格
 cat &lt;&lt;EOF &gt;  /etc/sysctl.d/k8s.conf
@@ -420,79 +274,13 @@ EOF
 yum install kubelet-1.12.2-0 kubeadm-1.12.2-0 kubectl-1.12.2-0
 #yum install kubelet kubeadm kubectl
 systemctl enable kubelet &amp;&amp; systemctl start kubelet
-# Run kubeadm config images pull prior to kubeadm init to verify connectivity to gcr.io registries.验证是否能拉取相关镜像，若不能则找到相关镜像库镜像拉取</pre></td></tr></table>
-</div>
-</div>
+# Run kubeadm config images pull prior to kubeadm init to verify connectivity to gcr.io registries.验证是否能拉取相关镜像，若不能则找到相关镜像库镜像拉取
+</code></pre>
 <blockquote>
-<p>1.17可以增加image-repository参数，修改默认镜像来源，不再从私有库，直接从<a href="http://mirror.azure.cn/help/gcr-proxy-cache.html">微软镜像库</a>拉取
-kubeadm init &ndash;image-repository=gcr.azk8s.cn/google_containers</p>
+<p>1.17可以增加image-repository参数，修改默认镜像来源，不再从私有库，直接从<a href="registry.cn-hangzhou.aliyuncs.com/google_containers">阿里镜像库</a>拉取
+kubeadm init &ndash;image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">kubeadm config images pull
-#从私有库拉取相关镜像
-docker login www.xxxx.cn:5000
-#输入相用户密码
-docker pull www.xxxx.cn:5000/k8s.gcr.io/kube-controller-manager:v1.12.2
-docker pull www.xxxx.cn:5000/k8s.gcr.io/kube-apiserver:v1.12.2
-docker pull www.xxxx.cn:5000/k8s.gcr.io/kube-scheduler:v1.12.2
-docker pull www.xxxx.cn:5000/k8s.gcr.io/etcd:3.2.24
-docker pull www.xxxx.cn:5000/k8s.gcr.io/coredns:1.2.2
-docker pull www.xxxx.cn:5000/k8s.gcr.io/pause:3.1
-docker pull www.xxxx.cn:5000/k8s.gcr.io/kube-proxy:v1.12.2
-
-docker tag www.xxxx.cn:5000/k8s.gcr.io/kube-controller-manager:v1.12.2 k8s.gcr.io/kube-controller-manager:v1.12.2
-docker tag www.xxxx.cn:5000/k8s.gcr.io/kube-apiserver:v1.12.2 k8s.gcr.io/kube-apiserver:v1.12.2 
-docker tag www.xxxx.cn:5000/k8s.gcr.io/kube-scheduler:v1.12.2 k8s.gcr.io/kube-scheduler:v1.12.2
-docker tag www.xxxx.cn:5000/k8s.gcr.io/etcd:3.2.24 k8s.gcr.io/etcd:3.2.24
-docker tag www.xxxx.cn:5000/k8s.gcr.io/coredns:1.2.2 k8s.gcr.io/coredns:1.2.2
-docker tag www.xxxx.cn:5000/k8s.gcr.io/pause:3.1 k8s.gcr.io/pause:3.1
-docker tag www.xxxx.cn:5000/k8s.gcr.io/kube-proxy:v1.12.2 k8s.gcr.io/kube-proxy:v1.12.2
-#确认相关镜像在主从上都存在，否则有可能后面虽然加入节点成功，但一直是notready状态
+<pre><code>kubeadm init xxx --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
 #master节点执行，network使用flannel前置条件.若需要制定版本则加入--kubernetes-version=v1.12.2
 kubeadm init --pod-network-cidr=10.244.0.0/16
 #master节点执行，network使用calico前置条件.若需要制定版本则加入
@@ -514,43 +302,18 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 sysctl net.bridge.bridge-nf-call-iptables=1
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 #使用calico,当含有master,node节点时不能正常启动，参照提示的错误实例解决
-kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml</pre></td></tr></table>
-</div>
-</div>
+kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+</code></pre>
 <p>kubectl apply -f <a href="https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml">https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml</a>
-    #使用weave net（支持NetworkPolicy,但重启防火墙时会失效，需要
-    systemctl daemon-reload
-    systemctl restart kubelet
-    systemctl restart docker生效）
-    kubectl apply -f &ldquo;<a href="https://cloud.weave.works/k8s/net?k8s-version=$(kubectl">https://cloud.weave.works/k8s/net?k8s-version=$(kubectl</a> version | base64 | tr -d &lsquo;\n&rsquo;)&rdquo;
-    #查看状态
-    kubectl get pods &ndash;all-namespaces</p>
-
+#使用weave net（支持NetworkPolicy,但重启防火墙时会失效，需要
+systemctl daemon-reload
+systemctl restart kubelet
+systemctl restart docker生效）
+kubectl apply -f &ldquo;<a href="https://cloud.weave.works/k8s/net?k8s-version=$(kubectl">https://cloud.weave.works/k8s/net?k8s-version=$(kubectl</a> version | base64 | tr -d &lsquo;\n&rsquo;)&rdquo;
+#查看状态
+kubectl get pods &ndash;all-namespaces</p>
 <blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">...failed to set bridge addr: &#34;cni0&#34; already has an IP address different from 10.244.1.1/24
+<pre><code>...failed to set bridge addr: &quot;cni0&quot; already has an IP address different from 10.244.1.1/24
 删除cni0网卡（ip link delete cni0）可以解决，但为了预防以后莫名错误，完全重置一次，参见https://github.com/kubernetes/kubernetes/issues/39557
 kubeadm reset
 systemctl stop kubelet
@@ -566,71 +329,42 @@ ip link delete flannel.1
 ifconfig docker0 up
 systemctl start docker
 systemctl start kubelet
-
-...Readiness probe failed: calico/node is not ready: BIRD is not ready: BGP not established with 10.192.0.1
-calico健康检查出错，calico的ip自动检测给了一个错误IP10.192.0.1，在将https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml下载下来，在calico-node的env加入IP_AUTODETECTION_METHOD,其eth.*视其节点间通信的网卡决定</pre></td></tr></table>
-</div>
-</div></blockquote>
+</code></pre>
+</blockquote>
+<blockquote>
+<pre><code>...Readiness probe failed: calico/node is not ready: BIRD is not ready: BGP not established with 10.192.0.1
+calico健康检查出错，calico的ip自动检测给了一个错误IP10.192.0.1，在将https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml下载下来，在calico-node的env加入IP_AUTODETECTION_METHOD,其eth.*视其节点间通信的网卡决定
+</code></pre>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">...
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">...
             - name: IP
               value: &#34;autodetect&#34;
             - name: IP_AUTODETECTION_METHOD
               value: &#34;interface=eth.*&#34;
-...</pre></td></tr></table>
+...
+</code></pre></td></tr></table>
 </div>
-</div>
-<blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">calico容器无法ping通域名，多方查找未果。参照[calico网络模型中的路由原理](https://segmentfault.com/a/1190000016565044)禁用ipip，找到CALICO_IPV4POOL_IPIP将其value设置成Off或者never解决。之后再其官网找到关于此字段说明[environment-variables](https://docs.projectcalico.org/v3.5/reference/node/configuration#environment-variables)</pre></td></tr></table>
-</div>
-</div></blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#主节点向指定ip开放相关端口
-firewall-cmd --permanent --add-rich-rule=&#34;rule family=&#34;ipv4&#34; source address=&#34;www.xxxx.cn&#34; port protocol=&#34;tcp&#34; port=&#34;6443&#34; accept&#34;
-firewall-cmd --permanent --add-rich-rule=&#34;rule family=&#34;ipv4&#34; source address=&#34;www.xxxx.cn&#34; port protocol=&#34;tcp&#34; port=&#34;2379-2380&#34; accept&#34;
-firewall-cmd --permanent --add-rich-rule=&#34;rule family=&#34;ipv4&#34; source address=&#34;www.xxxx.cn&#34; port protocol=&#34;tcp&#34; port=&#34;10250-10252&#34; accept&#34;
+</div><blockquote>
+<pre><code>calico容器无法ping通域名，多方查找未果。参照[calico网络模型中的路由原理](https://segmentfault.com/a/1190000016565044)禁用ipip，找到CALICO_IPV4POOL_IPIP将其value设置成Off或者never解决。之后再其官网找到关于此字段说明[environment-variables](https://docs.projectcalico.org/v3.5/reference/node/configuration#environment-variables)
+</code></pre>
+</blockquote>
+<pre><code>#主节点向指定ip开放相关端口
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;www.xxxx.cn&quot; port protocol=&quot;tcp&quot; port=&quot;6443&quot; accept&quot;
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;www.xxxx.cn&quot; port protocol=&quot;tcp&quot; port=&quot;2379-2380&quot; accept&quot;
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;www.xxxx.cn&quot; port protocol=&quot;tcp&quot; port=&quot;10250-10252&quot; accept&quot;
 #从节点向指定ip开放相关端口
-firewall-cmd --permanent --add-rich-rule=&#34;rule family=&#34;ipv4&#34; source address=&#34;www.xxxx.cn&#34; port protocol=&#34;tcp&#34; port=&#34;10250&#34; accept&#34;
-firewall-cmd --permanent --add-rich-rule=&#34;rule family=&#34;ipv4&#34; source address=&#34;www.xxxx.cn&#34; port protocol=&#34;tcp&#34; port=&#34;30000-32767&#34; accept&#34;
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;www.xxxx.cn&quot; port protocol=&quot;tcp&quot; port=&quot;10250&quot; accept&quot;
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;www.xxxx.cn&quot; port protocol=&quot;tcp&quot; port=&quot;30000-32767&quot; accept&quot;
 #默认主节点不会编排容器，若希望启用则运行
 kubectl taint nodes --all node-role.kubernetes.io/master-
 #从节点加入主节点
@@ -643,95 +377,16 @@ kubeadm join xxx:6443 --token gd7nxxxxxx --discovery-token-ca-cert-hash sha256:x
 #token有效期24小时，过期之后用创建token，查找hash值即可
 kubeadm token create
 kubeadm token list
-openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed &#39;s/^.* //&#39;
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2&gt;/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //'
 #主节点查看节点信息
-kubectl get nodes</pre></td></tr></table>
-</div>
-</div>
+kubectl get nodes
+</code></pre>
 <blockquote>
 <p>init之后如果关机重启kubelet正常的话，root用户若使用kubelctl提示无法连接则
 export KUBECONFIG=/etc/kubernetes/admin.conf</p>
 </blockquote>
-
-<h4 id="4-dashboard安装">4.dashboard安装</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#由于执行过一次最简安装后无法访问本地，查看kubectl get pods --all-namespaces
+<h4 id="4dashboard安装">4.dashboard安装</h4>
+<pre><code>#由于执行过一次最简安装后无法访问本地，查看kubectl get pods --all-namespaces
 kube-system   kube-scheduler-localhost.localdomain            1/1     Running             0          91m
 kube-system   kubernetes-dashboard-77fd78f978-4vzk2           0/1     ContainerCreating   0          13m
 一直处于ContainerCreating中，于是删除,又通过自检证书方式重建
@@ -739,7 +394,7 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/master/
 #创建自已的证书
 openssl req \
 -newkey rsa:4096 -nodes -sha256 -keyout certs/dashboard.key \
--x509 -days 365 -out certs/dashboard.crt
+-x509 -days 3650 -out certs/dashboard.crt
 
 kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kube-system
 
@@ -769,7 +424,6 @@ kubernetes-dashboard   NodePort   10.109.126.132   &lt;none&gt;        443:31474
 ![x](/images/k8s_login.png)
 #创建用户
 cat &lt;&lt;EOF &gt; dashboard-adminuser.yaml
-
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -792,65 +446,50 @@ EOF
 
 kubectl apply -f dashboard-adminuser.yaml
 #查找，复制admin-user的token，登录即可
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk &#39;{print $1}&#39;)
-kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk &#39;{print $1}&#39;)
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep admin-user | awk '{print $1}')
 
 #查看日志
 kubectl describe pod kubernetes-dashboard-77fd78f978-4vzk2无法查看描述必须加上--namespace=kube-system
 kubectl describe pod kubernetes-dashboard-77fd78f978-4vzk2 --namespace=kube-system
 kubectl logs kubernetes-dashboard-77fd78f978-4vzk2 -n kube-system
 
-...failed to set bridge addr: &#34;cni0&#34; already has an IP address different from 10.244.1.1/24
+...failed to set bridge addr: &quot;cni0&quot; already has an IP address different from 10.244.1.1/24
 
 kubectl get pods --all-namespaces
-kubectl get service kubernetes-dashboard -n kube-system</pre></td></tr></table>
-</div>
-</div>
+kubectl get service kubernetes-dashboard -n kube-system
+</code></pre>
 <blockquote>
 <p>使用flannel启用防火墙后dashboard可能无法安装，需要开启
-    firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
+firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
 并开启相关端口，参照<a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/">install-kubeadm</a>开启
 使用calico必须启用防火墙，需要开启
-    firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
+firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
 并开启相关端口，参照<a href="https://docs.projectcalico.org/v3.3/getting-started/kubernetes/requirements">System requirements</a>开启
 5473需要开启否则应用内部无法通过服务名:端口访问
 使用weave-net必须启用防火墙，需要开启
-    firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
+firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装
 并开启相关端口，参照<a href="https://www.weave.works/docs/net/latest/faq/">FAQ</a>开启
 TCP 6783-6784 and UDP 6783-6784需要开启否则应用内部通过服务名:端口访问会时快时慢</p>
 </blockquote>
-
 <h4 id="redis安装">redis安装</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">参见docker hub中[redis](https://hub.docker.com/_/redis/)官方镜像文档说明，直接在dashboard上进行图形化安装</pre></td></tr></table>
-</div>
-</div>
+<pre><code>参见docker hub中[redis](https://hub.docker.com/_/redis/)官方镜像文档说明，直接在dashboard上进行图形化安装
+</code></pre>
 <blockquote>
 <p>安装后查看服务的yaml文档中的端口发现
-        &ldquo;protocol&rdquo;: &ldquo;TCP&rdquo;,
-        &ldquo;port&rdquo;: 6388,
-        &ldquo;targetPort&rdquo;: 6379,
-        &ldquo;nodePort&rdquo;: 31783
+&ldquo;protocol&rdquo;: &ldquo;TCP&rdquo;,
+&ldquo;port&rdquo;: 6388,
+&ldquo;targetPort&rdquo;: 6379,
+&ldquo;nodePort&rdquo;: 31783
 其中port是集群内部的端口，31783是节点以及外部可以访问的端口，6388是pod的端口，也就是若外网链接访问时首先经过31783进入然后经过6388最后指向6379。使用kubectl expose deployment/redis &ndash;type=&ldquo;NodePort&rdquo; &ndash;port 6379创建service时，port与targetPort都会是6379</p>
 </blockquote>
-
 <p>图形化安装之后删除,创建redis持久化安装</p>
+<pre><code>#创建pv与pvc
+vi redis-pv.yaml
+</code></pre>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#创建pv与pvc
-vi redis-pv.yaml</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -876,9 +515,9 @@ vi redis-pv.yaml</pre></td></tr></table>
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kind: PersistentVolume
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: mysql-pv-volume
@@ -903,184 +542,91 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi</pre></td></tr></table>
+      storage: 20Gi
+</code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">kubectl create -f redis-pv.yaml
+</div><pre><code>kubectl create -f redis-pv.yaml
 #会在从节点生成/data/redis-data目录
 
 #创建deployment
 {
-  &#34;kind&#34;: &#34;Deployment&#34;,
-  &#34;apiVersion&#34;: &#34;extensions/v1beta1&#34;,
-  &#34;metadata&#34;: {
-    &#34;name&#34;: &#34;redis-persistent&#34;,
-    &#34;namespace&#34;: &#34;default&#34;,
-    &#34;labels&#34;: {
-      &#34;k8s-app&#34;: &#34;redis-persistent&#34;
-    }
+  &quot;kind&quot;: &quot;Deployment&quot;,
+  &quot;apiVersion&quot;: &quot;extensions/v1beta1&quot;,
+  &quot;metadata&quot;: {
+	&quot;name&quot;: &quot;redis-persistent&quot;,
+	&quot;namespace&quot;: &quot;default&quot;,
+	&quot;labels&quot;: {
+      &quot;k8s-app&quot;: &quot;redis-persistent&quot;
+	}
   },
-  &#34;spec&#34;: {
-    &#34;replicas&#34;: 1,
-    &#34;selector&#34;: {
-      &#34;matchLabels&#34;: {
-        &#34;k8s-app&#34;: &#34;redis-persistent&#34;
+  &quot;spec&quot;: {
+	&quot;replicas&quot;: 1,
+	&quot;selector&quot;: {
+      &quot;matchLabels&quot;: {
+        &quot;k8s-app&quot;: &quot;redis-persistent&quot;
       }
-    },
-    &#34;template&#34;: {
-      &#34;metadata&#34;: {
-        &#34;name&#34;: &#34;redis-persistent&#34;,
-        &#34;labels&#34;: {
-          &#34;k8s-app&#34;: &#34;redis-persistent&#34;
+	},
+	&quot;template&quot;: {
+      &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;redis-persistent&quot;,
+        &quot;labels&quot;: {
+          &quot;k8s-app&quot;: &quot;redis-persistent&quot;
         }
       },
-      &#34;spec&#34;: {
-        &#34;containers&#34;: [
+      &quot;spec&quot;: {
+        &quot;containers&quot;: [
           {
-            &#34;name&#34;: &#34;redis-persistent&#34;,
-            &#34;image&#34;: &#34;redis:5&#34;,
-            &#34;command&#34;: [
-              &#34;redis-server&#34;
+            &quot;name&quot;: &quot;redis-persistent&quot;,
+            &quot;image&quot;: &quot;redis:5&quot;,
+            &quot;command&quot;: [
+              &quot;redis-server&quot;
             ],
-            &#34;args&#34;: [
-              &#34;--appendonly yes&#34;
+            &quot;args&quot;: [
+              &quot;--appendonly yes&quot;
             ],
-            &#34;volumeMounts&#34;: [
+            &quot;volumeMounts&quot;: [
               {
-                &#34;name&#34;: &#34;redis-persistent-storage&#34;,
-                &#34;mountPath&#34;: &#34;/data&#34;
+                &quot;name&quot;: &quot;redis-persistent-storage&quot;,
+                &quot;mountPath&quot;: &quot;/data&quot;
               }
             ]
           }
         ],
-        &#34;volumes&#34;: [
+        &quot;volumes&quot;: [
           {
-            &#34;name&#34;: &#34;redis-persistent-storage&#34;,
-            &#34;persistentVolumeClaim&#34;: {
-              &#34;claimName&#34;: &#34;redis-pv-claim&#34;
+            &quot;name&quot;: &quot;redis-persistent-storage&quot;,
+            &quot;persistentVolumeClaim&quot;: {
+              &quot;claimName&quot;: &quot;redis-pv-claim&quot;
             }
           }
         ]
       }
-    }
+	}
   }
 }
-#当要使用自己的redis.conf时将自己的conf文件复制到从节点/data/redis-data下，args增加/data/xxx.conf即可</pre></td></tr></table>
-</div>
-</div>
+#当要使用自己的redis.conf时将自己的conf文件复制到从节点/data/redis-data下，args增加/data/xxx.conf即可
+</code></pre>
 <blockquote>
 <p>挂载磁盘时注意路径，不要将磁盘挂载到镜像本身就有的路径，例如/data中本身含有应用相关文件，然后又挂载到/data时，会覆盖镜像已有的data</p>
 </blockquote>
-
 <h4 id="部署自己的应用">部署自己的应用</h4>
-
 <p>在创建好自己的镜像并上传上去后，通过dashboard安装时发现镜像始终无法拉取。但是通过docker直接拉取私有镜像时可以的。搜寻一番之后发现是k8s拉取私有镜像时需要docker相关账号信息。</p>
-
 <h5 id="配置secret拉取私有仓库镜像">配置secret拉取私有仓库镜像</h5>
-
 <p>kubectl create secret docker-registry registrysecret &ndash;docker-server=ip或域名:端口号  &ndash;docker-username=admin &ndash;docker-password=xxxx
 有2种方式加载secret</p>
-
-<h6 id="1-将密钥加载到yaml文件">1.将密钥加载到yaml文件</h6>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">apiVersion: v1
+<h6 id="1将密钥加载到yaml文件">1.将密钥加载到yaml文件</h6>
+<pre><code>apiVersion: v1
 kind: ReplicationController
 metadata:
   name: webapp
 spec:
   replicas: 2
   template:
-    metadata:
+	metadata:
       name: webapp
       labels:
         app: webapp
-    spec:
+	spec:
       containers:
       - name: webapp
         imagePullPolicy: Always
@@ -1088,122 +634,63 @@ spec:
         ports:
           - containerPort: 80
       imagePullSecrets:
-      - name: registrysecret</pre></td></tr></table>
-</div>
-</div>
-<h6 id="2-将secret直接加载到默认帐号中">2.将secret直接加载到默认帐号中</h6>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">kubectl patch serviceaccount default -p &#39;{&#34;imagePullSecrets&#34;: [{&#34;name&#34;: &#34;registrysecret&#34;}]}&#39;
+      - name: registrysecret
+</code></pre>
+<h6 id="2将secret直接加载到默认帐号中">2.将secret直接加载到默认帐号中</h6>
+<pre><code>kubectl patch serviceaccount default -p '{&quot;imagePullSecrets&quot;: [{&quot;name&quot;: &quot;registrysecret&quot;}]}'
 #查看帐号配置
 kubectl get serviceaccounts default -o yaml
-#在dashboard更改下版本或者删除重建部署即可</pre></td></tr></table>
-</div>
-</div>
+#在dashboard更改下版本或者删除重建部署即可
+</code></pre>
 <h5 id="启动应用后pod中容器不能通过域名访问外网">启动应用后pod中容器不能通过域名访问外网</h5>
-
 <p>#进入容器查看
-  kubectl get pods
-  kubectl kubectl exec -it pod名称 &ndash; /bin/bash
-  #退出
-  crtl+p &amp;&amp; crtl+q</p>
-
+kubectl get pods
+kubectl kubectl exec -it pod名称 &ndash; /bin/bash
+#退出
+crtl+p &amp;&amp; crtl+q</p>
 <blockquote>
 <p>如果Pod具有多个Container，请使用&ndash;container或-c在kubectl exec命令中指定Container 。例如，假设您有一个名为my-pod的Pod，而Pod有两个名为main-app和helper-app的容器。以下命令将打开主应用程序Container的shell。</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#交互模式进入容器
-kubectl exec -it my-pod --container main-app -- /bin/bash</pre></td></tr></table>
-</div>
-</div>
-<p>网上搜索一番发现在<a href="https://github.com/kubernetes/kubernetes/issues/57096#issuecomment-351029125中看到是防火墙未开启udp端口的问题，但具体是哪一个端口不能确定，经过同事之前更改dns服务器之后就能在容器中ping通，应该是dns问题，在容器中更改/etc/resolv.conf之后发现可以ping通，但不能每次容器都要去更改吧，也不应该这样做，所以又寻找其它方法，又搜索了很久发现很多人都遇到过这个问题，一部分是通过sysctl">https://github.com/kubernetes/kubernetes/issues/57096#issuecomment-351029125中看到是防火墙未开启udp端口的问题，但具体是哪一个端口不能确定，经过同事之前更改dns服务器之后就能在容器中ping通，应该是dns问题，在容器中更改/etc/resolv.conf之后发现可以ping通，但不能每次容器都要去更改吧，也不应该这样做，所以又寻找其它方法，又搜索了很久发现很多人都遇到过这个问题，一部分是通过sysctl</a> net.bridge.bridge-nf-call-iptables=1可以恢复，但测试之后未能成功。在搜索过程看到一些处理这个问题的过程是弄清ping之后请求的走向，通过查看防火墙日志确定在哪一过程被拦截，但这方面积累比较薄弱，且dns的容器无法进入，于是又继续查找。之后把防火墙关了重启服务器发现可以ping通,kubectl exec my-pod ping www.baidu.com,认为是防火墙端口的问题，而dns是coredns是通过安装flanel带来的，最后去flanel的<a href="https://github.com/coreos/flannel/blob/master/Documentation/troubleshooting.md#firewalls">Troubleshooting</a>的中firewalls指出</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">When using udp backend, flannel uses UDP port 8285 for sending encapsulated packets.
-When using vxlan backend, kernel uses UDP port 8472 for sending encapsulated packets.</pre></td></tr></table>
-</div>
-</div>
+<pre><code>#交互模式进入容器
+kubectl exec -it my-pod --container main-app -- /bin/bash
+</code></pre>
+<p>网上搜索一番发现在https://github.com/kubernetes/kubernetes/issues/57096#issuecomment-351029125中看到是防火墙未开启udp端口的问题，但具体是哪一个端口不能确定，经过同事之前更改dns服务器之后就能在容器中ping通，应该是dns问题，在容器中更改/etc/resolv.conf之后发现可以ping通，但不能每次容器都要去更改吧，也不应该这样做，所以又寻找其它方法，又搜索了很久发现很多人都遇到过这个问题，一部分是通过sysctl net.bridge.bridge-nf-call-iptables=1可以恢复，但测试之后未能成功。在搜索过程看到一些处理这个问题的过程是弄清ping之后请求的走向，通过查看防火墙日志确定在哪一过程被拦截，但这方面积累比较薄弱，且dns的容器无法进入，于是又继续查找。之后把防火墙关了重启服务器发现可以ping通,kubectl exec my-pod ping <a href="http://www.baidu.com">www.baidu.com</a>,认为是防火墙端口的问题，而dns是coredns是通过安装flanel带来的，最后去flanel的<a href="https://github.com/coreos/flannel/blob/master/Documentation/troubleshooting.md#firewalls">Troubleshooting</a>的中firewalls指出</p>
+<pre><code>When using udp backend, flannel uses UDP port 8285 for sending encapsulated packets.
+When using vxlan backend, kernel uses UDP port 8472 for sending encapsulated packets.
+</code></pre>
 <p>但不能确定是哪一个就一个个测试，最终发现在节点启用8472/udp后，在master执行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">systemctl daemon-reload
+<pre><code>systemctl daemon-reload
 systemctl restart kubelet
-systemctl restart docker</pre></td></tr></table>
-</div>
-</div>
-<p>master再kubectl exec my-pod ping www.baidu.com就能ping通，但速度较慢，在master也启用8472/udp后ping的速度明显加快</p>
-
+systemctl restart docker
+</code></pre>
+<p>master再kubectl exec my-pod ping <a href="http://www.baidu.com">www.baidu.com</a>就能ping通，但速度较慢，在master也启用8472/udp后ping的速度明显加快</p>
 <blockquote>
 <p>回顾整个过程可以发现在最初是找对方向的，但之后又跑偏了，说明对k8s的网络管理方面理解的很薄弱，然后对centos7如何监控请求走向还是不会，待提高的地方很多。</p>
 </blockquote>
-
 <h5 id="容器需要使用host">容器需要使用host</h5>
-
 <p>在只有docker时可以通过docker run时加入&ndash;add-host=&ldquo;localhost example.com&rdquo;:127.0.0.1，而在k8s时可以在pod的<a href="https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/">spec.hostAliases</a>实现。eg:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">...
+<pre><code>...
     spec:
   hostAliases:
-  - ip: &#34;10.101.4.13&#34;
+  - ip: &quot;10.101.4.13&quot;
     hostnames:
-    - &#34;xxx.xx.xx&#34;
-  - ip: &#34;xxx.xx.xx.xxx&#34;
+    - &quot;xxx.xx.xx&quot;
+  - ip: &quot;xxx.xx.xx.xxx&quot;
     hostnames:
-    - &#34;user.xx.xxx.cn&#34;
-  - ip: &#34;118.xxx.xx.xxx&#34;
+    - &quot;user.xx.xxx.cn&quot;
+  - ip: &quot;118.xxx.xx.xxx&quot;
     hostnames:
-    - &#34;picture.xxx.cn&#34;
-    - &#34;static.xxx.cn&#34;
+    - &quot;picture.xxx.cn&quot;
+    - &quot;static.xxx.cn&quot;
   containers:
   - name: ...
-  ...</pre></td></tr></table>
-</div>
-</div>
+  ...
+</code></pre>
 <h5 id="statefulset应用">statefulset应用</h5>
-
 <p>有状态应用于headless service搭配，它的主要特点是ClusterIP为None,以一个zookeeper应用为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1261,9 +748,9 @@ systemctl restart docker</pre></td></tr></table>
 </span><span class="lnt">56
 </span><span class="lnt">57
 </span><span class="lnt">58
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">kind: PersistentVolume
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: zookeeper-pv-0
@@ -1320,13 +807,11 @@ spec:
       accessModes: [ &#34;ReadWriteOnce&#34; ]
       resources:
         requests:
-          storage: 1Gi</pre></td></tr></table>
+          storage: 1Gi
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>由于未配置动态存储，先设置一个hostPath类型的pv，然后设置headless service,最后设置StatefulSet，其中volumeClaimTemplates中描述了pvc，会查询符合要求的pv后自动创建pvc,在StatefulSet中pod与pvc会绑定，当伸缩数量为2时，需要新建pv满足</p>
-
+</div><p>由于未配置动态存储，先设置一个hostPath类型的pv，然后设置headless service,最后设置StatefulSet，其中volumeClaimTemplates中描述了pvc，会查询符合要求的pv后自动创建pvc,在StatefulSet中pod与pvc会绑定，当伸缩数量为2时，需要新建pv满足</p>
 <h4 id="参考文献">参考文献</h4>
-
 <ol>
 <li><a href="https://kubernetes.io/docs/setup/independent/install-kubeadm/">https://kubernetes.io/docs/setup/independent/install-kubeadm/</a></li>
 <li><a href="https://www.cnblogs.com/crysmile/p/9648406.html">https://www.cnblogs.com/crysmile/p/9648406.html</a></li>
@@ -1373,7 +858,7 @@ spec:
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-09-18 10:20:11 \x2b0800 CST',
+        id: '2018-09-18 10:20:11 \u002b0800 CST',
         title: 'Kubernetes学习',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -1385,6 +870,10 @@ spec:
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -1415,13 +904,10 @@ spec:
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -1432,7 +918,10 @@ spec:
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

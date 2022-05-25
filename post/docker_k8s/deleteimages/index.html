@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/docker_k8s/deleteimages/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="DeleteImages" />
 <meta property="og:description" content="定时删除多余镜像 发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像 先写一个基础脚本del" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/deleteimages/" />
-<meta property="article:published_time" content="2019-10-21T13:48:25&#43;08:00"/>
-<meta property="article:modified_time" content="2019-10-21T14:29:10&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/deleteimages/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-10-21T13:48:25+08:00" />
+<meta property="article:modified_time" content="2019-10-21T14:29:10+08:00" />
 
 <meta itemprop="name" content="DeleteImages">
-<meta itemprop="description" content="定时删除多余镜像 发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像 先写一个基础脚本del">
-
-
-<meta itemprop="datePublished" content="2019-10-21T13:48:25&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-21T14:29:10&#43;08:00" />
-<meta itemprop="wordCount" content="661">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="定时删除多余镜像 发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像 先写一个基础脚本del"><meta itemprop="datePublished" content="2019-10-21T13:48:25+08:00" />
+<meta itemprop="dateModified" content="2019-10-21T14:29:10+08:00" />
+<meta itemprop="wordCount" content="660">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="DeleteImages"/>
 <meta name="twitter:description" content="定时删除多余镜像 发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像 先写一个基础脚本del"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time"> 2019-10-21 </span>
         
-          <span class="more-meta"> 约 661 字 </span>
+          <span class="more-meta"> 约 660 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -135,52 +139,43 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#定时删除多余镜像">定时删除多余镜像</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="定时删除多余镜像">定时删除多余镜像</h1>
-
+      <h1 id="定时删除多余镜像">定时删除多余镜像</h1>
 <p>发版次数较多之后本地会产生很多镜像。之前都是人工删除，很是麻烦，所以写了一个定时任务删除来清除多余镜像</p>
-
 <p>先写一个基础脚本deleteImages.sh.由于我的镜像都是以日期时间为版本，所以排序直接以时间降序</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nv">name</span><span class="o">=</span><span class="nv">$1</span>
-docker images<span class="p">|</span>grep <span class="nv">$name</span><span class="p">|</span>awk <span class="s1">&#39;{print $1,$2}&#39;</span><span class="p">|</span>sort -t <span class="s1">&#39; &#39;</span> -k <span class="m">2</span> -r<span class="p">|</span>awk <span class="s1">&#39;NR &gt; 3 {printf &#34;%s:%s &#34;,$1,$2}&#39;</span><span class="p">|</span>xargs docker image rm</code></pre></td></tr></table>
+docker images<span class="p">|</span>grep <span class="nv">$name</span><span class="p">|</span>awk <span class="s1">&#39;{print $1,$2}&#39;</span><span class="p">|</span>sort -t <span class="s1">&#39; &#39;</span> -k <span class="m">2</span> -r<span class="p">|</span>awk <span class="s1">&#39;NR &gt; 3 {printf &#34;%s:%s &#34;,$1,$2}&#39;</span><span class="p">|</span>xargs docker image rm
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>并加入权限chmod +x deleteImages.sh</p>
-
-<p>其过程是用grep匹配name的image,之后用awk只要第1，2列，也就是image的名称与版本。然后用sort排序，-t 以空格分隔, -k 2以第2列即版本排序 -r是降序,接着再用awk只要大于第3行之后的行，且用printf(不是print)格式化输出符合镜像删除的格式（镜像名:版本），最后作为参数传给docker image rm即可。</p>
-
+</div><p>并加入权限chmod +x deleteImages.sh</p>
+<p>其过程是用grep匹配name的image,之后用awk只要第1，2列，也就是image的名称与版本。然后用sort排序，-t <code> </code>以空格分隔, -k 2以第2列即版本排序 -r是降序,接着再用awk只要大于第3行之后的行，且用printf(不是print)格式化输出符合镜像删除的格式（镜像名:版本），最后作为参数传给docker image rm即可。</p>
 <p>在实际应用中有可能传递的name会不止匹配到某一个模块，例如log有机会匹配到log，也会匹配到含有log的名称。所以有时需要进行一些排除，将上面的脚本再加一个排除参数，很容易想到使用grep -v排除，deleteImages.sh修改后如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nv">name</span><span class="o">=</span><span class="nv">$1</span>
 <span class="c1">#将name以版本降序排列，删除第3个以后的版本</span>
 <span class="c1">#$2用于排除镜像</span>
@@ -188,13 +183,14 @@ docker images<span class="p">|</span>grep <span class="nv">$name</span><span cla
     docker images<span class="p">|</span>grep <span class="nv">$name</span><span class="p">|</span>grep -v <span class="nv">$2</span> <span class="p">|</span>awk <span class="s1">&#39;{print $1,$2}&#39;</span><span class="p">|</span>sort -t <span class="s1">&#39; &#39;</span> -k <span class="m">2</span> -r<span class="p">|</span>awk <span class="s1">&#39;NR &gt; 3 {printf &#34;%s:%s &#34;,$1,$2}&#39;</span><span class="p">|</span>xargs docker image rm
 <span class="k">else</span>
     docker images<span class="p">|</span>grep <span class="nv">$name</span><span class="p">|</span>awk <span class="s1">&#39;{print $1,$2}&#39;</span><span class="p">|</span>sort -t <span class="s1">&#39; &#39;</span> -k <span class="m">2</span> -r<span class="p">|</span>awk <span class="s1">&#39;NR &gt; 3 {printf &#34;%s:%s &#34;,$1,$2}&#39;</span><span class="p">|</span>xargs docker image rm
-<span class="k">fi</span></code></pre></td></tr></table>
+<span class="k">fi</span>
+
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>若有多个模块镜像需要删除，则另写一个脚本deleteErpImages，在此脚本指定调用deleteImages.sh即可，类似如下</p>
+</div><p>若有多个模块镜像需要删除，则另写一个脚本deleteErpImages，在此脚本指定调用deleteImages.sh即可，类似如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -202,18 +198,24 @@ docker images<span class="p">|</span>grep <span class="nv">$name</span><span cla
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>./deleteImages.sh erp/erp-admin
 ./deleteImages.sh erp/erp-logistics
 <span class="c1">#erp-log删除时排除logistics</span>
 ./deleteImages.sh erp/erp-log logistics
-....</code></pre></td></tr></table>
+....
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>最后在crontab加入定时任务
-crontab -e
-* * */1 * * ./deleteErpImages.sh
-保存即可</p>
+</div><p>最后在crontab加入定时任务
+crontab -e</p>
+<ul>
+<li>
+<ul>
+<li>*/1 * * ./deleteErpImages.sh
+保存即可</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -235,9 +237,9 @@ crontab -e
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/js/jquery_html_escape/">
+        <a class="prev" href="/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">复制按钮引发的问题</span>
+            <span class="prev-text nav-default">saturn</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/linux/vi/">
@@ -254,7 +256,7 @@ crontab -e
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-10-21 13:48:25 \x2b0800 CST',
+        id: '2019-10-21 13:48:25 \u002b0800 CST',
         title: 'DeleteImages',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -266,6 +268,10 @@ crontab -e
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -296,13 +302,10 @@ crontab -e
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -313,7 +316,10 @@ crontab -e
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

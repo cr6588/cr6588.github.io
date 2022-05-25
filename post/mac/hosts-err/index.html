@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>记录一次复制hosts引发的问题 - cr6588</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cr6588" /><meta name="description" content="过程 由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。 在网上一番搜索后，走上了歧" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
+
+
+<link rel="canonical" href="https://cr6588.github.io/post/mac/hosts-err/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="记录一次复制hosts引发的问题" />
+<meta property="og:description" content="过程 由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。 在网上一番搜索后，走上了歧" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cr6588.github.io/post/mac/hosts-err/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-27T15:33:36+08:00" />
+<meta property="article:modified_time" content="2022-05-25T21:49:21+08:00" />
+
+<meta itemprop="name" content="记录一次复制hosts引发的问题">
+<meta itemprop="description" content="过程 由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。 在网上一番搜索后，走上了歧"><meta itemprop="datePublished" content="2021-12-27T15:33:36+08:00" />
+<meta itemprop="dateModified" content="2022-05-25T21:49:21+08:00" />
+<meta itemprop="wordCount" content="992">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="记录一次复制hosts引发的问题"/>
+<meta name="twitter:description" content="过程 由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。 在网上一番搜索后，走上了歧"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">cr6588</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">cr6588</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">记录一次复制hosts引发的问题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-12-27 </span>
+        
+          <span class="more-meta"> 约 992 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#过程">过程</a></li>
+    <li><a href="#原因">原因</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="过程">过程</h2>
+<p>由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。
+在网上一番搜索后，走上了歧路。。。</p>
+<p>都提示是有可能超时时间不够，于是加上了超时时间?timeout=600000</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dubbo:registry protocol=&#34;zookeeper&#34; address=&#34;zookeeper.xxx.cn:2181?timeout=600000&#34; /&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>在这之后到是可以连接，只是每次都很慢，有10多秒都是在注册zk。但在windows或者linux上没有这个问题，就这样带着疑问暂时搁置一段时间。
+最近有空加上实在忍不住了，来看看到底是哪个地方执行很慢。</p>
+<p>首先能够确定是连接zk比较慢，于是找了一个连接zk的demo代码，类似这种</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">       BaseZookeeper zookeeper = new BaseZookeeper();
+       zookeeper.connectZookeeper(&#34;192.168.1.206:2181&#34;);
+</code></pre></td></tr></table>
+</div>
+</div><p>然后跟踪connectZookeeper的代码，发现都是多线程的方法不好跟踪。遂查看日志发现每次都是在</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">2021-12-27 15:53:56 - org.apache.zookeeper.ClientCnxn$SendThread.startConnect(ClientCnxn.java:1058) - Opening socket connection to server /192.168.1.206:2181
+</code></pre></td></tr></table>
+</div>
+</div><p>此处停住进行等待，点开此处代码ClientCnxn.java:1058</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">            LOG.info(&#34;Opening socket connection to server &#34; + addr);
+            SocketChannel sock;
+            sock = SocketChannel.open();
+            sock.configureBlocking(false);
+            sock.socket().setSoLinger(false, -1);
+            sock.socket().setTcpNoDelay(true);
+            setName(getName().replaceAll(&#34;\\(.*\\)&#34;,
+                    &#34;(&#34; + addr.getHostName() + &#34;:&#34; + addr.getPort() + &#34;)&#34;));
+</code></pre></td></tr></table>
+</div>
+</div><p>之后发现addr.getHostName()非常慢，一路点进去在
+InetAddress.class 676
+InetAddress[] arr = InetAddress.getAllByName0(host, check);</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+                /* now get all the IP addresses for this hostname,
+                 * and make sure one of them matches the original IP
+                 * address. We do this to try and prevent spoofing.
+                 */
+
+                InetAddress[] arr = InetAddress.getAllByName0(host, check);
+                boolean ok = false;
+
+                if(arr != null) {
+                    for(int i = 0; !ok &amp;&amp; i &lt; arr.length; i++) {
+                        ok = addr.equals(arr[i]);
+                    }
+                }
+</code></pre></td></tr></table>
+</div>
+</div><p>此行执行较久。更里面的代码不怎么看得懂了，只是用ipv6做了些事。
+此后写一个更直接的类似ClientCnxn.java:1058，获取hostname的方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">InetSocketAddress t = new InetSocketAddress(&#34;192.168.1.206&#34;, 2181);
+System.out.println(t.getHostName());
+</code></pre></td></tr></table>
+</div>
+</div><p>发现依然很慢才能获取。但在windows上执行很快。
+此时我将192.168.1.206换成另外一个192.168.1.171
+发现连接非常快。对比2个服务器的zk配置后,发现没什么不同。
+那么还是自己这台电脑的问题。
+192.168.1.206在本机是做了一个host的，192.168.1.171则没有。
+于是我清空hosts发现192.168.1.206也连接很快了。
+此时就清晰了，就是hosts文件的问题。由于用了一个第三方的软件来更改hosts文件
+始终没发现什么问题，在试了很多次之后用vi /etc/hosts看了一下有问题的hosts文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+        192.168.1.206       zookeeper.xxx.cn^M
+        192.168.1.206 user.xxx.xxx.cn
+
+~              
+</code></pre></td></tr></table>
+</div>
+</div><p>问题一下就暴露了，最后多了^M。</p>
+<h2 id="原因">原因</h2>
+<p>是由于windows与linux/unix的换行符不同导致的。
+用vi手动编辑之后一切就好了。</p>
+<h2 id="总结">总结</h2>
+<p>之前其实遇到过类似换行符问题，但这次最后确实没想到是这个
+最后总结拷贝配置文件时，一定注意换行符的问题</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cr6588</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-05-25
+        <a href="https://github.com/cr6588/docs/commit/3a6453ff43e8629b9d6f062d4a17c7d56ea43c12" title="状态修改">(3a6453f)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/node/nvm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Nvm</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/dubbo/%E6%B3%A8%E5%86%8Cip%E5%BC%82%E5%B8%B8/">
+            <span class="next-text nav-default">注册ip异常</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2021-12-27 15:33:36 \u002b0800 CST',
+        title: '记录一次复制hosts引发的问题',
+        clientID: 'f8fc0224f2d6ffa6eba8',
+        clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
+        repo: 'cr6588.github.io',
+        owner: 'cr6588',
+        admin: ['cr6588'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cr6588@vip.qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cr6588" class="iconfont icon-github" title="github"></a>
+  <a href="https://cr6588.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

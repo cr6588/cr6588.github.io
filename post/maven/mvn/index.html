@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/maven/mvn/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Mvn" />
 <meta property="og:description" content="多核编译 1 2 3 mvn -T 1C clean install -Dmaven.compile.fork=true -T,--threads &lt;arg&gt; Thread count, for instance 2.0C where C is core multiplied 本地安装jar以及源码 mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的group" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/maven/mvn/" />
-<meta property="article:published_time" content="2019-08-05T11:42:46&#43;08:00"/>
-<meta property="article:modified_time" content="2020-09-15T10:52:04&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/maven/mvn/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-08-05T11:42:46+08:00" />
+<meta property="article:modified_time" content="2022-05-25T21:49:21+08:00" />
 
 <meta itemprop="name" content="Mvn">
-<meta itemprop="description" content="多核编译 1 2 3 mvn -T 1C clean install -Dmaven.compile.fork=true -T,--threads &lt;arg&gt; Thread count, for instance 2.0C where C is core multiplied 本地安装jar以及源码 mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的group">
-
-
-<meta itemprop="datePublished" content="2019-08-05T11:42:46&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-15T10:52:04&#43;08:00" />
-<meta itemprop="wordCount" content="205">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="多核编译 1 2 3 mvn -T 1C clean install -Dmaven.compile.fork=true -T,--threads &lt;arg&gt; Thread count, for instance 2.0C where C is core multiplied 本地安装jar以及源码 mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的group"><meta itemprop="datePublished" content="2019-08-05T11:42:46+08:00" />
+<meta itemprop="dateModified" content="2022-05-25T21:49:21+08:00" />
+<meta itemprop="wordCount" content="220">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mvn"/>
 <meta name="twitter:description" content="多核编译 1 2 3 mvn -T 1C clean install -Dmaven.compile.fork=true -T,--threads &lt;arg&gt; Thread count, for instance 2.0C where C is core multiplied 本地安装jar以及源码 mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的group"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time"> 2019-08-05 </span>
         
-          <span class="more-meta"> 约 205 字 </span>
+          <span class="more-meta"> 约 220 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -136,43 +140,35 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#多核编译">多核编译</a></li>
-<li><a href="#本地安装jar以及源码">本地安装jar以及源码</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="多核编译">多核编译</h4>
+      <h4 id="多核编译">多核编译</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">mvn -T 1C clean install -Dmaven.compile.fork<span class="o">=</span><span class="nb">true</span>
--T,--threads &lt;arg&gt;                     Thread count, <span class="k">for</span> instance <span class="m">2</span>.0C
-                                        where C is core multiplied</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">mvn -T 1C clean install -Dmaven.compile.fork<span class="o">=</span><span class="nb">true</span>
+-T,--threads &lt;arg&gt;                     Thread count, <span class="k">for</span> instance 2.0C
+                                        where C is core multiplied
+</code></pre></td></tr></table>
 </div>
-</div>
-<h4 id="本地安装jar以及源码">本地安装jar以及源码</h4>
-
+</div><h4 id="本地安装jar以及源码">本地安装jar以及源码</h4>
 <p>mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的groupId -DartifactId=上面的artifactId -Dversion=上面的version -Dpackaging=jar</p>
-
 <p>mvn install:install-file -Dfile=jar包源码的位置 -DgroupId=上面的groupId -DartifactId=上面的artifactId -Dversion=上面的version -Dpackaging=jar -Dclassifier=sources</p>
+<p>mvn install:install-file -Dfile=taobao-sdk-java-auto_1636613213328-20220322.jar -DgroupId=com.taobao -DartifactId=aliexpress-sdk -Dversion=<code>20220322</code> -Dpackaging=jar</p>
+<p>mvn install:install-file -Dfile=taobao-sdk-java-auto_1636613213328-20220322-source.jar -DgroupId=com.taobao -DartifactId=aliexpress-sdk -Dversion=20220322 -Dpackaging=jar -Dclassifier=sources</p>
 
     </div>
 
@@ -184,8 +180,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-09-15
-        <a href="https://github.com/cr6588/docs/commit/d5024dbfcd995b8c578a7c0e7dd6c22928691943" title="新增部分内容">(d5024db)</a>
+        2022-05-25
+        <a href="https://github.com/cr6588/docs/commit/3a6453ff43e8629b9d6f062d4a17c7d56ea43c12" title="状态修改">(3a6453f)</a>
     </span>
   </p>
   
@@ -213,7 +209,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-08-05 11:42:46 \x2b0800 CST',
+        id: '2019-08-05 11:42:46 \u002b0800 CST',
         title: 'Mvn',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -225,6 +221,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -255,13 +255,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -272,7 +269,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/docker_k8s/k8serr/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="k8s问题集" />
 <meta property="og:description" content="k8s证书过期 关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/k8serr/" />
-<meta property="article:published_time" content="2020-08-14T13:48:25&#43;08:00"/>
-<meta property="article:modified_time" content="2020-12-07T09:41:05&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/k8serr/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-08-14T13:48:25+08:00" />
+<meta property="article:modified_time" content="2020-12-07T09:41:05+08:00" />
 
 <meta itemprop="name" content="k8s问题集">
-<meta itemprop="description" content="k8s证书过期 关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/">
-
-
-<meta itemprop="datePublished" content="2020-08-14T13:48:25&#43;08:00" />
-<meta itemprop="dateModified" content="2020-12-07T09:41:05&#43;08:00" />
-<meta itemprop="wordCount" content="1131">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="k8s证书过期 关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/"><meta itemprop="datePublished" content="2020-08-14T13:48:25+08:00" />
+<meta itemprop="dateModified" content="2020-12-07T09:41:05+08:00" />
+<meta itemprop="wordCount" content="1114">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="k8s问题集"/>
 <meta name="twitter:description" content="k8s证书过期 关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time"> 2020-08-14 </span>
         
-          <span class="more-meta"> 约 1131 字 </span>
+          <span class="more-meta"> 约 1114 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -135,76 +139,43 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#k8s证书过期">k8s证书过期</a></li>
-<li><a href="#k8s-删除terminating状态的namespace">k8s 删除Terminating状态的namespace</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h1 id="k8s证书过期">k8s证书过期</h1>
-
-<p>关于证书的官方说明文档<a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/#automatic-certificate-renewal">https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/#automatic-certificate-renewal</a>
+      <h1 id="k8s证书过期">k8s证书过期</h1>
+<p>关于证书的官方说明文档https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/#automatic-certificate-renewal
 其中说明了通过kubeadm安装生成的客户证书只有1年有效期。
 通过kubeadm alpha certs check-expiration检查证书是否到期</p>
-
 <p>可以看到etcd的三个证书已经过期，使用kubeadm alpha certs renew all将所有证书续约后，仍无法连接。之后将/etc/kubernetes/pki目录下所有证书备份,/etc/kubernetes下conf文件备份，重新生成所有证书，以及conf文件
 kubeadm init phase certs all
 kubeadm init phase kubeconfig all
-重启相关进程，可以连接到相关容器，但始终提示相关认证失败。在刚才的文档也有说明在1.17之前的版本有bug(之前是1.15)详见<a href="https://github.com/kubernetes/kubeadm/issues/1753。其中也提出升级时会自动续约证书，但间隔时间要小于1年。尝试按照https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/">https://github.com/kubernetes/kubeadm/issues/1753。其中也提出升级时会自动续约证书，但间隔时间要小于1年。尝试按照https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/</a>
+重启相关进程，可以连接到相关容器，但始终提示相关认证失败。在刚才的文档也有说明在1.17之前的版本有bug(之前是1.15)详见https://github.com/kubernetes/kubeadm/issues/1753。其中也提出升级时会自动续约证书，但间隔时间要小于1年。尝试按照https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/
 将版本升级到1.16，但dns的一个检查始终无法通过，最后卸载kubeadm，安装 1.18版本</p>
-
 <h1 id="k8s-删除terminating状态的namespace">k8s 删除Terminating状态的namespace</h1>
-
 <p>在kubectl create -f dashboard.yaml时，由于里面有namespace,且包含所有dashboard内容，在删除时等待了很久发现还在等待。
 kubectl get ns之后发现kubernetes-dashboard的状态是Terminating，然后重新尝试删除以及加上&ndash;force仍然没有删除。
-搜索之后发现在<a href="https://github.com/kubernetes/kubernetes/issues/60807">https://github.com/kubernetes/kubernetes/issues/60807</a> 中提到将finalizers中的kubernetes移除掉置为空数组
+搜索之后发现在https://github.com/kubernetes/kubernetes/issues/60807 中提到将finalizers中的kubernetes移除掉置为空数组
 尝试kubectl edit namespaces/kubernetes-dashboard 并修改保存后，再次kubectl get ns之后发现没有变化，猜测是kubectl edit之后需要执行
-一条命令使其生效。后来按照<a href="https://medium.com/@craignewtondev/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e">https://medium.com/@craignewtondev/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e</a> 的方式解决</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">kubectl get namespace kubernetes-dashboard -o json &gt; logging.json
+一条命令使其生效。后来按照https://medium.com/@craignewtondev/how-to-fix-kubernetes-namespace-deleting-stuck-in-terminating-state-5ed75792647e 的方式解决</p>
+<pre><code>kubectl get namespace kubernetes-dashboard -o json &gt; logging.json
 ···
-&#34;uid&#34;: &#34;e9516a8b-764f-11e9-9621-0a9c41ba9af6&#34;
+&quot;uid&quot;: &quot;e9516a8b-764f-11e9-9621-0a9c41ba9af6&quot;
 },
-&#34;spec&#34;: {
-    &#34;finalizers&#34;: [
-        &#34;kubernetes&#34;
+&quot;spec&quot;: {
+    &quot;finalizers&quot;: [
+        &quot;kubernetes&quot;
     ]
 },
 ...
 ##去除kubernetes
-&#34;spec&#34;: {
-    &#34;finalizers&#34;: [
+&quot;spec&quot;: {
+    &quot;finalizers&quot;: [
     ]
 },
 ...
-kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34; -f ./logging.json</pre></td></tr></table>
-</div>
-</div>
+kubectl replace --raw &quot;/api/v1/namespaces/kubernetes-dashboard/finalize&quot; -f ./logging.json
+</code></pre>
 <p>再次kubectl get ns已被删除</p>
 
     </div>
@@ -227,7 +198,11 @@ kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34;
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/mysql/test/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">mysql性能测试</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/js/jquery_html_escape/">
             <span class="next-text nav-default">复制按钮引发的问题</span>
             <span class="next-text nav-mobile">下一篇</span>
@@ -242,7 +217,7 @@ kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34;
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2020-08-14 13:48:25 \x2b0800 CST',
+        id: '2020-08-14 13:48:25 \u002b0800 CST',
         title: 'k8s问题集',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -254,6 +229,10 @@ kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34;
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -284,13 +263,10 @@ kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34;
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -301,7 +277,10 @@ kubectl replace --raw &#34;/api/v1/namespaces/kubernetes-dashboard/finalize&#34;
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

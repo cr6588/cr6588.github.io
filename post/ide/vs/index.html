@@ -16,14 +16,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="cr6588" /><meta name="description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &amp;ldquo;workbench.editor.enablePreview&amp;rdquo;: true" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="cr6588" /><meta name="description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &amp;ldquo;workbench.editor.enablePreview&amp;rdquo;: true 显示方法列" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/ide/vs/" />
@@ -34,31 +34,25 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Vs" />
-<meta property="og:description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true" />
+<meta property="og:description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true 显示方法列" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/ide/vs/" />
-<meta property="article:published_time" content="2020-05-19T10:38:53&#43;08:00"/>
-<meta property="article:modified_time" content="2020-06-19T15:40:52&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/ide/vs/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-05-19T10:38:53+08:00" />
+<meta property="article:modified_time" content="2022-05-25T21:49:21+08:00" />
 
 <meta itemprop="name" content="Vs">
-<meta itemprop="description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true">
-
-
-<meta itemprop="datePublished" content="2020-05-19T10:38:53&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-19T15:40:52&#43;08:00" />
-<meta itemprop="wordCount" content="65">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true 显示方法列"><meta itemprop="datePublished" content="2020-05-19T10:38:53+08:00" />
+<meta itemprop="dateModified" content="2022-05-25T21:49:21+08:00" />
+<meta itemprop="wordCount" content="535">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vs"/>
-<meta name="twitter:description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true"/>
+<meta name="twitter:description" content="vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true 显示方法列"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,8 +130,8 @@
       <div class="post-meta">
         <span class="post-time"> 2020-05-19 </span>
         
-          <span class="more-meta"> 约 65 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <span class="more-meta"> 约 535 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -136,30 +140,43 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#vs-code-单击文件是预览模式-窗口上的文件名是斜体-打开其它文件是会覆盖显示-再双击文件名则会正体显示-新开文件也不会覆盖">vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h5 id="vs-code-单击文件是预览模式-窗口上的文件名是斜体-打开其它文件是会覆盖显示-再双击文件名则会正体显示-新开文件也不会覆盖">vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖</h5>
-
+      <h5 id="vs-code-单击文件是预览模式窗口上的文件名是斜体打开其它文件是会覆盖显示再双击文件名则会正体显示新开文件也不会覆盖">vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖</h5>
 <p>相关设置是 &ldquo;workbench.editor.enablePreview&rdquo;: true</p>
+<h5 id="显示方法列表">显示方法列表</h5>
+<p>Shift+Ctl+O</p>
+<h5 id="tomcat-for-vs">tomcat for vs</h5>
+<p>新增tomcat文件目录后，什么提示也没有。使用cleaner one pro彻底删除vscode重新安装tomcat for java插件
+对web项目的target目录/项目目录使用debug tomcat，可直接热代码替换
+访问直接使用根目录不需要前缀再配置文件的host下增加
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+直接右键停止有可能异常，无法中断。采用命令，7-12根据实际变更
+ps -ef|grep apache-tomcat|grep -v grep|cut -c 7-12|xargs kill -9</p>
+<h5 id="调试栏位置">调试栏位置</h5>
+<p>默认启动debug后调试栏位置一致在上面会遮住一些信息显示，所以在设置-&gt;调试-&gt;Tool bar location-&gt;docker,改为停靠，只出现在调试视图中</p>
+<h5 id="显示序列化">显示序列化</h5>
+<p><a href="https://www.cnblogs.com/zhiyiYo/p/15318579.html">https://www.cnblogs.com/zhiyiYo/p/15318579.html</a></p>
+<h5 id="手动提示">手动提示</h5>
+<p>在vs code中这个快捷键有多个，在设置-&gt;键盘快捷方式-&gt;触发建议中可看到</p>
+<p>当在实现类要自动产生未实现的方法时，也可使用此方式，再输入或选择接口</p>
+<p>关闭智能代码提示
+“editor.quickSuggestions”: false,
+“editor.suggestOnTriggerCharacters”: false</p>
+<h5 id="设置java-import顺序">设置java import顺序</h5>
+<p>.vscode / settings.json：
+{
+&ldquo;java.completion.importOrder&rdquo;: [&ldquo;java&rdquo;, &ldquo;javax&rdquo;, &ldquo;org&rdquo;, &ldquo;com&rdquo;]
+}</p>
 
     </div>
 
@@ -171,8 +188,8 @@
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2020-06-19
-        <a href="https://github.com/cr6588/docs/commit/631532736d1091bf903f9bfa674c62c2eb396e02" title="累计部分提交">(6315327)</a>
+        2022-05-25
+        <a href="https://github.com/cr6588/docs/commit/3a6453ff43e8629b9d6f062d4a17c7d56ea43c12" title="状态修改">(3a6453f)</a>
     </span>
   </p>
   
@@ -186,8 +203,8 @@
             <span class="prev-text nav-default">复制按钮引发的问题</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/activiti/desc/">
-            <span class="next-text nav-default">Desc</span>
+        <a class="next" href="/post/js/error/">
+            <span class="next-text nav-default">Error</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -200,7 +217,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2020-05-19 10:38:53 \x2b0800 CST',
+        id: '2020-05-19 10:38:53 \u002b0800 CST',
         title: 'Vs',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -212,6 +229,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -242,13 +263,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -259,7 +277,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Kubernetes升级" />
 <meta property="og:description" content="Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &ndash;showduplicates kubeadm &ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/" />
-<meta property="article:published_time" content="2019-04-04T14:06:56&#43;08:00"/>
-<meta property="article:modified_time" content="2019-04-04T14:06:56&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/docker_k8s/kubernetes%E5%8D%87%E7%BA%A7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-04-04T14:06:56+08:00" />
+<meta property="article:modified_time" content="2019-04-04T14:06:56+08:00" />
 
 <meta itemprop="name" content="Kubernetes升级">
-<meta itemprop="description" content="Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &ndash;showduplicates kubeadm &ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像">
-
-
-<meta itemprop="datePublished" content="2019-04-04T14:06:56&#43;08:00" />
-<meta itemprop="dateModified" content="2019-04-04T14:06:56&#43;08:00" />
-<meta itemprop="wordCount" content="1340">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &ndash;showduplicates kubeadm &ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像"><meta itemprop="datePublished" content="2019-04-04T14:06:56+08:00" />
+<meta itemprop="dateModified" content="2019-04-04T14:06:56+08:00" />
+<meta itemprop="wordCount" content="1326">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes升级"/>
 <meta name="twitter:description" content="Kubernetes v1.12 to v1.13 参照官方Upgrading kubeadm clusters from v1.12 to v1.13说明升级 master节点 yum list &ndash;showduplicates kubeadm &ndash;disableexcludes=kubernetes yum install -y kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes kubeadm upgrade plan 由于升级需要k8s.gcr.io镜像"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time"> 2019-04-04 </span>
         
-          <span class="more-meta"> 约 1340 字 </span>
+          <span class="more-meta"> 约 1326 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -136,40 +140,23 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#kubernetes-v1-12-to-v1-13">Kubernetes v1.12 to v1.13</a>
-<ul>
-<li><a href="#master节点">master节点</a></li>
-<li><a href="#node节点">node节点</a></li>
-<li><a href="#重启所有节点">重启所有节点</a></li>
-</ul></li>
-<li><a href="#kubernetes-v1-13-to-v1-14-升级问题">Kubernetes v1.13 to v1.14 升级问题</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="kubernetes-v1-12-to-v1-13">Kubernetes v1.12 to v1.13</h4>
-
+      <h4 id="kubernetes-v112-to-v113">Kubernetes v1.12 to v1.13</h4>
 <p>参照官方<a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-13/">Upgrading kubeadm clusters from v1.12 to v1.13</a>说明升级</p>
-
 <h5 id="master节点">master节点</h5>
-
 <p>yum list &ndash;showduplicates kubeadm &ndash;disableexcludes=kubernetes
 yum install -y kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes
 kubeadm upgrade plan</p>
-
 <p>由于升级需要k8s.gcr.io镜像，但无法连接外网，所以使用微软的镜像站替代，详见<a href="http://mirror.azure.cn/help/gcr-proxy-cache.html">GCR Proxy Cache 帮助</a>。
 这里有2种方式可以替代
 1.利用kubeadm config images list得到需要的镜像，然后像docker pull gcr.azk8s.cn/google_containers/kube-apiserver:v1.13.0这样挨个把镜像下载下来
@@ -180,96 +167,63 @@ kubeadm upgrade plan</p>
 imageRepository: k8s.gcr.io
 ···
 所以只需要把imageRepository改成gcr.azk8s.cn/google_containers即可</p>
-
 <p>通过kubeadm config -h的帮助最后发现通过kubeadm config upload from-file &ndash;config kubeadm.yaml可以实现
 首先创建已有的kubeadm.yaml文件，将kubeadm config view所有信息复制到kubeadm.yaml中然后将
 imageRepository: k8s.gcr.io -&gt;imageRepository: gcr.azk8s.cn/google_containers
 最后kubeadm config upload from-file &ndash;config kubeadm.yaml即可</p>
-
 <blockquote>
 <p>gcr.azk8s.cn/google_containers只支持微软的ecs,改为阿里云registry.cn-hangzhou.aliyuncs.com/google_containers
 kubeadm config upload from-file在1.17中被删除，改用kubeadm init phase upload-config kubeadm &ndash;config kubeadm.yaml</p>
 </blockquote>
-
 <p>kubeadm upgrade apply v1.13.0
 yum install -y kubelet-1.13.x-0 &ndash;disableexcludes=kubernetes
 yum install -y kubectl-1.13.x-0 &ndash;disableexcludes=kubernetes
 kubectl drain 节点名称 &ndash;ignore-daemonsets</p>
-
 <h5 id="node节点">node节点</h5>
-
 <p>yum install -y kubectl-1.13.x-0 &ndash;disableexcludes=kubernetes
 kubeadm upgrade node config &ndash;kubelet-version v1.13.x
 yum install -y kubelet-1.13.x-0 kubeadm-1.13.x-0 &ndash;disableexcludes=kubernetes</p>
-
 <h5 id="重启所有节点">重启所有节点</h5>
-
 <p>systemctl restart kubelet
 kubectl uncordon $NODE
 kubectl get nodes</p>
-
-<h4 id="kubernetes-v1-13-to-v1-14-升级问题">Kubernetes v1.13 to v1.14 升级问题</h4>
-
+<h4 id="kubernetes-v113-to-v114-升级问题">Kubernetes v1.13 to v1.14 升级问题</h4>
 <p>参照官方<a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade-1-14/">Upgrading kubeadm clusters from v1.13 to v1.14</a>说明升级。
 需要注意的是在升级yum install -y kubeadm-1.14.x-0 &ndash;disableexcludes=kubernetes时，其依赖的kubernetes-cni会升级，而kubernetes-cni又依赖kubelet所以，在这一步kubelet就会跟着升级了。然后kubeadm upgrade plan相关提示会跟官方不一样，不过继续照着做就行，暂未发现有何影响。
 使用weavenet的一个节点正常升级，但使用flannel的节点无法升级到1.14.0提示192.168.0.206:2379无法访问，经查发现在ectd配置中只允许127.0.0.1访问
-<img src="/images/ectd1.png" alt="x" />
+<img src="/images/ectd1.png" alt="x">
 ，而另一台已经升级好的weavenet节点发现是
-<img src="/images/ectd2.png" alt="x" />
+<img src="/images/ectd2.png" alt="x">
 但是更改ip时发现会报错，暂时未升级</p>
-
 <p>参照 <a href="https://github.com/kubernetes/kubeadm/issues/1471">Upgrading a 1.12 cluster thru 1.13 to 1.14 fails</a>解决
 文中所述问题类似都是只允许127.0.0.1访问，没有节点IP,</p>
+<pre><code>#将配置保存为文件
+kubeadm config view &gt; /etc/kubeadm.conf
+#增加ip，原文有image时下面会报错，所以去除。10.192.0.2是节点ip,通过kubectl get node -o wide 获取
+</code></pre>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#将配置保存为文件
-kubeadm config view &gt; /etc/kubeadm.conf
-#增加ip，原文有image时下面会报错，所以去除。10.192.0.2是节点ip,通过kubectl get node -o wide 获取</pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
 </span><span class="lnt">7
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">etcd:
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">etcd:
   local:
     dataDir: /var/lib/etcd
     serverCertSANs:
     - &#34;10.192.0.2&#34;
     extraArgs:
-      listen-client-urls: https://127.0.0.1:2379,https://10.192.0.2:2379 </pre></td></tr></table>
+      listen-client-urls: https://127.0.0.1:2379,https://10.192.0.2:2379 
+</code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#删除ectd certs 
+</div><pre><code>#删除ectd certs 
 rm /etc/kubernetes/pki/etcd/server.*
-#生成新的ectd certs,原文中的ectd配置时有一个image: &#34;&#34;,若不去除这里会有警告
+#生成新的ectd certs,原文中的ectd配置时有一个image: &quot;&quot;,若不去除这里会有警告
 kubeadm init phase certs etcd-server --config /etc/kubeadm.conf
 #使用新的ectd 配置
 kubeadm init phase etcd local --config /etc/kubeadm.conf
@@ -279,9 +233,9 @@ tcp    LISTEN     0      128    127.0.0.1:2379                  *:*
 tcp    LISTEN     0      128    10.192.0.2:2379                  *:*   
 #上传kubeadm.conf
 kubeadm config upload from-file --config /etc/kubeadm.conf
-[uploadconfig] storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace</pre></td></tr></table>
-</div>
-</div>
+[uploadconfig] storing the configuration used in ConfigMap &quot;kubeadm-config&quot; in the &quot;kube-system&quot; Namespace
+</code></pre>
+
     </div>
 
     <div class="post-copyright">
@@ -321,7 +275,7 @@ kubeadm config upload from-file --config /etc/kubeadm.conf
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-04-04 14:06:56 \x2b0800 CST',
+        id: '2019-04-04 14:06:56 \u002b0800 CST',
         title: 'Kubernetes升级',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -333,6 +287,10 @@ kubeadm config upload from-file --config /etc/kubeadm.conf
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -363,13 +321,10 @@ kubeadm config upload from-file --config /etc/kubeadm.conf
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -380,7 +335,10 @@ kubeadm config upload from-file --config /etc/kubeadm.conf
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

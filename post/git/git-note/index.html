@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/git/git-note/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="git note" />
 <meta property="og:description" content="获取新远程分支 从eclipse git远程时只选了一个远程分支之后，想要切换到新的远程分支在eclipse Git视图的Remote Tracki" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/git/git-note/" />
-<meta property="article:published_time" content="2018-08-29T19:55:29&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-13T11:36:03&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/git/git-note/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-08-29T19:55:29+08:00" />
+<meta property="article:modified_time" content="2019-03-13T11:36:03+08:00" />
 
 <meta itemprop="name" content="git note">
-<meta itemprop="description" content="获取新远程分支 从eclipse git远程时只选了一个远程分支之后，想要切换到新的远程分支在eclipse Git视图的Remote Tracki">
-
-
-<meta itemprop="datePublished" content="2018-08-29T19:55:29&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-13T11:36:03&#43;08:00" />
+<meta itemprop="description" content="获取新远程分支 从eclipse git远程时只选了一个远程分支之后，想要切换到新的远程分支在eclipse Git视图的Remote Tracki"><meta itemprop="datePublished" content="2018-08-29T19:55:29+08:00" />
+<meta itemprop="dateModified" content="2019-03-13T11:36:03+08:00" />
 <meta itemprop="wordCount" content="415">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git note"/>
 <meta name="twitter:description" content="获取新远程分支 从eclipse git远程时只选了一个远程分支之后，想要切换到新的远程分支在eclipse Git视图的Remote Tracki"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -138,44 +142,24 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#获取新远程分支">获取新远程分支</a></li>
-<li><a href="#历史版本切换">历史版本切换</a></li>
-<li><a href="#在eclipse无法pull">在eclipse无法pull</a></li>
-<li><a href="#git-reset-hard">git reset &ndash;hard</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h5 id="获取新远程分支">获取新远程分支</h5>
-
+      <h5 id="获取新远程分支">获取新远程分支</h5>
 <p>从eclipse git远程时只选了一个远程分支之后，想要切换到新的远程分支在eclipse Git视图的Remote Tracking下面是找不到更多的远程分支的，需要对项目同步一下，即可看到，同时时可以看到其实就是执行的git fetch</p>
-
 <h5 id="历史版本切换">历史版本切换</h5>
-
 <p>在eclipse中右键team-&gt;shouw in history显示历史版本，选定版本右键Check out,恢复之前版本：项目右键-&gt;team-&gt;switch to master(当前分支即可)</p>
-
 <h5 id="在eclipse无法pull">在eclipse无法pull</h5>
-
 <p>无法pull且大面积报红时，有可能是有冲突文件未提交导致不能pull,但大面报红又无法找到具体某一个时，切换至git视图pull,再次pull会提示某一个具体文件冲突</p>
-
-<h5 id="git-reset-hard">git reset &ndash;hard</h5>
-
+<h5 id="git-reset---hard">git reset &ndash;hard</h5>
 <p>HEAD引用指向给定提交，索引内容和工作目录内容都会变给定提交时的状态。也就是在给定提交后所修改的内容都会丢失(新文件会被删除，不在工作目录中的文件恢复，未清除回收站的前提)。</p>
 
     </div>
@@ -217,7 +201,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-08-29 19:55:29 \x2b0800 CST',
+        id: '2018-08-29 19:55:29 \u002b0800 CST',
         title: 'git note',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -229,6 +213,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -259,13 +247,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -276,7 +261,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/mysql/docker%E8%BF%90%E8%A1%8Cmysql8/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="docker运行mysql8" />
 <meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/mysql/docker%E8%BF%90%E8%A1%8Cmysql8/" />
-<meta property="article:published_time" content="2019-02-11T15:34:04&#43;08:00"/>
-<meta property="article:modified_time" content="2019-02-11T15:34:04&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/mysql/docker%E8%BF%90%E8%A1%8Cmysql8/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-02-11T15:34:04+08:00" />
+<meta property="article:modified_time" content="2019-02-11T15:34:04+08:00" />
 
 <meta itemprop="name" content="docker运行mysql8">
-<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密">
-
-
-<meta itemprop="datePublished" content="2019-02-11T15:34:04&#43;08:00" />
-<meta itemprop="dateModified" content="2019-02-11T15:34:04&#43;08:00" />
-<meta itemprop="wordCount" content="240">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密"><meta itemprop="datePublished" content="2019-02-11T15:34:04+08:00" />
+<meta itemprop="dateModified" content="2019-02-11T15:34:04+08:00" />
+<meta itemprop="wordCount" content="241">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="docker运行mysql8"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=密码 -d mysql:8 #由于密码加密方式与以前不同，所以需要进入容器更改密"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/mysql/"> mysql </a>
             </div>
-          <span class="more-meta"> 约 240 字 </span>
+          <span class="more-meta"> 约 241 字 </span>
           <span class="more-meta"> 预计阅读 1 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -137,13 +141,13 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
       <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -158,7 +162,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -p <span class="m">3306</span>:3306 --name mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:8
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker run -p 3306:3306 --name mysql -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:8
 <span class="c1">#由于密码加密方式与以前不同，所以需要进入容器更改密码加密方式</span>
 docker <span class="nb">exec</span> -it mysql /bin/bash
 mysql -u root -p
@@ -170,17 +174,20 @@ ALTER USER <span class="s1">&#39;root&#39;</span>@<span class="s1">&#39;%&#39;</
 docker run -v /docker/mysql/custom:/etc/mysql/conf.d -v /docker/mysql/data:/var/lib/mysql --net<span class="o">=</span>host --name mysql  -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>密码 -d mysql:5.7.25
 
 <span class="c1">#访问很慢</span>
-增加skip-name-resolve</code></pre></td></tr></table>
+增加skip-name-resolve
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>[mysqld]
+</div><p>[mysqld]
 skip-name-resolve</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">https://dev.mysql.com/doc/refman/5.6/en/host-cache.html</pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">https://dev.mysql.com/doc/refman/5.6/en/host-cache.html
+
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -222,7 +229,7 @@ skip-name-resolve</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2019-02-11 15:34:04 \x2b0800 CST',
+        id: '2019-02-11 15:34:04 \u002b0800 CST',
         title: 'docker运行mysql8',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -234,6 +241,10 @@ skip-name-resolve</p>
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -264,13 +275,10 @@ skip-name-resolve</p>
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -281,7 +289,10 @@ skip-name-resolve</p>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

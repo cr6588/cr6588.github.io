@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/js/vue/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Vue" />
 <meta property="og:description" content="前言 最初想使用vue&#43;element UI搭建一个Demo项目以寻求能否解决已有项目的页面结构混乱、难以维护的痛点。在跟着vue、npm、we" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/js/vue/" />
-<meta property="article:published_time" content="2018-08-17T09:54:47&#43;08:00"/>
-<meta property="article:modified_time" content="2019-03-13T11:36:03&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/js/vue/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-08-17T09:54:47+08:00" />
+<meta property="article:modified_time" content="2019-03-13T11:36:03+08:00" />
 
 <meta itemprop="name" content="Vue">
-<meta itemprop="description" content="前言 最初想使用vue&#43;element UI搭建一个Demo项目以寻求能否解决已有项目的页面结构混乱、难以维护的痛点。在跟着vue、npm、we">
-
-
-<meta itemprop="datePublished" content="2018-08-17T09:54:47&#43;08:00" />
-<meta itemprop="dateModified" content="2019-03-13T11:36:03&#43;08:00" />
-<meta itemprop="wordCount" content="3638">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="前言 最初想使用vue&#43;element UI搭建一个Demo项目以寻求能否解决已有项目的页面结构混乱、难以维护的痛点。在跟着vue、npm、we"><meta itemprop="datePublished" content="2018-08-17T09:54:47+08:00" />
+<meta itemprop="dateModified" content="2019-03-13T11:36:03+08:00" />
+<meta itemprop="wordCount" content="3380">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vue"/>
 <meta name="twitter:description" content="前言 最初想使用vue&#43;element UI搭建一个Demo项目以寻求能否解决已有项目的页面结构混乱、难以维护的痛点。在跟着vue、npm、we"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/vue/"> vue </a>
             </div>
-          <span class="more-meta"> 约 3638 字 </span>
-          <span class="more-meta"> 预计阅读 8 分钟 </span>
+          <span class="more-meta"> 约 3380 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
     </header>
@@ -138,131 +142,57 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#helloworld">HelloWorld</a>
-<ul>
-<li><a href="#初始化项目">初始化项目</a></li>
-<li><a href="#添加登录注册组件">添加登录注册组件</a></li>
-<li><a href="#登录注册切换">登录注册切换</a></li>
-</ul></li>
-<li><a href="#后台交互">后台交互</a>
-<ul>
-<li><a href="#axios与跨域">axios与跨域</a></li>
-<li><a href="#注册示例">注册示例</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="前言">前言</h4>
-
+      <h4 id="前言">前言</h4>
 <p>最初想使用vue+element UI搭建一个Demo项目以寻求能否解决已有项目的页面结构混乱、难以维护的痛点。在跟着vue、npm、webpack等官方文档学习了一些示例之后发现理解的还是很浅显，于是开始先搭建这个demo项目逐步加深理解.主要目标是</p>
-
 <ul>
 <li>使用vue+element UI</li>
 <li>实现登录、注册、系统主页布局、用户列表分页展示、增删改查用户、输入校验、日期搜索</li>
 <li>前台项目与后台项目完全独立。后台使用spring boot、dubbo、mybatis</li>
 <li>项目在前台编译好后能打包至后台相应目录</li>
 </ul>
-
 <h4 id="helloworld">HelloWorld</h4>
-
 <h5 id="初始化项目">初始化项目</h5>
-
 <p>在之前的例子中使用的vue-cli是3.0以下版本，开始使用时element UI指出已为vue-cli3.0做好准备,于是参考<a href="https://cli.vuejs.org/zh/guide/">vue CLI 3文档</a>构建HelloWorld项目。在使用过程中有一个体会就是vue的生态工具对开发者真的很友好。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">#初始化项目
+<pre><code>#初始化项目
 vue create hello-world
 #确认一些选项
 ...
 #增加element UI,过程也需进行选择，交互很友好
 vue add element
 #启动并确认页面是有一个element UI button
-npm run serve</pre></td></tr></table>
-</div>
-</div>
+npm run serve
+</code></pre>
 <h5 id="添加登录注册组件">添加登录注册组件</h5>
-
 <p>初始化之后开始添加登录注册组件，由于主要是后端开发且才开始组件化前段编程，暂时不考虑组织结构，直接在已有的文件目录添加。
 在components中添加注册组件regis.vue</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;template&gt;
+<pre><code>&lt;template&gt;
   &lt;div&gt;
       &lt;div&gt;注册&lt;/div&gt;
       &lt;div&gt;
         &lt;el-input
-          placeholder=&#34;电话&#34;
-          prefix-icon=&#34;el-icon-phone&#34;
+          placeholder=&quot;电话&quot;
+          prefix-icon=&quot;el-icon-phone&quot;
           clearable&gt;
         &lt;/el-input&gt;
         &lt;el-input
-          type=&#34;password&#34;
-          placeholder=&#34;密码&#34;
+          type=&quot;password&quot;
+          placeholder=&quot;密码&quot;
           clearable&gt;
         &lt;/el-input&gt;
         &lt;el-input
-          type=&#34;password&#34;
-          placeholder=&#34;重复密码&#34;
+          type=&quot;password&quot;
+          placeholder=&quot;重复密码&quot;
           clearable&gt;
         &lt;/el-input&gt;
       &lt;/div&gt;
@@ -271,61 +201,28 @@ npm run serve</pre></td></tr></table>
 
 &lt;script&gt;
 export default {
-  name: &#39;regis&#39;
+  name: 'regis'
 }
 &lt;/script&gt;
 
-&lt;!-- Add &#34;scoped&#34; attribute to limit CSS to this component only --&gt;
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
 &lt;style scoped&gt;
 
-&lt;/style&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/style&gt;
+</code></pre>
 <p>登录组件login.vue</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;template&gt;
+<pre><code>&lt;template&gt;
   &lt;div&gt;
     &lt;div&gt;登录&lt;/div&gt;
     &lt;div&gt;
       &lt;el-input
-        placeholder=&#34;电话&#34;
-        prefix-icon=&#34;el-icon-phone&#34;
+        placeholder=&quot;电话&quot;
+        prefix-icon=&quot;el-icon-phone&quot;
         clearable&gt;
       &lt;/el-input&gt;
       &lt;el-input
-        type=&#34;password&#34;
-        placeholder=&#34;密码&#34;
+        type=&quot;password&quot;
+        placeholder=&quot;密码&quot;
         clearable&gt;
       &lt;/el-input&gt;
     &lt;/div&gt;
@@ -334,105 +231,48 @@ export default {
 
 &lt;script&gt;
 export default {
-  name: &#39;login&#39;
+  name: 'login'
 }
 &lt;/script&gt;
 
-&lt;!-- Add &#34;scoped&#34; attribute to limit CSS to this component only --&gt;
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
 &lt;style scoped&gt;
 
-&lt;/style&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/style&gt;
+</code></pre>
 <blockquote>
 <p>很明显，注册组件就比登录组件多个重复密码输入框，应该是可以复用的，这里以后再考虑</p>
-
-<h5 id="登录注册切换">登录注册切换</h5>
-
-<p>将登录注册组件添加进主页，并添加一个action指定显示,点击相应按钮就设置不同的action值，然后确定显示登录还是注册</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;template&gt;
-  &lt;div id=&#34;app&#34; class=&#34;login-box&#34;&gt;
-    &lt;Login v-if=&#34;action === &#39;login&#39;&#34;&gt;&lt;/Login&gt;
+<h5 id="登录注册切换">登录注册切换</h5>
+<p>将登录注册组件添加进主页，并添加一个action指定显示,点击相应按钮就设置不同的action值，然后确定显示登录还是注册</p>
+<pre><code>&lt;template&gt;
+  &lt;div id=&quot;app&quot; class=&quot;login-box&quot;&gt;
+    &lt;Login v-if=&quot;action === 'login'&quot;&gt;&lt;/Login&gt;
     &lt;Regis v-else&gt;&lt;/Regis&gt;
-    &lt;div v-if=&#34;action === &#39;login&#39;&#34;&gt;
-      &lt;el-button type=&#34;primary&#34;&gt;登录&lt;/el-button&gt;
-      &lt;el-button type=&#34;primary&#34; v-on:click=&#34;action=&#39;regis&#39;&#34;&gt;免费注册点这里&lt;/el-button&gt;
+    &lt;div v-if=&quot;action === 'login'&quot;&gt;
+      &lt;el-button type=&quot;primary&quot;&gt;登录&lt;/el-button&gt;
+      &lt;el-button type=&quot;primary&quot; v-on:click=&quot;action='regis'&quot;&gt;免费注册点这里&lt;/el-button&gt;
     &lt;/div&gt;
     &lt;div v-else&gt;
-      &lt;el-button type=&#34;primary&#34;&gt;注册&lt;/el-button&gt;
-      &lt;el-button type=&#34;primary&#34; v-on:click=&#34;action=&#39;login&#39;&#34;&gt;已有账号，点击登录&lt;/el-button&gt;
+      &lt;el-button type=&quot;primary&quot;&gt;注册&lt;/el-button&gt;
+      &lt;el-button type=&quot;primary&quot; v-on:click=&quot;action='login'&quot;&gt;已有账号，点击登录&lt;/el-button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script&gt;
-import Login from &#39;./components/login.vue&#39;
-import Regis from &#39;./components/regis.vue&#39;
+import Login from './components/login.vue'
+import Regis from './components/regis.vue'
 
 export default {
-  name: &#39;app&#39;,
+  name: 'app',
   components: {
     Login,
     Regis
   },
   data: () =&gt; {
     return {
-      action: &#39;login&#39;
+      action: 'login'
     }
   }
 }
@@ -440,7 +280,7 @@ export default {
 
 &lt;style&gt;
 #app {
-  font-family: &#39;Avenir&#39;, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -454,246 +294,152 @@ export default {
     height: 360px;
     padding: 50px 35px 0px 35px;
 }
-&lt;/style&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/style&gt;
+</code></pre>
 <p>在<a href="https://cn.vuejs.org/v2/guide/conditional.html#v-if-vs-v-show">v-if vs v-show</a>进行v-if与v-show的说明。在本例中也只想进行登录注册的简单切换显示即可，所以改成v-show
 即</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;Login v-show=&#34;action === &#39;login&#39;&#34;&gt;&lt;/Login&gt;
-&lt;Regis v-show=&#34;action === &#39;regis&#39;&#34;&gt;&lt;/Regis&gt;
-&lt;div v-show=&#34;action === &#39;login&#39;&#34;&gt;
-  &lt;el-button type=&#34;primary&#34;&gt;登录&lt;/el-button&gt;
-  &lt;el-button type=&#34;primary&#34; v-on:click=&#34;action=&#39;regis&#39;&#34;&gt;免费注册点这里&lt;/el-button&gt;
+<pre><code>&lt;Login v-show=&quot;action === 'login'&quot;&gt;&lt;/Login&gt;
+&lt;Regis v-show=&quot;action === 'regis'&quot;&gt;&lt;/Regis&gt;
+&lt;div v-show=&quot;action === 'login'&quot;&gt;
+  &lt;el-button type=&quot;primary&quot;&gt;登录&lt;/el-button&gt;
+  &lt;el-button type=&quot;primary&quot; v-on:click=&quot;action='regis'&quot;&gt;免费注册点这里&lt;/el-button&gt;
 &lt;/div&gt;
-&lt;div v-show=&#34;action === &#39;regis&#39;&#34;&gt;
-  &lt;el-button type=&#34;primary&#34;&gt;注册&lt;/el-button&gt;
-  &lt;el-button type=&#34;primary&#34; v-on:click=&#34;action=&#39;login&#39;&#34;&gt;已有账号，点击登录&lt;/el-button&gt;
-&lt;/div&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;div v-show=&quot;action === 'regis'&quot;&gt;
+  &lt;el-button type=&quot;primary&quot;&gt;注册&lt;/el-button&gt;
+  &lt;el-button type=&quot;primary&quot; v-on:click=&quot;action='login'&quot;&gt;已有账号，点击登录&lt;/el-button&gt;
+&lt;/div&gt;
+</code></pre>
 <p>主页到此就能进行注册登录的切换了。但此时我想把登录注册按钮放进登录注册组件中，最开始也是这样放的但是提示没有action相关定义所以将其移动到App.vue中。在参考了<a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">依赖注入</a>后发现在App.vue中增加provider后login.vue中能获取值，但是当改变值之后虽然也能使用 v-on:click=&ldquo;action=&lsquo;regis&rsquo;&ldquo;改变但是官方并不推荐这样做，并且提到了另一个工具<a href="https://vuex.vuejs.org/zh/">vuex</a>,显然登录注册组件需要共享action。在本例中state数据源对应action的值，view即登录注册两个2组件视图，actions即action的值不时页面需要进行不同的响应。但目前这样一个简单的单页应用不至于用它，所以打算改用<a href="https://cn.vuejs.org/v2/guide/state-management.html#%E7%AE%80%E5%8D%95%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E8%B5%B7%E6%AD%A5%E4%BD%BF%E7%94%A8">store 模式</a>,但正打算改用时又返回<a href="https://cn.vuejs.org/v2/guide/components-edge-cases.html#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5">依赖注入</a>所在页面中最先提到到的访问访问根实例，发现这个其实要简单许多。于是修改login.vue</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;template&gt;
+<pre><code>&lt;template&gt;
 &lt;div&gt;
     &lt;div&gt;登录&lt;/div&gt;
     &lt;div&gt;
-        &lt;el-input placeholder=&#34;电话&#34; prefix-icon=&#34;el-icon-phone&#34; clearable&gt; &lt;/el-input&gt;
-        &lt;el-input type=&#34;password&#34; placeholder=&#34;密码&#34; clearable&gt; &lt;/el-input&gt;
+        &lt;el-input placeholder=&quot;电话&quot; prefix-icon=&quot;el-icon-phone&quot; clearable&gt; &lt;/el-input&gt;
+        &lt;el-input type=&quot;password&quot; placeholder=&quot;密码&quot; clearable&gt; &lt;/el-input&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;el-button type=&#34;primary&#34;&gt;登录&lt;/el-button&gt;
-        &lt;el-button type=&#34;primary&#34; v-on:click=&#34;this.$root.action=&#39;regis&#39;&#34;&gt;免费注册点这里&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot;&gt;登录&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; v-on:click=&quot;this.$root.action='regis'&quot;&gt;免费注册点这里&lt;/el-button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;/template&gt;
 &lt;script&gt;
 export default {
-  name: &#39;login&#39;
+  name: 'login'
 }
 &lt;/script&gt;
-&lt;!-- Add &#34;scoped&#34; attribute to limit CSS to this component only --&gt;
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
 &lt;style scoped&gt;
-&lt;/style&gt;</pre></td></tr></table>
-</div>
-</div>
+&lt;/style&gt;
+</code></pre>
 <p>之后删除App.vue中相关按钮发现页面没有任何按钮。在看文档下面有一个$parent，于是又将$root改为$parent，结果报错</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">vue.runtime.esm.js?2b0e:587 [Vue warn]: Error in event handler for &#34;click&#34;: &#34;TypeError: Cannot read property &#39;$parent&#39; of null&#34;
-...</pre></td></tr></table>
-</div>
-</div>
+<pre><code>vue.runtime.esm.js?2b0e:587 [Vue warn]: Error in event handler for &quot;click&quot;: &quot;TypeError: Cannot read property '$parent' of null&quot;
+...
+</code></pre>
 <p>但看示例又是将$parent写入到function中于是又将其写入function中测试，最终通过</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">&lt;template&gt;
+<pre><code>&lt;template&gt;
 &lt;div&gt;
     &lt;div&gt;登录&lt;/div&gt;
     &lt;div&gt;
-        &lt;el-input placeholder=&#34;电话&#34; prefix-icon=&#34;el-icon-phone&#34; clearable&gt; &lt;/el-input&gt;
-        &lt;el-input type=&#34;password&#34; placeholder=&#34;密码&#34; clearable&gt; &lt;/el-input&gt;
+        &lt;el-input placeholder=&quot;电话&quot; prefix-icon=&quot;el-icon-phone&quot; clearable&gt; &lt;/el-input&gt;
+        &lt;el-input type=&quot;password&quot; placeholder=&quot;密码&quot; clearable&gt; &lt;/el-input&gt;
     &lt;/div&gt;
     &lt;div&gt;
-        &lt;el-button type=&#34;primary&#34;&gt;登录&lt;/el-button&gt;
-        &lt;el-button type=&#34;primary&#34; v-on:click=&#34;actionToRegis&#34;&gt;免费注册点这里&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot;&gt;登录&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; v-on:click=&quot;actionToRegis&quot;&gt;免费注册点这里&lt;/el-button&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;/template&gt;
 &lt;script&gt;
 export default {
-  name: &#39;login&#39;,
+  name: 'login',
   methods: {
       actionToRegis: function (e) {
-          this.$parent.action = &#39;regis&#39;
+          this.$parent.action = 'regis'
       }
   }
 }
 &lt;/script&gt;
-&lt;!-- Add &#34;scoped&#34; attribute to limit CSS to this component only --&gt;
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
 &lt;style scoped&gt;
-&lt;/style&gt;</pre></td></tr></table>
-</div>
-</div>
-<p>regis.vue中也进行相应更改。由此也说明根组件并不是App.vue而是在main.js中new的组件
-&gt; 后来再看文档时发现<a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E4%BA%8B%E4%BB%B6%E5%90%91%E7%88%B6%E7%BA%A7%E7%BB%84%E4%BB%B6%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF">通过事件向父级组件发送消息</a>更加合理即在login.vue中使用v-on:click=&ldquo;$emit(&lsquo;actionToRegis&rsquo;)&ldquo;，在App.vue中加入 v-on:actionToRegis=&ldquo;action = &lsquo;regis&rsquo;&ldquo;，注册类似。所以多看官方文档很有必要，在实际做时才能真正体会到一些设计的作用</p>
-
+&lt;/style&gt;
+</code></pre>
+<p>regis.vue中也进行相应更改。由此也说明根组件并不是App.vue而是在main.js中new的组件</p>
+<blockquote>
+<p>后来再看文档时发现<a href="https://cn.vuejs.org/v2/guide/components.html#%E9%80%9A%E8%BF%87%E4%BA%8B%E4%BB%B6%E5%90%91%E7%88%B6%E7%BA%A7%E7%BB%84%E4%BB%B6%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF">通过事件向父级组件发送消息</a>更加合理即在login.vue中使用v-on:click=&quot;$emit(&lsquo;actionToRegis&rsquo;)&quot;，在App.vue中加入 v-on:actionToRegis=&ldquo;action = &lsquo;regis&rsquo;&quot;，注册类似。所以多看官方文档很有必要，在实际做时才能真正体会到一些设计的作用</p>
+</blockquote>
 <h4 id="后台交互">后台交互</h4>
-
 <h5 id="axios与跨域">axios与跨域</h5>
-
 <p>在之前项目中主要使用form提交与jquery封装的ajax提交，在vue中该如何把数据提交到后台呢?此时需要用到axios.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">npm install --save axios</pre></td></tr></table>
-</div>
-</div>
+<pre><code>npm install --save axios
+</code></pre>
 <p>由于demo项目与后台服务端口不一样，所以需要解决跨域问题。所以此时需要进行<a href="https://cli.vuejs.org/zh/config/#devserver-proxy">代理配置</a>
 增加vue.config.js文件(会自动加载)，加入devServe配置</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">module.exports = {
+<pre><code>module.exports = {
     devServer : {
-        proxy : &#39;http://localhost&#39;
+        proxy : 'http://localhost'
     }
-}</pre></td></tr></table>
-</div>
-</div>
+}
+</code></pre>
 <p>main.js加入一个测试请求</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">import Vue from &#39;vue&#39;
-import App from &#39;./App.vue&#39;
-import &#39;./plugins/element.js&#39;
-import axios from &#39;axios&#39;
+<pre><code>import Vue from 'vue'
+import App from './App.vue'
+import './plugins/element.js'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
 new Vue({
   render: h =&gt; h(App)
-}).$mount(&#39;#app&#39;)
+}).$mount('#app')
 
-axios.get(&#39;/user/login?name=1&amp;password=2&#39;)</pre></td></tr></table>
-</div>
-</div>
-<p>启动后台服务与前台项目，访问<a href="http://localhost:8080/时打开控制台查看network多了一个http://localhost:8080/user/login?name=1&amp;password=2请求且正常返回表示代理配置成功。现在要注册组件中使用，这时就需要[添加实例属性](https://cn.vuejs.org/v2/cookbook/adding-instance-properties.html),即在main.js中添加">http://localhost:8080/时打开控制台查看network多了一个http://localhost:8080/user/login?name=1&amp;password=2请求且正常返回表示代理配置成功。现在要注册组件中使用，这时就需要[添加实例属性](https://cn.vuejs.org/v2/cookbook/adding-instance-properties.html),即在main.js中添加</a>
+axios.get('/user/login?name=1&amp;password=2')
+</code></pre>
+<p>启动后台服务与前台项目，访问http://localhost:8080/时打开控制台查看network多了一个http://localhost:8080/user/login?name=1&amp;password=2请求且正常返回表示代理配置成功。现在要注册组件中使用，这时就需要<a href="https://cn.vuejs.org/v2/cookbook/adding-instance-properties.html">添加实例属性</a>,即在main.js中添加
 Vue.prototype.$axios = axios。之后在其它组件直接使用this.$axios使用即可。</p>
-
 <h5 id="注册示例">注册示例</h5>
-
 <p>在注册组件添加注册事件以及方法在方法中需要注意的是this.$axios的回调里面不能再使用this,需要再此处之前使用一个额外的变量保存this.即</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript">  <span class="kd">var</span> <span class="nx">vue</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">$axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/user/regis&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">user</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+              <span class="nx">vue</span><span class="p">.</span><span class="nx">$message</span><span class="p">({</span>
+                  <span class="nx">message</span><span class="o">:</span> <span class="s2">&#34;注册成功&#34;</span><span class="p">,</span>
+                  <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;success&#39;</span>
+              <span class="p">})</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+              <span class="nx">vue</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
+          <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">vue</span><span class="p">.</span><span class="nx">$message</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;网络错误&#34;</span><span class="p">)</span>
+      <span class="p">});</span>
 
-<p>````javascript
-    var vue = this;
-    this.$axios.post(&lsquo;/user/regis&rsquo;, this.user)
-        .then(function (res) {
-            var data = res.data
-            if(data.code == 0) {
-                vue.$message({
-                    message: &ldquo;注册成功&rdquo;,
-                    type: &lsquo;success&rsquo;
-                })
-            } else {
-                vue.$message.error(data.msg);
-            }
-        })
-        .catch(function (error) {
-            vue.$message.error(&ldquo;网络错误&rdquo;)
-        });</p>
-
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -733,7 +479,7 @@ Vue.prototype.$axios = axios。之后在其它组件直接使用this.$axios使�
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-08-17 09:54:47 \x2b0800 CST',
+        id: '2018-08-17 09:54:47 \u002b0800 CST',
         title: 'Vue',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -745,6 +491,10 @@ Vue.prototype.$axios = axios。之后在其它组件直接使用this.$axios使�
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -775,13 +525,10 @@ Vue.prototype.$axios = axios。之后在其它组件直接使用this.$axios使�
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -792,7 +539,10 @@ Vue.prototype.$axios = axios。之后在其它组件直接使用this.$axios使�
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

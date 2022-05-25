@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/linux/centos7%E7%AC%94%E8%AE%B0/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="Centos7笔记" />
 <meta property="og:description" content="https://www.cnblogs.com/moxiaoan/p/5683743.html CentOS7使用firewalld打开关闭防火墙与端口 1、firewalld的基本使用 启动： systemctl start firewalld 查看状态： systemctl status firewalld 停止： systemctl disable firewalld 禁用： systemctl stop" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/linux/centos7%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2018-05-25T09:25:07&#43;08:00"/>
-<meta property="article:modified_time" content="2018-05-25T09:25:07&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/linux/centos7%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-05-25T09:25:07+08:00" />
+<meta property="article:modified_time" content="2018-05-25T09:25:07+08:00" />
 
 <meta itemprop="name" content="Centos7笔记">
-<meta itemprop="description" content="https://www.cnblogs.com/moxiaoan/p/5683743.html CentOS7使用firewalld打开关闭防火墙与端口 1、firewalld的基本使用 启动： systemctl start firewalld 查看状态： systemctl status firewalld 停止： systemctl disable firewalld 禁用： systemctl stop">
-
-
-<meta itemprop="datePublished" content="2018-05-25T09:25:07&#43;08:00" />
-<meta itemprop="dateModified" content="2018-05-25T09:25:07&#43;08:00" />
-<meta itemprop="wordCount" content="645">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="https://www.cnblogs.com/moxiaoan/p/5683743.html CentOS7使用firewalld打开关闭防火墙与端口 1、firewalld的基本使用 启动： systemctl start firewalld 查看状态： systemctl status firewalld 停止： systemctl disable firewalld 禁用： systemctl stop"><meta itemprop="datePublished" content="2018-05-25T09:25:07+08:00" />
+<meta itemprop="dateModified" content="2018-05-25T09:25:07+08:00" />
+<meta itemprop="wordCount" content="851">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Centos7笔记"/>
 <meta name="twitter:description" content="https://www.cnblogs.com/moxiaoan/p/5683743.html CentOS7使用firewalld打开关闭防火墙与端口 1、firewalld的基本使用 启动： systemctl start firewalld 查看状态： systemctl status firewalld 停止： systemctl disable firewalld 禁用： systemctl stop"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 645 字 </span>
+          <span class="more-meta"> 约 851 字 </span>
           <span class="more-meta"> 预计阅读 2 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -138,32 +142,24 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#修改网卡名称">修改网卡名称</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html">https://www.cnblogs.com/moxiaoan/p/5683743.html</a>
+      <p><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html">https://www.cnblogs.com/moxiaoan/p/5683743.html</a>
 CentOS7使用firewalld打开关闭防火墙与端口
 1、firewalld的基本使用
 启动： systemctl start firewalld
-查看状态： systemctl status firewalld
+查看状态： systemctl status firewalld 
 停止： systemctl disable firewalld
 禁用： systemctl stop firewalld</p>
-
 <p>2.systemctl是CentOS7的服务管理工具中主要的工具，它融合之前service和chkconfig的功能于一体。
 启动一个服务：systemctl start firewalld.service
 关闭一个服务：systemctl stop firewalld.service
@@ -174,9 +170,7 @@ CentOS7使用firewalld打开关闭防火墙与端口
 查看服务是否开机启动：systemctl is-enabled firewalld.service
 查看已启动的服务列表：systemctl list-unit-files|grep enabled
 查看启动失败的服务列表：systemctl &ndash;failed</p>
-
 <p>3.配置firewalld-cmd</p>
-
 <p>查看版本： firewall-cmd &ndash;version
 查看帮助： firewall-cmd &ndash;help
 显示状态： firewall-cmd &ndash;state
@@ -187,9 +181,7 @@ CentOS7使用firewalld打开关闭防火墙与端口
 拒绝所有包：firewall-cmd &ndash;panic-on
 取消拒绝状态： firewall-cmd &ndash;panic-off
 查看是否拒绝： firewall-cmd &ndash;query-panic</p>
-
 <p>systemctl start firewalld &amp;&amp; firewall-cmd &ndash;zone=public &ndash;add-port=51022/tcp &ndash;permanent  &amp;&amp; firewall-cmd &ndash;reload</p>
-
 <p>那怎么开启一个端口呢
 添加
 firewall-cmd &ndash;zone=public &ndash;add-port=80/tcp &ndash;permanent    （&ndash;permanent永久生效，没有此参数重启后失效）
@@ -201,39 +193,77 @@ firewall-cmd &ndash;zone=public &ndash;query-port=80/tcp
 firewall-cmd &ndash;zone=public &ndash;remove-port=80/tcp &ndash;permanent
 指定ip
 firewall-cmd &ndash;permanent &ndash;add-rich-rule=&ldquo;rule family=&ldquo;ipv4&rdquo; source address=&ldquo;125.65.112.58&rdquo; port protocol=&ldquo;tcp&rdquo; port=&ldquo;8081&rdquo; accept&rdquo; &amp;&amp; firewall-cmd &ndash;reload</p>
-
 <p>firewall-cmd &ndash;query-masquerade # 检查是否允许伪装IP
 firewall-cmd &ndash;permanent &ndash;add-masquerade # 允许防火墙伪装IP
 firewall-cmd &ndash;permanent &ndash;remove-masquerade# 禁止防火墙伪装IP
 firewall-cmd &ndash;permanent &ndash;add-forward-port=port=80:proto=tcp:toaddr=192.168.0.1:toport=8080</p>
-
-<hr />
-
-<hr />
-
+<hr>
+<hr>
 <p>iptables -t nat -L</p>
-
 <p>#修改hostname
 hostnamectl set-hostname name</p>
-
 <h4 id="修改网卡名称">修改网卡名称</h4>
-
 <p><a href="https://unix.stackexchange.com/questions/205010/centos-7-rename-network-interface-without-rebooting">参考</a>
 ip link set ens33 down
 ip link set ens33 name eth0
 ip link set eth0 up</p>
-
+<p>ip link set em1 down
+ip link set em1 name eth0
+ip link set eth0 up
+ip link set eth0 up</p>
 <p>mv /etc/sysconfig/network-scripts/ifcfg-ens33 /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-
 <p>vi ifcfg-eth0
 修改ifcfg-ens33 -&gt; ifcfg-eth0</p>
-
 <p>systemctl restart network</p>
-
 <blockquote>
 <p>断电重启后失效</p>
 </blockquote>
+<h1 id="挂载硬盘">挂载硬盘</h1>
+<blockquote>
+<p>仅适用于使用 fdisk 命令对一个不大于 2 TB 的数据盘执行分区操作
+<a href="https://zhuanlan.zhihu.com/p/145773155">https://zhuanlan.zhihu.com/p/145773155</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#先查看未指派的分区名称</span>
+fdisk -l
+<span class="c1">#创建硬盘分区</span>
+fdisk /dev/xxxxx
+交互式操作，首先输入n <span class="c1">#回车添加新分区，其他直接回车</span>
 
+<span class="c1">#分区完成。输入fdisk -l查看信息</span>
+<span class="c1">#格式化分区sdb1磁盘的设备名</span>
+mkfs.ext4 /dev/sdb1
+<span class="c1">#建立挂载目录</span>
+mkdir /data
+<span class="c1">#挂载分区</span>
+mount /dev/sdb1 /data
+<span class="c1">#设置开机自动挂载</span>
+<span class="nb">echo</span> /dev/sdb1 /data ext4 defaults <span class="m">0</span> <span class="m">0</span> &gt;&gt; /etc/fstab
+<span class="c1">#重启系统,确认是否挂载成功</span>
+reboot
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">
@@ -273,7 +303,7 @@ ip link set eth0 up</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-05-25 09:25:07 \x2b0800 CST',
+        id: '2018-05-25 09:25:07 \u002b0800 CST',
         title: 'Centos7笔记',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -285,6 +315,10 @@ ip link set eth0 up</p>
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -315,13 +349,10 @@ ip link set eth0 up</p>
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -332,7 +363,10 @@ ip link set eth0 up</p>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

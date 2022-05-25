@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/js/jquery_html_escape/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="复制按钮引发的问题" />
 <meta property="og:description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/js/jquery_html_escape/" />
-<meta property="article:published_time" content="2020-06-04T11:10:00&#43;08:00"/>
-<meta property="article:modified_time" content="2020-06-19T15:54:31&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/js/jquery_html_escape/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2020-06-04T11:10:00+08:00" />
+<meta property="article:modified_time" content="2020-06-19T15:54:31+08:00" />
 
 <meta itemprop="name" content="复制按钮引发的问题">
-<meta itemprop="description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2">
-
-
-<meta itemprop="datePublished" content="2020-06-04T11:10:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-19T15:54:31&#43;08:00" />
-<meta itemprop="wordCount" content="1155">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2"><meta itemprop="datePublished" content="2020-06-04T11:10:00+08:00" />
+<meta itemprop="dateModified" content="2020-06-19T15:54:31+08:00" />
+<meta itemprop="wordCount" content="1154">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="复制按钮引发的问题"/>
 <meta name="twitter:description" content="简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -126,7 +130,7 @@
       <div class="post-meta">
         <span class="post-time"> 2020-06-04 </span>
         
-          <span class="more-meta"> 约 1155 字 </span>
+          <span class="more-meta"> 约 1154 字 </span>
           <span class="more-meta"> 预计阅读 3 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -136,30 +140,22 @@
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#简述">简述</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<h4 id="简述">简述</h4>
-
+      <h4 id="简述">简述</h4>
 <p>在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -183,9 +179,9 @@
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">&lt;button class=&#34;h30-btn default-btn copyMsg&#34;&gt;复制&lt;/button&gt;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;button class=&#34;h30-btn default-btn copyMsg&#34;&gt;复制&lt;/button&gt;
 &lt;div class=&#34;i18n-content&#34;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.token.repeat.invalid&#34;: &#34;Your request is being processed, please do not repeat!&#34;,&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.permission.validate.fail&#34;: &#34;You do not have access to this page. If you have any queries, please contact your administrator.&#34;,
@@ -208,79 +204,79 @@
         }
         document.body.removeChild(input);
     });
-    &lt;/script&gt;</pre></td></tr></table>
+    &lt;/script&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>复制到粘贴板后会发现没有换行,因为input是不支持换行的。</p>
-
+</div><p>复制到粘贴板后会发现没有换行,因为input是不支持换行的。</p>
 <p>1.于是将input的类型改成textarea。复制粘贴后就只有textarea，完全没有div的内容。应该是值没有设置上去。通过input.value = msg;设置值而不是input.setAttribute(&lsquo;value&rsquo;, msg);</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    var input = document.createElement(&#39;textarea&#39;);
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    var input = document.createElement(&#39;textarea&#39;);
     input.setAttribute(&#39;readonly&#39;, &#39;readonly&#39;);
-    input.value = msg;</pre></td></tr></table>
+    input.value = msg;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>2.点击复制粘贴后仍然没有换行，改用html()。再次点击复制粘贴后还是没有换行</p>
+</div><p>2.点击复制粘贴后仍然没有换行，改用html()。再次点击复制粘贴后还是没有换行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).html();</pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    var msg = $(&#34;.i18n-content&#34;).html();
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>3.复制粘贴后的内容<code>&amp;nbsp;&amp;nbsp;</code>与<code>&lt;br&gt;</code>这种空格显示与换行，以及大于小于，想着去掉，同时页面显示换行与空格，于是用正则替换同时在页面显示内容的div加入style=&ldquo;white-space: pre&rdquo;,内容与div要在同一行不能换行，不然显示会多出空格</p>
+</div><p>3.复制粘贴后的内容<code>&amp;nbsp;&amp;nbsp;</code>与<code>&lt;br&gt;</code>这种空格显示与换行，以及大于小于，想着去掉，同时页面显示换行与空格，于是用正则替换同时在页面显示内容的div加入style=&ldquo;white-space: pre&rdquo;,内容与div要在同一行不能换行，不然显示会多出空格</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).html().trim().replace(/&lt;br&gt;/g, &#39;\n&#39;).replace(/&amp;nbsp;/g, &#39; &#39;).replace(/&amp;lt/g, &#39;&lt;&#39;).replace(/&amp;gt/g, &#39;&gt;&#39;);
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    var msg = $(&#34;.i18n-content&#34;).html().trim().replace(/&lt;br&gt;/g, &#39;\n&#39;).replace(/&amp;nbsp;/g, &#39; &#39;).replace(/&amp;lt/g, &#39;&lt;&#39;).replace(/&amp;gt/g, &#39;&gt;&#39;);
     ...
 
     &lt;div class=&#34;i18n-content&#34; style=&#34;white-space: pre&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&#34;message.token.repeat.invalid&#34;: &#34;Your request is being processed, please do not
         ....
-    &lt;/div&gt;</pre></td></tr></table>
+    &lt;/div&gt;
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>4.粘贴后的内容依然有特殊符号与显示的不符合，即html()返回的内容会将&amp;转成<code>&amp;amp;</code>等等，具体参考<a href="https://www.w3school.com.cn/html/html_entities.asp">https://www.w3school.com.cn/html/html_entities.asp</a>
-之后还是觉得用text()方法得到内容。但text()是不会将<code>&amp;nbsp;</code>与<code>&lt;br&gt;</code>改成换行的。于是在后台代码拼接内容的时候将<code>&lt;br&gt;</code>改成\n,<code>&amp;nbsp;</code>直接使用  (空格)替代，加上div已有style=&ldquo;white-space: pre&rdquo;样式会将空格与\n完整显示</p>
+</div><p>4.粘贴后的内容依然有特殊符号与显示的不符合，即html()返回的内容会将&amp;转成<code>&amp;amp;</code>等等，具体参考https://www.w3school.com.cn/html/html_entities.asp
+之后还是觉得用text()方法得到内容。但text()是不会将<code>&amp;nbsp;</code>与<code>&lt;br&gt;</code>改成换行的。于是在后台代码拼接内容的时候将<code>&lt;br&gt;</code>改成\n,<code>&amp;nbsp;</code>直接使用  (空格)替代，加上div已有style=&ldquo;white-space: pre&quot;样式会将空格与\n完整显示</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span></pre></td>
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    var msg = $(&#34;.i18n-content&#34;).text();
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    var msg = $(&#34;.i18n-content&#34;).text();
     ...
     #后台
     sb.append(&#34;\n&#34;);
     sb.append(&#34;    &#34;);
-    ...</pre></td></tr></table>
+    ...
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>5.运行一段时间后发现如果内容里若含有html标签如<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;GO BUY&lt;/a&gt;</code>，显示在页面会将其渲染a标签，而不是源码，所以复制粘贴的时候就会只有GO BUY，而缺少<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;</code>与<code>&lt;/a&gt;</code>，而我们实际是都需要的。 最后将div直接改成xmp标签。都说xmp标签已过时，用code与pre标签然后将&lt;与&gt;进行转义，但内容其实有可能也需要&lt;或&gt;号，故还是用xmp标签</p>
+</div><p>5.运行一段时间后发现如果内容里若含有html标签如<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;GO BUY&lt;/a&gt;</code>，显示在页面会将其渲染a标签，而不是源码，所以复制粘贴的时候就会只有GO BUY，而缺少<code>&lt;a href=&quot;xxxxx&quot; target=&quot;_blank&quot;&gt;</code>与<code>&lt;/a&gt;</code>，而我们实际是都需要的。 最后将div直接改成xmp标签。都说xmp标签已过时，用code与pre标签然后将&lt;与&gt;进行转义，但内容其实有可能也需要&lt;或&gt;号，故还是用xmp标签</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
 <td class="lntd">
-<pre class="chroma">    &lt;xmp class=&#34;i18n-content&#34;&gt;${i18ns}&lt;/xmp&gt;</pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">    &lt;xmp class=&#34;i18n-content&#34;&gt;${i18ns}&lt;/xmp&gt;
+</code></pre></td></tr></table>
 </div>
 </div>
     </div>
@@ -308,8 +304,8 @@
             <span class="prev-text nav-default">k8s问题集</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/docker_k8s/deleteimages/">
-            <span class="next-text nav-default">DeleteImages</span>
+        <a class="next" href="/post/ide/vs/">
+            <span class="next-text nav-default">Vs</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -322,7 +318,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2020-06-04 11:10:00 \x2b0800 CST',
+        id: '2020-06-04 11:10:00 \u002b0800 CST',
         title: '复制按钮引发的问题',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -334,6 +330,10 @@
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -364,13 +364,10 @@
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -381,7 +378,10 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 

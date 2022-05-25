@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://cr6588.github.io/post/linux/linux%E7%AC%94%E8%AE%B0/" />
@@ -34,29 +34,23 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="linux笔记" />
 <meta property="og:description" content="//centos6 //显示linux发行版本信息 cat /etc/issue cat /etc/os-release //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u&#43;rwx filename //后台运行 nohup java -jar erp-log.jar &gt; base-service.log 2&gt;&amp;1 &amp; //vi复制行" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://cr6588.github.io/post/linux/linux%E7%AC%94%E8%AE%B0/" />
-<meta property="article:published_time" content="2018-04-17T20:56:48&#43;08:00"/>
-<meta property="article:modified_time" content="2018-04-17T20:56:48&#43;08:00"/>
+<meta property="og:url" content="https://cr6588.github.io/post/linux/linux%E7%AC%94%E8%AE%B0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-04-17T20:56:48+08:00" />
+<meta property="article:modified_time" content="2018-04-17T20:56:48+08:00" />
 
 <meta itemprop="name" content="linux笔记">
-<meta itemprop="description" content="//centos6 //显示linux发行版本信息 cat /etc/issue cat /etc/os-release //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u&#43;rwx filename //后台运行 nohup java -jar erp-log.jar &gt; base-service.log 2&gt;&amp;1 &amp; //vi复制行">
-
-
-<meta itemprop="datePublished" content="2018-04-17T20:56:48&#43;08:00" />
-<meta itemprop="dateModified" content="2018-04-17T20:56:48&#43;08:00" />
-<meta itemprop="wordCount" content="2007">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="//centos6 //显示linux发行版本信息 cat /etc/issue cat /etc/os-release //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u&#43;rwx filename //后台运行 nohup java -jar erp-log.jar &gt; base-service.log 2&gt;&amp;1 &amp; //vi复制行"><meta itemprop="datePublished" content="2018-04-17T20:56:48+08:00" />
+<meta itemprop="dateModified" content="2018-04-17T20:56:48+08:00" />
+<meta itemprop="wordCount" content="2166">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="linux笔记"/>
 <meta name="twitter:description" content="//centos6 //显示linux发行版本信息 cat /etc/issue cat /etc/os-release //查看内存 free -m //防火墙 vi /etc/sysconfig/iptables service iptables status service iptables restart //加权限 chmod u&#43;rwx filename //后台运行 nohup java -jar erp-log.jar &gt; base-service.log 2&gt;&amp;1 &amp; //vi复制行"/>
 
@@ -93,12 +87,21 @@
         <li class="mobile-menu-item">关于</li>
       </a>
   </ul>
+
+  
+
+
 </nav>
+
   <div class="container" id="mobile-panel">
     <header id="header" class="header">
         <div class="logo-wrapper">
   <a href="/" class="logo">cr6588</a>
 </div>
+
+
+
+
 
 <nav class="site-navbar">
   <ul id="menu" class="menu">
@@ -113,6 +116,7 @@
       </li>
   </ul>
 </nav>
+
     </header>
 
     <main id="main" class="main">
@@ -128,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/linux/"> linux </a>
             </div>
-          <span class="more-meta"> 约 2007 字 </span>
+          <span class="more-meta"> 约 2166 字 </span>
           <span class="more-meta"> 预计阅读 5 分钟 </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
       </div>
@@ -137,7 +141,7 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    
+    <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
@@ -160,24 +164,20 @@ nohup java -jar erp-log.jar &gt; base-service.log 2&gt;&amp;1 &amp;
 2）按yy
 3）把光标移动到要复制的位置
 4）按p</p>
-
 <p>#返回上一次目录
 cd -
 #!/bin/bash
 nohup java -jar erp-cache.jar &gt; erp-cache.log 2&gt;&amp;1 &amp;</p>
-
 <p>//linux安装字体
 Linux字体文件放在/usr/share/font/，只要将字体文件拷贝到这里就可以了。
 这里示例安装Windows的所有字体。
-    1，新建文件夹，装Windows字体，方便管理。打开终端输入命令:mkdir win。
-    2，复制Windows下 的所有字体。cd命令切换到C盘挂载的目录，进入c:\windows\Fonts。使用cp命令复制字体：cp *.ttf *.TTF /home/username/win/。这样就把Windows的字体复制到了主目录下的win目录里面。
-    3，安装字体。终端输入:mv /home/username/win/ /usr/share/fonts/。移动到Linux字体库中。
-    4，刷新系统即刻生效，输入命令：sudo fc-cache -fv。
+1，新建文件夹，装Windows字体，方便管理。打开终端输入命令:mkdir win。
+2，复制Windows下 的所有字体。cd命令切换到C盘挂载的目录，进入c:\windows\Fonts。使用cp命令复制字体：cp *.ttf *.TTF /home/username/win/。这样就把Windows的字体复制到了主目录下的win目录里面。
+3，安装字体。终端输入:mv /home/username/win/ /usr/share/fonts/。移动到Linux字体库中。
+4，刷新系统即刻生效，输入命令：sudo fc-cache -fv。
 //将jar包安装到本地repository中</p>
-
 <p>mvn install:install-file -Dfile=my-jar.jar -DgroupId=org.richard -DartifactId=my-jar -Dversion=1.0 -Dpackaging=jar
 mvn install:install-file -Dfile=ocean.client-1.0.jar -DgroupId=com.alibaba -DartifactId=ocean.client -Dversion=1.0 -Dpackaging=jar</p>
-
 <p>1、<em>.tar 用 tar –xvf 解压
 2、</em>.gz 用 gzip -d或者gunzip 解压
 3、<em>.tar.gz和</em>.tgz 用 tar -xzf 解压
@@ -187,38 +187,47 @@ mvn install:install-file -Dfile=ocean.client-1.0.jar -DgroupId=com.alibaba -Dart
 7、</em>.tar.Z 用tar –xZf 解压
 8、<em>.rar 用 unrar e解压
 9、</em>.zip 用 unzip 解压</p>
-
+<p>tar -cvf etcbak.tar etc/          打包一个tar</p>
+<p>tar -xvf etcbak.tar                 解开一个tar</p>
+<p>tar -xvf  etcbak.tar  -C ./dir  解开一个tar到当前的 dir 目录中</p>
+<hr>
+<p>tar -zcvf etcbak.tar.gz etc/ 打包压缩一个 tar</p>
+<p>tar -zxvf etcbak.tar.gz  解压一个tar</p>
+<hr>
+<p>&ndash;B
+zip -r mybatis.zip    ./mybatis 将目录./mybatis压缩成一个mybatis.zip 文件
+unzip  mybatis.zip  -d ./newdir 将mybatis.zip 文件解压缩到目录  ./newdir</p>
+<hr>
+<p>&ndash;C gzip 只能压缩文件 
+gzip  file.txt   &ndash;压缩文件 
+gunzip file.txt.gz  &ndash;解压缩文件</p>
 <p>mv 源文件 目标文件
 //强制递归复制文件
 cp -rf erp-web-tomcat-7.0.82_9001_9002_9003 erp-admin-tomcat-7.0.82_9004_9005_9006
 #不提示覆盖
 \cp -rf t tt</p>
-
 <p>phantomjs用于保存标签图片
 1.下载phantomjs
-    linux:wget <a href="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2(linux下载后文件名过长用mv">https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2(linux下载后文件名过长用mv</a> 更改前名称 phantomjs-2.1.1-linux-x86_64.tar.bz2)
-    windows:<a href="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip">https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip</a>
+linux:wget <a href="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2(linux">https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2(linux</a>下载后文件名过长用mv 更改前名称 phantomjs-2.1.1-linux-x86_64.tar.bz2)
+windows:https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-windows.zip
 2.解压
-    linux:tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2
+linux:tar -jxvf phantomjs-2.1.1-linux-x86_64.tar.bz2
 3.加入环境变量
-    linux:
-        vi /etc/profile
-        加入export PATH=/home/phantomjs-2.1.1-linux-x86_64/bin:$PATH
-        使环境变量生效,在当前窗口以及以后新建立的ssh生效，以前打开的窗口不会生效
-        source /etc/profile
-        查看版本是否生效，若出现phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory，安装（yun install xxx）相应依赖
-        phantomjs &ndash;version
+linux:
+vi /etc/profile
+加入export PATH=/home/phantomjs-2.1.1-linux-x86_64/bin:$PATH
+使环境变量生效,在当前窗口以及以后新建立的ssh生效，以前打开的窗口不会生效
+source /etc/profile
+查看版本是否生效，若出现phantomjs: error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory，安装（yun install xxx）相应依赖
+phantomjs &ndash;version
 4.linux加入字体
-    1.复制font.zip到linux的/usr/share/fonts/目录下
-    2.unzip font.zip
-    3.刷新系统即刻生效，输入命令：fc-cache -fv</p>
-
+1.复制font.zip到linux的/usr/share/fonts/目录下
+2.unzip font.zip
+3.刷新系统即刻生效，输入命令：fc-cache -fv</p>
 <p>host文件位置：/etc/hosts
 vi /etc/hosts即可编辑
 修改方式类似windows.</p>
-
 <p>Linux centos重启命令：</p>
-
 <p>　　1、reboot
 　　2、shutdown -r now 立刻重启(root用户使用)
 　　3、shutdown -r 10 过10分钟自动重启(root用户使用)
@@ -230,8 +239,8 @@ vi /etc/hosts即可编辑
 　　3、shutdown -h now 立刻关机(root用户使用)
 　　4、shutdown -h 10 10分钟后自动关机
 linux下查看当前目录属于哪个分区？
-    -h 单位g
-    df -h /opt/test
+-h 单位g
+df -h /opt/test
 linux安装redis 4.0
 下载解压
 make
@@ -241,41 +250,31 @@ cd src
 ./redis-cli -h 127.0.0.1 -p 6379 shutdown
 时间同步
 授时服务器采用阿里云 <a href="https://help.aliyun.com/knowledge_detail/40583.html">https://help.aliyun.com/knowledge_detail/40583.html</a></p>
-
 <p>ntpdate -u ntp1.aliyun.com
 定时同步服务器时间
 crontab -e
 */10 * * * * /usr/sbin/ntpdate ntp1.aliyun.com</p>
-
 <p>文件的属主和属组属性设置</p>
-
 <p>chown user:market f01　　//把文件f01给uesr，添加到market组
 ll -d f1  查看目录f1的属性</p>
-
 <p>javac <em>.java会生成对应的</em>.class文件
 java *.class就可以执行了，.class可以省略
 找不到主类，加入classpath=jdk/lib &amp;&amp; export PATH=$classpath:PATH
 移除临时环境变量unset erp_version</p>
-
 <p>查看目录文件大小
 du -sh *</p>
-
 <p>批量当前以及子目录清空日志文件内容
 for i in <code>find . -name &quot;*.log&quot;</code>; do cat /dev/null &gt;$i; done</p>
-
-<p>将curl的请求结果输出值aaaa.txt文件中。`<code>执行命令,不是单引号''，-i打印请求头，-H添加请求头。多个时在-h xxx, -d数据请求 @jenkins-token.txt当前目录下的jenkins-token.txt文件，不用文件是不添加@。-X请求方式
-echo</code>curl -i -H &ldquo;Content-Type:application/json&rdquo; -d @jenkins-token.txt -X POST <a href="https://iam.myhuaweicloud.com/v3/auth/tokens`">https://iam.myhuaweicloud.com/v3/auth/tokens`</a> &gt; aaaa.txt</p>
-
+<p>将curl的请求结果输出值aaaa.txt文件中。``执行命令,不是单引号''，-i打印请求头，-H添加请求头。多个时在-h xxx, -d数据请求 @jenkins-token.txt当前目录下的jenkins-token.txt文件，不用文件是不添加@。-X请求方式
+echo <code>curl -i -H &quot;Content-Type:application/json&quot; -d @jenkins-token.txt -X POST https://iam.myhuaweicloud.com/v3/auth/tokens</code> &gt; aaaa.txt</p>
 <p>清除从window传到linux的^M符号,g全局，^M实际是crtl+v,crtl+m,输入时也需要crtl+v,crtl+m，不能直接复制^M
-sed -i &rsquo;s/^M//g&rsquo; ELB.sh</p>
-
+sed -i &rsquo;s/^M//g' ELB.sh</p>
 <p>对于grep贪婪匹配，需使用perl语法
-即grep -P &ldquo;weight\&rdquo;: .*?,&rdquo;</p>
-
-<p>(Linux查看物理CPU个数、核数、逻辑CPU个数)[<a href="https://www.cnblogs.com/emanlee/p/3587571.html">https://www.cnblogs.com/emanlee/p/3587571.html</a>]</p>
+即grep -P &ldquo;weight&quot;: .*?,&rdquo;</p>
+<p>(Linux查看物理CPU个数、核数、逻辑CPU个数)[https://www.cnblogs.com/emanlee/p/3587571.html]</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -288,7 +287,7 @@ sed -i &rsquo;s/^M//g&rsquo; ELB.sh</p>
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 总核数 = 物理CPU个数 X 每颗物理CPU的核数</span> 
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 总核数 = 物理CPU个数 X 每颗物理CPU的核数 </span>
 <span class="c1"># 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</span>
 
 <span class="c1"># 查看物理CPU个数</span>
@@ -298,12 +297,11 @@ cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;physical id
 cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;cpu cores&#34;</span><span class="p">|</span> uniq
 
 <span class="c1"># 查看逻辑CPU的个数</span>
-cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;processor&#34;</span><span class="p">|</span> wc -l</code></pre></td></tr></table>
+cat /proc/cpuinfo<span class="p">|</span> grep <span class="s2">&#34;processor&#34;</span><span class="p">|</span> wc -l
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>#ip 查询
+</div><p>#ip 查询
 curl cip.cc</p>
-
 <p>#tcp 连接查询
 yum install net-tools
 netstat -na</p>
@@ -347,7 +345,7 @@ netstat -na</p>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
       var gitalk = new Gitalk({
-        id: '2018-04-17 20:56:48 \x2b0800 CST',
+        id: '2018-04-17 20:56:48 \u002b0800 CST',
         title: 'linux笔记',
         clientID: 'f8fc0224f2d6ffa6eba8',
         clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
@@ -359,6 +357,10 @@ netstat -na</p>
       gitalk.render('gitalk-container');
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
 
       </div>
     </main>
@@ -389,13 +391,10 @@ netstat -na</p>
   <span class="copyright-year">
     &copy; 
     2019 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">cr6588</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
   </span>
 </div>
+
     </footer>
 
     <div class="back-to-top" id="back-to-top">
@@ -406,7 +405,10 @@ netstat -na</p>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
 
 
 
