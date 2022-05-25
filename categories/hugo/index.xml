@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on cr6588</title>
@@ -6,11 +6,7 @@
     <description>Recent content in hugo on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Apr 2018 19:17:21 +0800</lastBuildDate>
-    
-	<atom:link href="https://cr6588.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 10 Apr 2018 19:17:21 +0800</lastBuildDate><atom:link href="https://cr6588.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>hugo问题集</title>
       <link>https://cr6588.github.io/post/hugo/hugo%E9%97%AE%E9%A2%98%E9%9B%86/</link>

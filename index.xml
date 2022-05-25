@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cr6588</title>
@@ -6,10 +6,96 @@
     <description>Recent content on cr6588</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 14 Aug 2020 13:48:25 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 13 Apr 2022 20:56:04 +0800</lastBuildDate><atom:link href="https://cr6588.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Brew</title>
+      <link>https://cr6588.github.io/post/mac/brew/</link>
+      <pubDate>Wed, 13 Apr 2022 20:56:04 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mac/brew/</guid>
+      <description>brew使用国内源 1 2 3 4 5 6 7 8 9 10 11 12 cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-cask&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git echo &amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile brew update</description>
+    </item>
     
-	<atom:link href="https://cr6588.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fulltext</title>
+      <link>https://cr6588.github.io/post/mysql/fulltext/</link>
+      <pubDate>Sun, 10 Apr 2022 18:14:07 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mysql/fulltext/</guid>
+      <description>全文索引 原本是想利用全文索引解决简单的查询优化，但使用了之后发现一些问题。 配置问题 全文索引都会涉及到一个最小分词长度长度的配置； 1 2 3 4 5 6</description>
+    </item>
     
+    <item>
+      <title>Nvm</title>
+      <link>https://cr6588.github.io/post/node/nvm/</link>
+      <pubDate>Wed, 06 Apr 2022 21:43:22 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/node/nvm/</guid>
+      <description>nvm是管理node工具，可以安装切换多版本node 1 2 3 4 5 6 7 8 9 #使用国内源安装node export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node #先卸载cnpm npm remove -g cnpm --registry=https://registry.npmmirror.com #安装最新的lt</description>
+    </item>
+    
+    <item>
+      <title>记录一次复制hosts引发的问题</title>
+      <link>https://cr6588.github.io/post/mac/hosts-err/</link>
+      <pubDate>Mon, 27 Dec 2021 15:33:36 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mac/hosts-err/</guid>
+      <description>过程 由于更换电脑，当把以前windows的hosts文件复制到新电脑后。启动项目连接zookeeper时提示超时。 在网上一番搜索后，走上了歧</description>
+    </item>
+    
+    <item>
+      <title>注册ip异常</title>
+      <link>https://cr6588.github.io/post/dubbo/%E6%B3%A8%E5%86%8Cip%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Wed, 10 Nov 2021 09:58:50 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/dubbo/%E6%B3%A8%E5%86%8Cip%E5%BC%82%E5%B8%B8/</guid>
+      <description>启动的时候dubbo注册到一个未知的ip 1 [DUBBO] No spring extension (bean) named:module, try to find an extension (bean) of type org.apache.dubbo.config.ModuleConfig, dubbo version: 2.7.5, current host: 192.168.199.202 搜索一番都让修改dns，于是尝试修改了一下dns 61.139.2.69 暂时好</description>
+    </item>
+    
+    <item>
+      <title>Scp Sftp Rysnc</title>
+      <link>https://cr6588.github.io/post/linux/scp-sftp-rysnc/</link>
+      <pubDate>Sun, 26 Sep 2021 22:54:20 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/linux/scp-sftp-rysnc/</guid>
+      <description>scp、sftp、rsync 三者都可以上传文件，其中scp上传文件时可直接上传不需要进行交互，sftp需要进行交互，通过脚本上传时需要exp</description>
+    </item>
+    
+    <item>
+      <title>多环境变量不生效</title>
+      <link>https://cr6588.github.io/post/java/%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E7%94%9F%E6%95%88/</link>
+      <pubDate>Mon, 23 Aug 2021 10:46:24 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/java/%E5%A4%9A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8D%E7%94%9F%E6%95%88/</guid>
+      <description>参考https://www.cnblogs.com/serviceMyself/p/14806325.html windows下 查看C:\Wi</description>
+    </item>
+    
+    <item>
+      <title>shortcutKey</title>
+      <link>https://cr6588.github.io/post/mac/shortcutkey/</link>
+      <pubDate>Fri, 06 Aug 2021 09:24:33 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mac/shortcutkey/</guid>
+      <description>Mac 键盘快捷键 您可以按下某些组合键来实现通常需要鼠标、触控板或其他输入设备才能完成的操作。 要使用键盘快捷键，请按住一个或多个修饰键，然后按快捷</description>
+    </item>
+    
+    <item>
+      <title>mysql重置密码</title>
+      <link>https://cr6588.github.io/post/mysql/resetpwd/</link>
+      <pubDate>Sun, 07 Feb 2021 11:17:17 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mysql/resetpwd/</guid>
+      <description>参照 https://blog.csdn.net/weixin_36511527/article/details/87865212 1、在[mysqld]中添加 1 2 #跳过权限 skip-grant-tables 2、重启mysql服务 service mysqld restart 3、用户登录 mysql -uroot -p (直接点击回车，密码为空) 选择数据库 use mysql; 下面</description>
+    </item>
+    
+    <item>
+      <title>mysql性能测试</title>
+      <link>https://cr6588.github.io/post/mysql/test/</link>
+      <pubDate>Sun, 07 Feb 2021 11:08:39 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/mysql/test/</guid>
+      <description>mysql性能测试 参照https://cloud.tencent.com/developer/article/1536046 通过我们看各大厂</description>
+    </item>
     
     <item>
       <title>k8s问题集</title>
@@ -27,6 +113,42 @@
       
       <guid>https://cr6588.github.io/post/js/jquery_html_escape/</guid>
       <description>简述 在做一个复制按钮时，初步以为只是复制以前的代码，但由于页面是大量的国际化code与翻译引发了一些转义问题。首页页面内容html源码是 1 2</description>
+    </item>
+    
+    <item>
+      <title>Vs</title>
+      <link>https://cr6588.github.io/post/ide/vs/</link>
+      <pubDate>Tue, 19 May 2020 10:38:53 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/ide/vs/</guid>
+      <description>vs code 单击文件是预览模式，窗口上的文件名是斜体，打开其它文件是会覆盖显示。再双击文件名则会正体显示，新开文件也不会覆盖 相关设置是 &amp;ldquo;workbench.editor.enablePreview&amp;rdquo;: true 显示方法列</description>
+    </item>
+    
+    <item>
+      <title>Error</title>
+      <link>https://cr6588.github.io/post/js/error/</link>
+      <pubDate>Wed, 15 Jan 2020 11:41:22 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/js/error/</guid>
+      <description>在linux中npm run build编译vue项目时大小写敏感 js向上取整 Math.ceil(5/3)</description>
+    </item>
+    
+    <item>
+      <title>Vue复习</title>
+      <link>https://cr6588.github.io/post/js/vue%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Fri, 29 Nov 2019 15:44:01 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/js/vue%E5%A4%8D%E4%B9%A0/</guid>
+      <description>时隔九月再次上手Vue 注意项 不要在选项属性或回调上使用箭头函数，比如 created: () =&amp;gt; console.log(this.a) 或 vm.$watch(&amp;lsquo;a&amp;rsquo;, newValue =&amp;gt; this.myMethod())。因为箭头函数并没有 th</description>
+    </item>
+    
+    <item>
+      <title>saturn</title>
+      <link>https://cr6588.github.io/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/</link>
+      <pubDate>Thu, 24 Oct 2019 15:58:07 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/saturn/job%E4%B8%8D%E6%89%A7%E8%A1%8C/</guid>
+      <description>job不执行 console和executor都起来了，但是没有执行对应的job作业，点击立即执行，日志打印msg=job run-at-once triggered, triggeredData:null 检查conso</description>
     </item>
     
     <item>
@@ -48,6 +170,33 @@
     </item>
     
     <item>
+      <title>Sql</title>
+      <link>https://cr6588.github.io/post/sql/sql/</link>
+      <pubDate>Thu, 26 Sep 2019 15:51:48 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/sql/sql/</guid>
+      <description>mysql update where 不能用子查询 eg: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 UPDATEpub_small_tool_50845485713523aSETa.newest=1WHEREa.type=1AND(a.shopId,a.itemId,a.buyerAccount,a.expireTime)IN(SELECTshopId,itemId,buyerAccount,MAX(expireTime)expireTimeFROMpub_small_tool_50845485713523WHEREtype=1GROUPBYshopId,itemId,buyerAccount) 改成右连接 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 UPDATEpub_small_tool_50845485713523aRIGHTJOIN(SELECTshopId,itemId,buyerAccount,MAX(expireTime)expireTimeFROMpub_small_tool_50845485713523WHEREtype=1GROUPBYshopId,itemId,buyerAccount)AON(A.shopId=a.shopIdANDA.itemId=a.itemIdANDA.buyerAccount=a.buyerAccountANDA.expireTime=a.expireTime)SETa.newest=1WHEREa.type=1; MySQL Expl</description>
+    </item>
+    
+    <item>
+      <title>El</title>
+      <link>https://cr6588.github.io/post/java/el/</link>
+      <pubDate>Tue, 13 Aug 2019 10:35:40 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/java/el/</guid>
+      <description>js中使用el表达式，在null判断时若只有&#39;&#39;,其结果如图 若只有&amp;quot;&amp;quot;,其结果如图 所以最好使用 var platAcceptJSON = ${platAcceptJSON == null ? &amp;lsquo;&amp;quot;&amp;quot;&amp;rsquo; : platAcceptJSON}; 或者 var</description>
+    </item>
+    
+    <item>
+      <title>Mvn</title>
+      <link>https://cr6588.github.io/post/maven/mvn/</link>
+      <pubDate>Mon, 05 Aug 2019 11:42:46 +0800</pubDate>
+      
+      <guid>https://cr6588.github.io/post/maven/mvn/</guid>
+      <description>多核编译 1 2 3 mvn -T 1C clean install -Dmaven.compile.fork=true -T,--threads &amp;lt;arg&amp;gt; Thread count, for instance 2.0C where C is core multiplied 本地安装jar以及源码 mvn install:install-file -Dfile=jar包的位置 -DgroupId=上面的group</description>
+    </item>
+    
+    <item>
       <title>Jenkins与kubernetes部署</title>
       <link>https://cr6588.github.io/post/jenkins/jenkins%E4%B8%8Ekubernetes%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Wed, 10 Jul 2019 15:23:52 +0800</pubDate>
@@ -62,7 +211,7 @@
       <pubDate>Wed, 08 May 2019 15:34:00 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/docker_k8s/k8s%E6%8E%A2%E9%92%88%E5%AF%BC%E8%87%B4%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%80%E7%9B%B4%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/</guid>
-      <description>Pod 的生命周期中介绍了容器探针， 根据Configure Liveness and Readiness Probes配置探针时，发现在容器的控制台一直在打印日志 1 2 3 2019-05-08 15:41:16 - com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:205) - [DUBBO] All clients has discontected</description>
+      <description>Pod 的生命周期中介绍了容器探针， 根据Configure Liveness and Readiness Probes配置探针时，发现在容器的控制台一直在打印日志 2019-05-08 15:41:16 - com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:205) - [DUBBO] All clients has discontected from /192.168.0.45:20001. You</description>
     </item>
     
     <item>
@@ -116,7 +265,7 @@
       <pubDate>Wed, 30 Jan 2019 16:35:31 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/js/js%E6%AD%A3%E5%88%99/</guid>
-      <description>在js中可以直接使用/正则表达式/.test(字符串)验证，例如 /^[1][3,4,5,7,8]+\d{9}$/.test(&amp;ldquo;18812345678&amp;rdquo;) 当把正则表达式赋予变量时需要考虑\转义的问题，例如 var s = &amp;ldquo;^[1][3,4,5,7,8]+\d{9}$&amp;ldquo;; RegExp(s).test(&amp;ldquo;18812345678&amp;rdquo;); 但当表达式在一</description>
+      <description>在js中可以直接使用/正则表达式/.test(字符串)验证，例如 /^[1][3,4,5,7,8]+\d{9}$/.test(&amp;ldquo;18812345678&amp;rdquo;) 当把正则表达式赋予变量时需要考虑\转义的问题，例如 var s = &amp;ldquo;^[1][3,4,5,7,8]+\d{9}$&amp;quot;; RegExp(s).test(&amp;ldquo;18812345678&amp;rdquo;); 但当表达式在一</description>
     </item>
     
     <item>
@@ -152,7 +301,7 @@
       <pubDate>Fri, 14 Dec 2018 10:36:37 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/windows/windows%E7%AC%94%E8%AE%B0/</guid>
-      <description>查找1080端口pid C:\Users\cr&amp;gt;netstat -aon|findstr &amp;ldquo;1080&amp;rdquo; TCP 127.0.0.1:1080 127.0.0.1:27015 ESTABLISHED 4304 TCP 127.0.0.1:27015 127.0.0.1:1080 ESTABLISHED 1876 查找pid对应进程 C:\Users\cr&amp;gt;tasklist|findstr &amp;ldquo;4304&amp;rdquo; iTunesHelper.exe 4304 Console 1 14,016 K</description>
+      <description>查找1080端口pid C:\Users\cr&amp;gt;netstat -aon|findstr &amp;ldquo;1080&amp;rdquo; TCP 127.0.0.1:1080 127.0.0.1:27015 ESTABLISHED 4304 TCP 127.0.0.1:27015 127.0.0.1:1080 ESTABLISHED 1876 查找pid对应进程 C:\Users\cr&amp;gt;tasklist|findstr &amp;ldquo;4304&amp;rdquo; iTunesHelper.exe 4304 Console 1 14,016 K 杀掉进程 taskkill /f /pid 4304</description>
     </item>
     
     <item>
@@ -179,7 +328,7 @@
       <pubDate>Wed, 31 Oct 2018 17:40:05 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/regex/%E6%AD%A3%E5%88%99%E7%AC%94%E8%AE%B0/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 String str =&amp;#34;{&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SY450_.jpg&amp;amp;quot;:[450,384],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX679_.jpg&amp;amp;quot;:[797,679],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX522_.jpg&amp;amp;quot;:[612,522],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX466_.jpg&amp;amp;quot;:[547,466],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX425_.jpg&amp;amp;quot;:[499,425],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SY355_.jpg&amp;amp;quot;:[355,303],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX569_.jpg&amp;amp;quot;:[668,569]}&amp;#34;; Matcher matcher = Pattern.compile(&amp;#34;http.*?&amp;amp;quot&amp;#34;).matcher(str); &amp;#34;http.*&amp;amp;quot&amp;#34;：从http开始到最后一个&amp;amp;quot &amp;#34;http.*?&amp;amp;quot&amp;#34;</description>
+      <description>String str =&amp;quot;{&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SY450_.jpg&amp;amp;quot;:[450,384],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX679_.jpg&amp;amp;quot;:[797,679],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX522_.jpg&amp;amp;quot;:[612,522],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX466_.jpg&amp;amp;quot;:[547,466],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX425_.jpg&amp;amp;quot;:[499,425],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SY355_.jpg&amp;amp;quot;:[355,303],&amp;amp;quot;https://images-na.ssl-images-amazon.com/images/I/81dbJ1GJ6cL._SX569_.jpg&amp;amp;quot;:[668,569]}&amp;quot;; Matcher matcher = Pattern.compile(&amp;quot;http.*?&amp;amp;quot&amp;quot;).matcher(str); &amp;quot;http.*&amp;amp;quot&amp;quot;：从http开始到最后一个&amp;amp;quot &amp;quot;http.*?&amp;amp;quot&amp;quot; 从http开始到到多个&amp;a</description>
     </item>
     
     <item>
@@ -188,7 +337,7 @@
       <pubDate>Wed, 17 Oct 2018 09:22:38 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/linux/bitvise/</guid>
-      <description>1 2 3 4 5 6 7 8 9 10 #bat通过脚本上传文件，cenos7.tlp保存的profile,cenos7.pub保存的host key，sftp.</description>
+      <description>#bat通过脚本上传文件，cenos7.tlp保存的profile,cenos7.pub保存的host key，sftp.bat脚本 sftpc -profile=&amp;quot;D:\cenos7.tlp&amp;quot; -hostKeyFile=&amp;quot;d:\cenos7.pub&amp;quot; -cmdFile=&amp;quot;doc\bat\sftp.bat&amp;quot; #sftp.bat</description>
     </item>
     
     <item>
@@ -206,7 +355,7 @@
       <pubDate>Tue, 18 Sep 2018 10:20:11 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/docker_k8s/kubernetes%E5%AD%A6%E4%B9%A0/</guid>
-      <description>1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube 1 2 3 4 5 6</description>
+      <description>1.minikube(主机非虚拟安装，否则直接跳过) 1.1 安装kubernetctl 1.3 安装virtualbox 1.2 安装minikube [root@cr6588 data]# minikube start Starting local</description>
     </item>
     
     <item>
@@ -269,7 +418,7 @@
       <pubDate>Mon, 30 Jul 2018 14:02:09 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/markdown/markdown%E6%B5%8B%E8%AF%95/</guid>
-      <description>Footnote 1 link1. asd f a asd f a asd f a asd f a asd f a asd f a Footnote 2 link2. asd f a asd f a asd f a asd f a asd f a asd f a Inline footnote3 definition. asd f a asd f a asd f a asd f a asd f a asd f a Duplicated footnote reference2. asd f a asd</description>
+      <description>Footnote 1 link1. asd f a asd f a asd f a asd f a asd f a asd f a Footnote 2 link2. asd f a asd f a asd f a asd f a asd f a asd f a Inline footnote^[Text of inline footnote] definition. asd f a asd f a asd f a asd f a asd f a asd f a Duplicated footnote reference2. asd</description>
     </item>
     
     <item>
@@ -314,7 +463,7 @@
       <pubDate>Thu, 24 May 2018 10:34:19 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/docker_k8s/docker%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
-      <description>Docker基本命令 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 #docker帮助 docker --help #docker镜像列表 docker images #dock</description>
+      <description>Docker基本命令 #docker帮助 docker --help #docker镜像列表 docker images #docker运行容器列表 docker ps #停止容器 docker stop &amp;lt;docker ps中的container</description>
     </item>
     
     <item>
@@ -332,7 +481,7 @@
       <pubDate>Thu, 17 May 2018 16:46:22 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/maven/maven%E9%94%99%E8%AF%AF%E9%9B%86/</guid>
-      <description>1. 编译时突然死机，重启后编译报错 1 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-install-plugin:2.4:install (default-install) on project erp: Failed to install metadata com.sjdf:erp/maven-metadata.xml: Could not parse metadata D:\maven_repo\com\sjdf\erp\maven-metadata-local.xml: only whitespace content allowed before start tag and not \u0 (position: START_DOCUMENT seen \u0... @1:1) -&amp;gt; [Help 1] 删除D:\maven_repo</description>
+      <description>1. 编译时突然死机，重启后编译报错 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-install-plugin:2.4:install (default-install) on project erp: Failed to install metadata com.sjdf:erp/maven-metadata.xml: Could not parse metadata D:\maven_repo\com\sjdf\erp\maven-metadata-local.xml: only whitespace content allowed before start tag and not \u0 (position: START_DOCUMENT seen \u0... @1:1) -&amp;gt; [Help 1] 删除D:\maven_repo\</description>
     </item>
     
     <item>
@@ -341,7 +490,7 @@
       <pubDate>Mon, 23 Apr 2018 11:03:20 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/ide/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <description>http://www.cnblogs.com/tonycody/p/3257601.html 【常规】 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65</description>
+      <description>http://www.cnblogs.com/tonycody/p/3257601.html 【常规】 Ctrl+Shift + Enter，语句完成 “！”，否定完成，输入表达式时按 “！”键 Ctrl+E，最近的文件 Ctrl+Shift+E，最近更改的文件 S</description>
     </item>
     
     <item>
@@ -350,7 +499,7 @@
       <pubDate>Mon, 23 Apr 2018 09:44:55 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/ide/idea%E9%85%8D%E7%BD%AE/</guid>
-      <description>配置maven,jdk 显示空格 File -&amp;gt; Settings -&amp;gt; Editor -&amp;gt; General -&amp;gt; Appearance -&amp;gt; Show whitespaces 1. 空格的点显示太小，如何居中或者更清晰？（字号调大仍然太小） 使用微软雅黑字体 File -&amp;gt; Settings -&amp;gt; Appearance</description>
+      <description>配置maven,jdk 显示空格 File -&amp;gt; Settings -&amp;gt; Editor -&amp;gt; General -&amp;gt; Appearance -&amp;gt; Show whitespaces 空格的点显示太小，如何居中或者更清晰？（字号调大仍然太小） 使用微软雅黑字体 File -&amp;gt; Settings -&amp;gt; Appearance -&amp;gt;</description>
     </item>
     
     <item>
@@ -377,7 +526,7 @@
       <pubDate>Fri, 13 Apr 2018 13:51:23 +0800</pubDate>
       
       <guid>https://cr6588.github.io/post/spring-cloud/spring-boot/spring-boot%E9%94%99%E8%AF%AF%E9%9B%86/</guid>
-      <description>项目迁移至spring-boot 添加spring-boot 1 2 3 4 5 6 7 8 9 10 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 编译时报错 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+      <description>项目迁移至spring-boot 添加spring-boot &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 编译时报错 [proguard] java.io.IOException: Can&#39;t read [D:\maven_repo\org\apache\logging\log4j\log4j-api\2.10.0\log4j-api-2.10.0.jar] (Can&#39;t process class [META-INF/versions/9/org/apache/logging/log4j/util/ProcessIdUtil.class] (Unsupported class version number [53.0] (maximum 52.0, Java 1.8))) [proguard] at proguard.InputReader.readInput(InputReader.java:188) [proguard] at proguard.InputReader.readInput(InputReader.java:158) [proguard] at</description>
     </item>
     
     <item>
