@@ -122,27 +122,6 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/elk/es/">Es v7.15.2</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-04-14 </span>
-      
-        <span class="more-meta"> 约 3148 字 </span>
-        <span class="more-meta"> 预计阅读 7 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      配置 #第一次启动集群设置主节点，重启时不要使用 1 2 cluster.initial_master_nodes:- master-node-a DSL语句使用 新增数据 指定了index(索引库名称 test1)和type(类型)即可。
-    </div>
-    <div class="read-more">
-      <a href="/post/elk/es/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/mac/brew/">Brew</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-04-13 </span>
@@ -437,27 +416,6 @@
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99/">常用正则</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-01-02 </span>
-      
-        <span class="more-meta"> 约 16 字 </span>
-        <span class="more-meta"> 预计阅读 1 分钟 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      | | regex | js | java | |数字| ^\d+(.\d+)?$ | /^\d+(.\d+)?$/.test(&lsquo;1.1&rsquo;) |
-    </div>
-    <div class="read-more">
-      <a href="/post/regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/js/vue%E5%A4%8D%E4%B9%A0/">Vue复习</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2019-11-29 </span>
@@ -536,6 +494,48 @@
     </div>
     <div class="read-more">
       <a href="/post/linux/vi/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/sql/sql/">Sql</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-09-26 </span>
+      
+        <span class="more-meta"> 约 270 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      mysql update where 不能用子查询 eg: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 UPDATEpub_small_tool_50845485713523aSETa.newest=1WHEREa.type=1AND(a.shopId,a.itemId,a.buyerAccount,a.expireTime)IN(SELECTshopId,itemId,buyerAccount,MAX(expireTime)expireTimeFROMpub_small_tool_50845485713523WHEREtype=1GROUPBYshopId,itemId,buyerAccount) 改成右连接 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 UPDATEpub_small_tool_50845485713523aRIGHTJOIN(SELECTshopId,itemId,buyerAccount,MAX(expireTime)expireTimeFROMpub_small_tool_50845485713523WHEREtype=1GROUPBYshopId,itemId,buyerAccount)AON(A.shopId=a.shopIdANDA.itemId=a.itemIdANDA.buyerAccount=a.buyerAccountANDA.expireTime=a.expireTime)SETa.newest=1WHEREa.type=1; MySQL Expl
+    </div>
+    <div class="read-more">
+      <a href="/post/sql/sql/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/java/el/">El</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2019-08-13 </span>
+      
+        <span class="more-meta"> 约 79 字 </span>
+        <span class="more-meta"> 预计阅读 1 分钟 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      js中使用el表达式，在null判断时若只有'',其结果如图 若只有&quot;&quot;,其结果如图 所以最好使用 var platAcceptJSON = ${platAcceptJSON == null ? &lsquo;&quot;&quot;&rsquo; : platAcceptJSON}; 或者 var
+    </div>
+    <div class="read-more">
+      <a href="/post/java/el/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
