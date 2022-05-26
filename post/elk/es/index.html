@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Es v7.15.2 - cr6588</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="cr6588" /><meta name="description" content="配置 #第一次启动集群设置主节点，重启时不要使用 1 2 cluster.initial_master_nodes:- master-node-a DSL语句使用 新增数据 指定了index(索引库名称 test1)和type(类型)即可。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
+
+
+<link rel="canonical" href="https://cr6588.github.io/post/elk/es/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Es v7.15.2" />
+<meta property="og:description" content="配置 #第一次启动集群设置主节点，重启时不要使用 1 2 cluster.initial_master_nodes:- master-node-a DSL语句使用 新增数据 指定了index(索引库名称 test1)和type(类型)即可。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cr6588.github.io/post/elk/es/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-14T21:51:35+08:00" />
+<meta property="article:modified_time" content="2022-05-25T21:12:01+08:00" />
+
+<meta itemprop="name" content="Es v7.15.2">
+<meta itemprop="description" content="配置 #第一次启动集群设置主节点，重启时不要使用 1 2 cluster.initial_master_nodes:- master-node-a DSL语句使用 新增数据 指定了index(索引库名称 test1)和type(类型)即可。"><meta itemprop="datePublished" content="2022-04-14T21:51:35+08:00" />
+<meta itemprop="dateModified" content="2022-05-25T21:12:01+08:00" />
+<meta itemprop="wordCount" content="3148">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Es v7.15.2"/>
+<meta name="twitter:description" content="配置 #第一次启动集群设置主节点，重启时不要使用 1 2 cluster.initial_master_nodes:- master-node-a DSL语句使用 新增数据 指定了index(索引库名称 test1)和type(类型)即可。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">cr6588</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">cr6588</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Es v7.15.2</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-04-14 </span>
+        
+          <span class="more-meta"> 约 3148 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#新增数据">新增数据</a></li>
+    <li><a href="#创建索引库">创建索引库</a></li>
+    <li><a href="#修改数据">修改数据</a></li>
+    <li><a href="#删除数据字段和索引库">删除数据、字段和索引库</a></li>
+    <li><a href="#查询">查询</a>
+      <ul>
+        <li><a href="#查询索引库所有的数据">查询索引库所有的数据</a></li>
+        <li><a href="#等值term查询">等值（term）查询</a></li>
+        <li><a href="#范围range-查询">范围（range ）查询</a></li>
+        <li><a href="#组合bool查询">组合(bool)查询</a></li>
+        <li><a href="#模糊wildcard查询">模糊(wildcard)查询</a></li>
+        <li><a href="#正则regexp查询">正则(regexp)查询</a></li>
+        <li><a href="#通用的查询query_stringhttpswwwelasticcoguideenelasticsearchreference715query-dsl-query-string-queryhtml">通用的查询<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.15/query-dsl-query-string-query.html">query_string</a></a></li>
+        <li><a href="#统计">统计</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="配置">配置</h1>
+<p>#第一次启动集群设置主节点，重启时不要使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">cluster.initial_master_nodes</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span>- <span class="l">master-node-a</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h1 id="dsl语句使用">DSL语句使用</h1>
+<h2 id="新增数据">新增数据</h2>
+<p>指定了index(索引库名称 test1)和type(类型)即可。在新增的时候你可以自己指定主键ID(1)，也可以不指定，由 ElasticSearch自身生成</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">POST</span> <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/</span><span class="mi">1</span>
+<span class="p">{</span>
+    <span class="nt">&#34;uid&#34;</span> <span class="p">:</span> <span class="s2">&#34;1234&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;phone&#34;</span> <span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;message&#34;</span> <span class="p">:</span> <span class="s2">&#34;qq&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;msgcode&#34;</span> <span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;sendtime&#34;</span> <span class="p">:</span> <span class="s2">&#34;2019-03-14 01:57:04&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可通过 GET test1/ 或 GET test1/_settings和GET test1/_mapping查看该index的状态，也就是 setting(设置选项) 和mapping(数据结构)。
+es创建了索引库test1，同时新增了一条数据。
+没有创建索引库而通过ES自身生成的这种并不友好，因为它会使用默认的配置，字段结构都是text(text的数据会分词，在存储的时候也会额外的占用空间)，分片和索引副本采用默认值，默认是5和1，ES的分片数在创建之后就不能修改，除非reindex(下面会讲到)，所以这里我们还是指定数据模板进行创建。</p>
+<h2 id="创建索引库">创建索引库</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">PUT</span> <span class="err">test</span><span class="mi">2</span>
+<span class="p">{</span>
+  <span class="nt">&#34;settings&#34;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;number_of_shards&#34;</span> <span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="nt">&#34;number_of_replicas&#34;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&#34;refresh_interval&#34;</span> <span class="p">:</span> <span class="s2">&#34;1s&#34;</span>
+  <span class="p">},</span>
+  <span class="nt">&#34;mappings&#34;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;properties&#34;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;uid&#34;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;long&#34;</span> <span class="p">},</span>
+        <span class="nt">&#34;phone&#34;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;long&#34;</span> <span class="p">},</span>
+        <span class="nt">&#34;message&#34;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;keyword&#34;</span> <span class="p">},</span>
+        <span class="nt">&#34;msgcode&#34;</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;long&#34;</span> <span class="p">},</span>
+          <span class="nt">&#34;sendtime&#34;</span> <span class="p">:</span> <span class="p">{</span>  
+          <span class="nt">&#34;type&#34;</span> <span class="p">:</span> <span class="s2">&#34;date&#34;</span><span class="p">,</span>
+          <span class="nt">&#34;format&#34;</span> <span class="p">:</span> <span class="s2">&#34;yyyy-MM-dd HH:mm:ss&#34;</span> 
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>版本不同有可能不错，根据提示与get test1/查看已有的索引库数据结构进行修改
+数据结构见https://www.elastic.co/guide/en/elasticsearch/reference/7.15/mapping-types.html
+number_of_shards: 是设置的分片数，设置之后无法更改！
+refresh_interval: 是设置es缓存的刷新时间，如果写入较为频繁，但是查询对实时性要求不那么高的话，可以设置高一些来提升性能。可以更改
+number_of_replicas : 是设置该索引库的副本数，建议设置为1以上。
+其中这里还有几个重要参数也顺便说一下:</p>
+<p>store: true/false 表示该字段是否存储，默认存储。
+doc_values: true/false 表示该字段是否参与聚合和排序。
+index: true/false 表示该字段是否建立索引，默认建立</p>
+<h2 id="修改数据">修改数据</h2>
+<p>根据主键修改的命令示例:
+同创建数据类似，存在新增，不存在修改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">POST</span> <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/</span><span class="mi">1</span>
+<span class="p">{</span>
+    <span class="nt">&#34;uid&#34;</span> <span class="p">:</span> <span class="s2">&#34;1234&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;phone&#34;</span> <span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;message&#34;</span> <span class="p">:</span> <span class="s2">&#34;qq&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;msgcode&#34;</span> <span class="p">:</span> <span class="s2">&#34;1&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;sendtime&#34;</span> <span class="p">:</span> <span class="s2">&#34;2019-03-14 01:57:04&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据条件修改的命令示例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">POST</span> <span class="err">test</span><span class="mi">1</span><span class="err">/_update_by_query</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="p">,</span>
+  <span class="nt">&#34;script&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;source&#34;</span><span class="p">:</span> <span class="s2">&#34;ctx._source[&#39;message&#39;] = &#39;xuwujing&#39;&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="删除数据字段和索引库">删除数据、字段和索引库</h2>
+<p>ES根据主键删除数据的命令示例是DELETE 索引库/id，简单实用，但是一定要要加上ID，不然就是删除索引库了！</p>
+<p>根据主键删除数据命令示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">DELETE</span> <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/</span><span class="mi">1</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据条件删除数据的命令示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">POST</span> <span class="err">test/_delete_by_query</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="查询">查询</h2>
+<h3 id="查询索引库所有的数据">查询索引库所有的数据</h3>
+<p>命令格式为GET 索引库名称/索引库类型/_search，也可以不需要索引库类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span>  <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/_search</span>
+<span class="err">GET</span>  <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/id</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="等值term查询">等值（term）查询</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span>  <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>一个字段匹配多个值的话，可以使用terms，相当于SQL的in语法。
+主键用_id</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span>  <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;terms&#34;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="p">[</span> 
+        <span class="mi">1234</span><span class="p">,</span> 
+        <span class="mi">12345</span><span class="p">,</span> 
+        <span class="mi">123456</span>
+      <span class="p">]</span> 
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="范围range-查询">范围（range ）查询</h3>
+<p>range可以理解为SQL中的&gt;&lt;符号，其中gt是大于，lt是小于，gte是大于等于，lte是小于等于。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span>  <span class="err">test</span><span class="mi">1</span><span class="err">/_doc/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nt">&#34;range&#34;</span><span class="p">:</span> <span class="p">{</span> 
+      <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="nt">&#34;gt&#34;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+        <span class="nt">&#34;lte&#34;</span><span class="p">:</span> <span class="mi">12345</span>
+      <span class="p">}</span> 
+    <span class="p">}</span> 
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="组合bool查询">组合(bool)查询</h3>
+<p>bool 可以用来合并多个过滤条件查询结果的布尔逻辑，它包含这如下几个操作符:</p>
+<p>must : 多个查询条件的完全匹配,相当于 and。
+must_not ::多个查询条件的相反匹配，相当于 not。
+should : 至少有一个查询条件匹配, 相当于 or。
+查询的命令示例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">/test</span><span class="mi">1</span><span class="err">/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;bool&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;must&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&#34;phone&#34;</span><span class="p">:</span> <span class="s2">&#34;12345678909&#34;</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&#34;must_not&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">12345</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nt">&#34;should&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">1234</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="nt">&#34;term&#34;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&#34;uid&#34;</span><span class="p">:</span> <span class="mi">123456</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="nt">&#34;adjust_pure_negative&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="nt">&#34;boost&#34;</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="模糊wildcard查询">模糊(wildcard)查询</h3>
+<p>wildcard查询相当于SQL语句中的like语法，只不过它查询的数据需要加上*符号。中文不相当于like
+模糊查询命令示例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">/test</span><span class="mi">1</span><span class="err">/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nt">&#34;wildcard&#34;</span><span class="p">:</span> <span class="p">{</span> 
+       <span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;*wu*&#34;</span> 
+    <span class="p">}</span> 
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="正则regexp查询">正则(regexp)查询</h3>
+<p>regexp可以支持正则查询，比如查询短信内容中的验证码之类的。
+下面的这个示例就是查询以xu开头，后面是0-9数字的内容的数据。</p>
+<p>正则查询命令示例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">/test</span><span class="mi">1</span><span class="err">/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+   <span class="nt">&#34;regexp&#34;</span><span class="p">:</span> <span class="p">{</span> 
+       <span class="nt">&#34;message&#34;</span><span class="p">:</span><span class="s2">&#34;xu[0-9]&#34;</span> 
+    <span class="p">}</span> 
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="通用的查询query_stringhttpswwwelasticcoguideenelasticsearchreference715query-dsl-query-string-queryhtml">通用的查询<a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.15/query-dsl-query-string-query.html">query_string</a></h3>
+<p>忽略大小写
+username like &lsquo;%ab%&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;query_string&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="s2">&#34;username: ab&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>username中有中文时，中文结果跟预想不一样，包含了一个也会返回
+<img src="/images/es/ch.png" alt="x"></p>
+</blockquote>
+<p>username in ('..ab..', &lsquo;&hellip;cd&hellip;&rsquo; )
+OR必须大写</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;query_string&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="s2">&#34;username: ab OR cd&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>username = &lsquo;%ab%&rsquo; and name = &lsquo;%cd%&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;query_string&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="s2">&#34;username: ab AND name:cd&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>之后以为sql中的like即username like &lsquo;%ab%&lsquo;会与下面的查询完全等价</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;query_string&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="s2">&#34;username: *ab*&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>由于user表是本地随机产生的一个千万级的索引，对username列count了一次，sql与es两边的结果相等。但随后对name列count了一次，发现结果相差挺大的。name列数据中含有大量中文，而username不含。之后使用match_phrase匹配词组查询</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;match_phrase&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;丸&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再次与sql中的结果进行对比，这次是一致的。
+但是当match_phrase又对username列使用时</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_search</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;match_phrase&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;ab&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>与sql的结果进行对比又不同。所以到底完全等价于like查询应该是怎样的呢？</p>
+<p>到此发现从头开始的理解就错了。这里的查询是分词查询，英文是以空格为单位将内容分成多个单词进行匹配，而不是单个字符，中文则是以单个字为单位。所以match_phrase:{username:ab}是将username的内容进行分词后，每一个词是否等于ab，若其中有一个等于ab则返回。</p>
+<p>例如对于username: &lsquo;ab cc dd&rsquo;,match_phrase:{username:ab} 会命中</p>
+<p>对于username: &lsquo;abc cc dd&rsquo;,match_phrase:{username:ab} 不会命中</p>
+<p>对于username: &lsquo;你好啊&rsquo;,match_phrase:{username:你好} 会命中，你好啊中文分词是 &lsquo;你&rsquo;，&lsquo;好&rsquo;，&lsquo;啊&rsquo;，你好分词是&rsquo;你&rsquo;，&lsquo;好&rsquo;，
+分别相等，且顺序一致</p>
+<p>对于username: &lsquo;你好啊&rsquo;,match_phrase:{username:你啊} slop属性，默认为0，不会命中。顺序不一致</p>
+<p>query_string:{query: &ldquo;username:ab&rdquo;}是将username的内容进行分词后，每一词是否等于ab，若其中有一个等于ab则返回。</p>
+<p>query_string:{query: &ldquo;username:<em>ab</em>&quot;}是将username的内容进行分词后，每一词是否等于<em>ab</em>，将<em>ab</em>整体作为一个词与原内容每个分词进行匹配，若其中有一个等于<em>ab</em>则返回。用中文做对比
+username: 你好啊 //分词后是&rsquo;你&rsquo;，&lsquo;好&rsquo;，&lsquo;啊&rsquo;
+query_string:{query: &ldquo;username:你好&rdquo;} 命中  //分词后是&rsquo;你'，&lsquo;好&rsquo;
+query_string:{query: &ldquo;username:<em>你好</em>&quot;}不会命中，//分词后是'<em>你好</em>'
+用英文
+username: i like she //分词后是&rsquo;i'，&lsquo;like&rsquo;，&lsquo;she&rsquo;
+query_string:{query: &ldquo;username:li&rdquo;} 命中  //分词后是&rsquo;li'
+query_string:{query: &ldquo;username:<em>li</em>&quot;}会命中，//分词后是'<em>li</em>'</p>
+<p>所以到此发现query_string与match_phrase都无法完全等于sql中的like</p>
+<h3 id="统计">统计</h3>
+<p>_search改为_count即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">GET</span> <span class="err">user/_count</span>
+<span class="p">{</span>
+  <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&#34;query_string&#34;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&#34;query&#34;</span><span class="p">:</span> <span class="s2">&#34;username: ab AND name:cd&#34;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="参考">参考</h1>
+<p>1.<a href="https://www.cnblogs.com/xuwujing/p/11567053.html">ElasticSearch实战系列二: ElasticSearch的DSL语句使用教程&mdash;图文详解 
+</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">cr6588</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-05-25
+        <a href="https://github.com/cr6588/docs/commit/d8cb71ac93b86e5fbe3ec89771d3a691e553903c" title="query_string调整">(d8cb71a)</a>
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/mac/brew/">
+            <span class="next-text nav-default">Brew</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitalk = new Gitalk({
+        id: '2022-04-14 21:51:35 \u002b0800 CST',
+        title: 'Es v7.15.2',
+        clientID: 'f8fc0224f2d6ffa6eba8',
+        clientSecret: 'e1824b481f1127d0d906798b415d2825beeec064',
+        repo: 'cr6588.github.io',
+        owner: 'cr6588',
+        admin: ['cr6588'],
+        body: decodeURI(location.href)
+      });
+      gitalk.render('gitalk-container');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/gitalk/gitalk">comments powered by gitalk.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:cr6588@vip.qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/cr6588" class="iconfont icon-github" title="github"></a>
+  <a href="https://cr6588.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>cr6588</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
